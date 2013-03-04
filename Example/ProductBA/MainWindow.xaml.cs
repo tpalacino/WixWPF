@@ -12,8 +12,7 @@ namespace ProductBA
 		#region Constructors
 
 		/// <summary>Creates a new instance of <see cref="MainWindow" />.</summary>
-		public MainWindow(WPFBootstrapper bootstrapper)
-			: base(bootstrapper)
+		public MainWindow()
 		{
 			InitializeComponent();
 			Loaded += OnWindowLoaded;
@@ -29,7 +28,7 @@ namespace ProductBA
 		/// <param name="e">The arguments of the event.</param>
 		private void OnButtonClick(object sender, RoutedEventArgs e)
 		{
-			InstallData.CanExit = false;
+			InstallData.IsBusy = true;
 			Button btn = sender as Button;
 
 			if (btn != null && btn.Content != null && Bootstrapper != null && Bootstrapper.Engine != null)
@@ -47,7 +46,7 @@ namespace ProductBA
 					default: break;
 				}
 			}
-			else { InstallData.CanExit = true; }
+			else { InstallData.IsBusy = false; }
 		}
 		#endregion OnButtonClick
 
@@ -79,7 +78,7 @@ namespace ProductBA
 		/// <param name="args">The arguments of the event.</param>
 		public override void OnDetectComplete(WPFBootstrapperEventArgs<Wix.DetectCompleteEventArgs> args)
 		{
-			InstallData.CanExit = true;
+			InstallData.IsBusy = false;
 		}
 		#endregion OnDetectComplete
 
@@ -108,7 +107,7 @@ namespace ProductBA
 			{
 				Bootstrapper.Engine.Apply(IntPtr.Zero);
 			}
-			else { InstallData.CanExit = true; }
+			else { InstallData.IsBusy = false; }
 		}
 		#endregion OnPlanComplete
 

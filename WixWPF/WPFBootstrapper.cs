@@ -1,14 +1,13 @@
-﻿using Microsoft.Tools.WindowsInstallerXml.Bootstrapper;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Linq;
-using System.Reflection;
 using Threading = System.Windows.Threading;
+using Wix = Microsoft.Tools.WindowsInstallerXml.Bootstrapper;
 
 namespace WixWPF
 {
-	/// <summary>The core managed bootstrap application.</summary>
-	public class WPFBootstrapper : BootstrapperApplication
+	/// <summary>The WPF managed bootstrap application.</summary>
+	public class WPFBootstrapper : Wix.BootstrapperApplication
 	{
 		#region Member Variables
 
@@ -25,10 +24,10 @@ namespace WixWPF
 		#region OnApplyBegin
 		/// <summary>Called when the engine has begun installing the bundle.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnApplyBegin(ApplyBeginEventArgs args)
+		protected override void OnApplyBegin(Wix.ApplyBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnApplyBegin");
-			WPFBootstrapperEventArgs<ApplyBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ApplyBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ApplyBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ApplyBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnApplyBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnApplyBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnApplyBegin");
@@ -38,10 +37,10 @@ namespace WixWPF
 		#region OnApplyComplete
 		/// <summary>Called when the engine has completed installing the bundle.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnApplyComplete(ApplyCompleteEventArgs args)
+		protected override void OnApplyComplete(Wix.ApplyCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnApplyComplete");
-			WPFBootstrapperEventArgs<ApplyCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ApplyCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ApplyCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ApplyCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnApplyComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel)
 			{
@@ -56,10 +55,10 @@ namespace WixWPF
 		#region OnCacheAcquireBegin
 		/// <summary>Called when the engine begins to cache the container or payload.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnCacheAcquireBegin(CacheAcquireBeginEventArgs args)
+		protected override void OnCacheAcquireBegin(Wix.CacheAcquireBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnCacheAcquireBegin");
-			WPFBootstrapperEventArgs<CacheAcquireBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<CacheAcquireBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.CacheAcquireBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.CacheAcquireBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnCacheAcquireBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnCacheAcquireBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnCacheAcquireBegin");
@@ -69,10 +68,10 @@ namespace WixWPF
 		#region OnCacheAcquireComplete
 		/// <summary>Called when the engine completes caching of the container or payload.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnCacheAcquireComplete(CacheAcquireCompleteEventArgs args)
+		protected override void OnCacheAcquireComplete(Wix.CacheAcquireCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnCacheAcquireComplete");
-			WPFBootstrapperEventArgs<CacheAcquireCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<CacheAcquireCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.CacheAcquireCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.CacheAcquireCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnCacheAcquireComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnCacheAcquireComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnCacheAcquireComplete");
@@ -82,10 +81,10 @@ namespace WixWPF
 		#region OnCacheAcquireProgress
 		/// <summary>Called when the engine has progressed on caching the container or payload.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnCacheAcquireProgress(CacheAcquireProgressEventArgs args)
+		protected override void OnCacheAcquireProgress(Wix.CacheAcquireProgressEventArgs args)
 		{
 			LogVerbose("Enter Method: OnCacheAcquireProgress");
-			WPFBootstrapperEventArgs<CacheAcquireProgressEventArgs> cancelArgs = new WPFBootstrapperEventArgs<CacheAcquireProgressEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.CacheAcquireProgressEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.CacheAcquireProgressEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnCacheAcquireProgress(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnCacheAcquireProgress(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnCacheAcquireProgress");
@@ -95,10 +94,10 @@ namespace WixWPF
 		#region OnCacheBegin
 		/// <summary>Called when the engine begins to cache the installation sources.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnCacheBegin(CacheBeginEventArgs args)
+		protected override void OnCacheBegin(Wix.CacheBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnCacheBegin");
-			WPFBootstrapperEventArgs<CacheBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<CacheBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.CacheBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.CacheBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnCacheBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnCacheBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnCacheBegin");
@@ -108,10 +107,10 @@ namespace WixWPF
 		#region OnCacheComplete
 		/// <summary>Called after the engine has cached the installation sources.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnCacheComplete(CacheCompleteEventArgs args)
+		protected override void OnCacheComplete(Wix.CacheCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnCacheComplete");
-			WPFBootstrapperEventArgs<CacheCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<CacheCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.CacheCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.CacheCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnCacheComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnCacheComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnCacheComplete");
@@ -121,10 +120,10 @@ namespace WixWPF
 		#region OnCachePackageBegin
 		/// <summary>Called by the engine when it begins to cache a specific package.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnCachePackageBegin(CachePackageBeginEventArgs args)
+		protected override void OnCachePackageBegin(Wix.CachePackageBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnCachePackageBegin");
-			WPFBootstrapperEventArgs<CachePackageBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<CachePackageBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.CachePackageBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.CachePackageBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnCachePackageBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnCachePackageBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnCachePackageBegin");
@@ -134,10 +133,10 @@ namespace WixWPF
 		#region OnCachePackageComplete
 		/// <summary>Called when the engine completes caching a specific package.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnCachePackageComplete(CachePackageCompleteEventArgs args)
+		protected override void OnCachePackageComplete(Wix.CachePackageCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnCachePackageComplete");
-			WPFBootstrapperEventArgs<CachePackageCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<CachePackageCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.CachePackageCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.CachePackageCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnCachePackageComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnCachePackageComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnCachePackageComplete");
@@ -147,10 +146,10 @@ namespace WixWPF
 		#region OnCacheVerifyBegin
 		/// <summary>Called when the engine has started verify the payload.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnCacheVerifyBegin(CacheVerifyBeginEventArgs args)
+		protected override void OnCacheVerifyBegin(Wix.CacheVerifyBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnCacheVerifyBegin");
-			WPFBootstrapperEventArgs<CacheVerifyBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<CacheVerifyBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.CacheVerifyBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.CacheVerifyBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnCacheVerifyBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnCacheVerifyBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnCacheVerifyBegin");
@@ -160,10 +159,10 @@ namespace WixWPF
 		#region OnCacheVerifyComplete
 		/// <summary>Called when the engine completes verification of the payload.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnCacheVerifyComplete(CacheVerifyCompleteEventArgs args)
+		protected override void OnCacheVerifyComplete(Wix.CacheVerifyCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnCacheVerifyComplete");
-			WPFBootstrapperEventArgs<CacheVerifyCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<CacheVerifyCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.CacheVerifyCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.CacheVerifyCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnCacheVerifyComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnCacheVerifyComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnCacheVerifyComplete");
@@ -173,10 +172,10 @@ namespace WixWPF
 		#region OnDetectBegin
 		/// <summary>Called when the overall detection phase has begun.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnDetectBegin(DetectBeginEventArgs args)
+		protected override void OnDetectBegin(Wix.DetectBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnDetectBegin");
-			WPFBootstrapperEventArgs<DetectBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<DetectBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.DetectBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnDetectBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnDetectBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnDetectBegin");
@@ -186,10 +185,10 @@ namespace WixWPF
 		#region OnDetectComplete
 		/// <summary>Called when the detection phase has completed.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnDetectComplete(DetectCompleteEventArgs args)
+		protected override void OnDetectComplete(Wix.DetectCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnDetectComplete");
-			WPFBootstrapperEventArgs<DetectCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<DetectCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.DetectCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnDetectComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnDetectComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnDetectComplete");
@@ -199,10 +198,10 @@ namespace WixWPF
 		#region OnDetectMsiFeature
 		/// <summary>Called when an MSI feature has been detected for a package.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnDetectMsiFeature(DetectMsiFeatureEventArgs args)
+		protected override void OnDetectMsiFeature(Wix.DetectMsiFeatureEventArgs args)
 		{
 			LogVerbose("Enter Method: OnDetectMsiFeature");
-			WPFBootstrapperEventArgs<DetectMsiFeatureEventArgs> cancelArgs = new WPFBootstrapperEventArgs<DetectMsiFeatureEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.DetectMsiFeatureEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectMsiFeatureEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnDetectMsiFeature(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnDetectMsiFeature(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnDetectMsiFeature");
@@ -212,10 +211,10 @@ namespace WixWPF
 		#region OnDetectPackageBegin
 		/// <summary>Called when the detection for a specific package has begun.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnDetectPackageBegin(DetectPackageBeginEventArgs args)
+		protected override void OnDetectPackageBegin(Wix.DetectPackageBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnDetectPackageBegin");
-			WPFBootstrapperEventArgs<DetectPackageBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<DetectPackageBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.DetectPackageBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectPackageBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnDetectPackageBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnDetectPackageBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnDetectPackageBegin");
@@ -225,10 +224,10 @@ namespace WixWPF
 		#region OnDetectPackageComplete
 		/// <summary>Called when the detection for a specific package has completed.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnDetectPackageComplete(DetectPackageCompleteEventArgs args)
+		protected override void OnDetectPackageComplete(Wix.DetectPackageCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnDetectPackageComplete");
-			WPFBootstrapperEventArgs<DetectPackageCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<DetectPackageCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.DetectPackageCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectPackageCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnDetectPackageComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnDetectPackageComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnDetectPackageComplete");
@@ -238,10 +237,10 @@ namespace WixWPF
 		#region OnDetectPriorBundle
 		/// <summary>Called when the detection for a prior bundle has begun.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnDetectPriorBundle(DetectPriorBundleEventArgs args)
+		protected override void OnDetectPriorBundle(Wix.DetectPriorBundleEventArgs args)
 		{
 			LogVerbose("Enter Method: OnDetectPriorBundle");
-			WPFBootstrapperEventArgs<DetectPriorBundleEventArgs> cancelArgs = new WPFBootstrapperEventArgs<DetectPriorBundleEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.DetectPriorBundleEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectPriorBundleEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnDetectPriorBundle(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnDetectPriorBundle(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnDetectPriorBundle");
@@ -251,10 +250,10 @@ namespace WixWPF
 		#region OnDetectRelatedBundle
 		/// <summary>Called when a related bundle has been detected for a bundle.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnDetectRelatedBundle(DetectRelatedBundleEventArgs args)
+		protected override void OnDetectRelatedBundle(Wix.DetectRelatedBundleEventArgs args)
 		{
 			LogVerbose("Enter Method: OnDetectRelatedBundle");
-			WPFBootstrapperEventArgs<DetectRelatedBundleEventArgs> cancelArgs = new WPFBootstrapperEventArgs<DetectRelatedBundleEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.DetectRelatedBundleEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectRelatedBundleEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnDetectRelatedBundle(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnDetectRelatedBundle(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnDetectRelatedBundle");
@@ -264,10 +263,10 @@ namespace WixWPF
 		#region OnDetectRelatedMsiPackage
 		/// <summary>Called when a related MSI package has been detected for a package.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnDetectRelatedMsiPackage(DetectRelatedMsiPackageEventArgs args)
+		protected override void OnDetectRelatedMsiPackage(Wix.DetectRelatedMsiPackageEventArgs args)
 		{
 			LogVerbose("Enter Method: OnDetectRelatedMsiPackage");
-			WPFBootstrapperEventArgs<DetectRelatedMsiPackageEventArgs> cancelArgs = new WPFBootstrapperEventArgs<DetectRelatedMsiPackageEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.DetectRelatedMsiPackageEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectRelatedMsiPackageEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnDetectRelatedMsiPackage(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnDetectRelatedMsiPackage(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnDetectRelatedMsiPackage");
@@ -277,10 +276,10 @@ namespace WixWPF
 		#region OnDetectTargetMsiPackage
 		/// <summary>Called when an MSP package detects a target MSI has been detected.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnDetectTargetMsiPackage(DetectTargetMsiPackageEventArgs args)
+		protected override void OnDetectTargetMsiPackage(Wix.DetectTargetMsiPackageEventArgs args)
 		{
 			LogVerbose("Enter Method: OnDetectTargetMsiPackage");
-			WPFBootstrapperEventArgs<DetectTargetMsiPackageEventArgs> cancelArgs = new WPFBootstrapperEventArgs<DetectTargetMsiPackageEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.DetectTargetMsiPackageEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectTargetMsiPackageEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnDetectTargetMsiPackage(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnDetectTargetMsiPackage(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnDetectTargetMsiPackage");
@@ -290,10 +289,10 @@ namespace WixWPF
 		#region OnElevate
 		/// <summary>Called when the engine is about to start the elevated process.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnElevate(ElevateEventArgs args)
+		protected override void OnElevate(Wix.ElevateEventArgs args)
 		{
 			LogVerbose("Enter Method: OnElevate");
-			WPFBootstrapperEventArgs<ElevateEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ElevateEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ElevateEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ElevateEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnElevate(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnElevate(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnElevate");
@@ -303,10 +302,10 @@ namespace WixWPF
 		#region OnError
 		/// <summary>Called when the engine has encountered an error.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnError(ErrorEventArgs args)
+		protected override void OnError(Wix.ErrorEventArgs args)
 		{
 			LogVerbose("Enter Method: OnError");
-			WPFBootstrapperEventArgs<ErrorEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ErrorEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ErrorEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ErrorEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnError(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnError(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnError");
@@ -316,10 +315,10 @@ namespace WixWPF
 		#region OnExecuteBegin
 		/// <summary>Called when the engine has begun installing packages.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnExecuteBegin(ExecuteBeginEventArgs args)
+		protected override void OnExecuteBegin(Wix.ExecuteBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnExecuteBegin");
-			WPFBootstrapperEventArgs<ExecuteBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ExecuteBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ExecuteBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ExecuteBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnExecuteBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnExecuteBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnExecuteBegin");
@@ -329,10 +328,10 @@ namespace WixWPF
 		#region OnExecuteComplete
 		/// <summary>Called when the engine has completed installing packages.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnExecuteComplete(ExecuteCompleteEventArgs args)
+		protected override void OnExecuteComplete(Wix.ExecuteCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnExecuteComplete");
-			WPFBootstrapperEventArgs<ExecuteCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ExecuteCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ExecuteCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ExecuteCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnExecuteComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnExecuteComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnExecuteComplete");
@@ -342,10 +341,10 @@ namespace WixWPF
 		#region OnExecuteFilesInUse
 		/// <summary>Called when Windows Installer sends a file in use installation message.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnExecuteFilesInUse(ExecuteFilesInUseEventArgs args)
+		protected override void OnExecuteFilesInUse(Wix.ExecuteFilesInUseEventArgs args)
 		{
 			LogVerbose("Enter Method: OnExecuteFilesInUse");
-			WPFBootstrapperEventArgs<ExecuteFilesInUseEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ExecuteFilesInUseEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ExecuteFilesInUseEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ExecuteFilesInUseEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnExecuteFilesInUse(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnExecuteFilesInUse(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnExecuteFilesInUse");
@@ -355,10 +354,10 @@ namespace WixWPF
 		#region OnExecuteMsiMessage
 		/// <summary>Called when Windows Installer sends an installation message.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnExecuteMsiMessage(ExecuteMsiMessageEventArgs args)
+		protected override void OnExecuteMsiMessage(Wix.ExecuteMsiMessageEventArgs args)
 		{
 			LogVerbose("Enter Method: OnExecuteMsiMessage");
-			WPFBootstrapperEventArgs<ExecuteMsiMessageEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ExecuteMsiMessageEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ExecuteMsiMessageEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ExecuteMsiMessageEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnExecuteMsiMessage(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnExecuteMsiMessage(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnExecuteMsiMessage");
@@ -368,10 +367,10 @@ namespace WixWPF
 		#region OnExecutePackageBegin
 		/// <summary>Called when the engine has begun installing a specific package.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnExecutePackageBegin(ExecutePackageBeginEventArgs args)
+		protected override void OnExecutePackageBegin(Wix.ExecutePackageBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnExecutePackageBegin");
-			WPFBootstrapperEventArgs<ExecutePackageBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ExecutePackageBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ExecutePackageBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ExecutePackageBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnExecutePackageBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnExecutePackageBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnExecutePackageBegin");
@@ -381,10 +380,10 @@ namespace WixWPF
 		#region OnExecutePackageComplete
 		/// <summary>Called when the engine has completed installing a specific package.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnExecutePackageComplete(ExecutePackageCompleteEventArgs args)
+		protected override void OnExecutePackageComplete(Wix.ExecutePackageCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnExecutePackageComplete");
-			WPFBootstrapperEventArgs<ExecutePackageCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ExecutePackageCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ExecutePackageCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ExecutePackageCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnExecutePackageComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnExecutePackageComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnExecutePackageComplete");
@@ -394,10 +393,10 @@ namespace WixWPF
 		#region OnExecutePatchTarget
 		/// <summary>Called when the engine executes one or more patches targeting a product.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnExecutePatchTarget(ExecutePatchTargetEventArgs args)
+		protected override void OnExecutePatchTarget(Wix.ExecutePatchTargetEventArgs args)
 		{
 			LogVerbose("Enter Method: OnExecutePatchTarget");
-			WPFBootstrapperEventArgs<ExecutePatchTargetEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ExecutePatchTargetEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ExecutePatchTargetEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ExecutePatchTargetEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnExecutePatchTarget(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnExecutePatchTarget(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnExecutePatchTarget");
@@ -407,10 +406,10 @@ namespace WixWPF
 		#region OnExecuteProgress
 		/// <summary>Called by the engine while executing on payload.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnExecuteProgress(ExecuteProgressEventArgs args)
+		protected override void OnExecuteProgress(Wix.ExecuteProgressEventArgs args)
 		{
 			LogVerbose("Enter Method: OnExecuteProgress");
-			WPFBootstrapperEventArgs<ExecuteProgressEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ExecuteProgressEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ExecuteProgressEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ExecuteProgressEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnExecuteProgress(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnExecuteProgress(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnExecuteProgress");
@@ -420,10 +419,10 @@ namespace WixWPF
 		#region OnPlanBegin
 		/// <summary>Called when the engine has begun planning the installation.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnPlanBegin(PlanBeginEventArgs args)
+		protected override void OnPlanBegin(Wix.PlanBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnPlanBegin");
-			WPFBootstrapperEventArgs<PlanBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<PlanBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.PlanBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.PlanBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnPlanBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnPlanBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnPlanBegin");
@@ -433,10 +432,10 @@ namespace WixWPF
 		#region OnPlanComplete
 		/// <summary>Called when the engine has completed planning the installation.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnPlanComplete(PlanCompleteEventArgs args)
+		protected override void OnPlanComplete(Wix.PlanCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnPlanComplete");
-			WPFBootstrapperEventArgs<PlanCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<PlanCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.PlanCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.PlanCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnPlanComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnPlanComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnPlanComplete");
@@ -446,10 +445,10 @@ namespace WixWPF
 		#region OnPlanMsiFeature
 		/// <summary>Called when the engine is about to plan an MSI feature of a specific package.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnPlanMsiFeature(PlanMsiFeatureEventArgs args)
+		protected override void OnPlanMsiFeature(Wix.PlanMsiFeatureEventArgs args)
 		{
 			LogVerbose("Enter Method: OnPlanMsiFeature");
-			WPFBootstrapperEventArgs<PlanMsiFeatureEventArgs> cancelArgs = new WPFBootstrapperEventArgs<PlanMsiFeatureEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.PlanMsiFeatureEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.PlanMsiFeatureEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnPlanMsiFeature(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnPlanMsiFeature(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnPlanMsiFeature");
@@ -459,10 +458,10 @@ namespace WixWPF
 		#region OnPlanPackageBegin
 		/// <summary>Called when the engine has begun planning the installation of a specific package.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnPlanPackageBegin(PlanPackageBeginEventArgs args)
+		protected override void OnPlanPackageBegin(Wix.PlanPackageBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnPlanPackageBegin");
-			WPFBootstrapperEventArgs<PlanPackageBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<PlanPackageBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.PlanPackageBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.PlanPackageBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnPlanPackageBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnPlanPackageBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnPlanPackageBegin");
@@ -472,10 +471,10 @@ namespace WixWPF
 		#region OnPlanPackageComplete
 		/// <summary>Called when then engine has completed planning the installation of a specific package.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnPlanPackageComplete(PlanPackageCompleteEventArgs args)
+		protected override void OnPlanPackageComplete(Wix.PlanPackageCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnPlanPackageComplete");
-			WPFBootstrapperEventArgs<PlanPackageCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<PlanPackageCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.PlanPackageCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.PlanPackageCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnPlanPackageComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnPlanPackageComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnPlanPackageComplete");
@@ -485,10 +484,10 @@ namespace WixWPF
 		#region OnPlanRelatedBundle
 		/// <summary>Called when the engine has begun planning for a prior bundle.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnPlanRelatedBundle(PlanRelatedBundleEventArgs args)
+		protected override void OnPlanRelatedBundle(Wix.PlanRelatedBundleEventArgs args)
 		{
 			LogVerbose("Enter Method: OnPlanRelatedBundle");
-			WPFBootstrapperEventArgs<PlanRelatedBundleEventArgs> cancelArgs = new WPFBootstrapperEventArgs<PlanRelatedBundleEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.PlanRelatedBundleEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.PlanRelatedBundleEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnPlanRelatedBundle(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnPlanRelatedBundle(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnPlanRelatedBundle");
@@ -498,10 +497,10 @@ namespace WixWPF
 		#region OnPlanTargetMsiPackage
 		/// <summary>Called when the engine is about to plan the target MSI of a MSP package.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnPlanTargetMsiPackage(PlanTargetMsiPackageEventArgs args)
+		protected override void OnPlanTargetMsiPackage(Wix.PlanTargetMsiPackageEventArgs args)
 		{
 			LogVerbose("Enter Method: OnPlanTargetMsiPackage");
-			WPFBootstrapperEventArgs<PlanTargetMsiPackageEventArgs> cancelArgs = new WPFBootstrapperEventArgs<PlanTargetMsiPackageEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.PlanTargetMsiPackageEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.PlanTargetMsiPackageEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnPlanTargetMsiPackage(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnPlanTargetMsiPackage(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnPlanTargetMsiPackage");
@@ -511,10 +510,10 @@ namespace WixWPF
 		#region OnProgress
 		/// <summary>Called when the engine has changed progress for the bundle installation.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnProgress(ProgressEventArgs args)
+		protected override void OnProgress(Wix.ProgressEventArgs args)
 		{
 			LogVerbose("Enter Method: OnProgress");
-			WPFBootstrapperEventArgs<ProgressEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ProgressEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ProgressEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ProgressEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnProgress(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnProgress(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnProgress");
@@ -524,10 +523,10 @@ namespace WixWPF
 		#region OnRegisterBegin
 		/// <summary>Called when the engine has begun registering the location and visibility of the bundle.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnRegisterBegin(RegisterBeginEventArgs args)
+		protected override void OnRegisterBegin(Wix.RegisterBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnRegisterBegin");
-			WPFBootstrapperEventArgs<RegisterBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<RegisterBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.RegisterBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.RegisterBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnRegisterBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnRegisterBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnRegisterBegin");
@@ -537,10 +536,10 @@ namespace WixWPF
 		#region OnRegisterComplete
 		/// <summary>Called when the engine has completed registering the location and visilibity of the bundle.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnRegisterComplete(RegisterCompleteEventArgs args)
+		protected override void OnRegisterComplete(Wix.RegisterCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnRegisterComplete");
-			WPFBootstrapperEventArgs<RegisterCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<RegisterCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.RegisterCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.RegisterCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnRegisterComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnRegisterComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnRegisterComplete");
@@ -550,20 +549,20 @@ namespace WixWPF
 		#region OnResolveSource
 		/// <summary>Called by the engine to allow the user experience to change the source using <see cref="M:Engine.SetLocalSource"/> or <see cref="M:Engine.SetDownloadSource"/>.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnResolveSource(ResolveSourceEventArgs args)
+		protected override void OnResolveSource(Wix.ResolveSourceEventArgs args)
 		{
 			LogVerbose("Enter Method: OnResolveSource");
-			WPFBootstrapperEventArgs<ResolveSourceEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ResolveSourceEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ResolveSourceEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ResolveSourceEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnResolveSource(cancelArgs); }));
 			if (!cancelArgs.Cancel)
 			{
 				if (!string.IsNullOrEmpty(args.DownloadSource))
 				{
-					args.Result = Result.Download;
+					args.Result = Wix.Result.Download;
 				}
 				else
 				{
-					args.Result = Result.Ok;
+					args.Result = Wix.Result.Ok;
 				}
 				base.OnResolveSource(cancelArgs.Arguments);
 			}
@@ -574,10 +573,10 @@ namespace WixWPF
 		#region OnRestartRequired
 		/// <summary>Called by the engine to request a restart now or inform the user a manual restart is required later.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnRestartRequired(RestartRequiredEventArgs args)
+		protected override void OnRestartRequired(Wix.RestartRequiredEventArgs args)
 		{
 			LogVerbose("Enter Method: OnRestartRequired");
-			WPFBootstrapperEventArgs<RestartRequiredEventArgs> cancelArgs = new WPFBootstrapperEventArgs<RestartRequiredEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.RestartRequiredEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.RestartRequiredEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnRestartRequired(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnRestartRequired(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnRestartRequired");
@@ -587,10 +586,10 @@ namespace WixWPF
 		#region OnShutdown
 		/// <summary>Called by the engine to uninitialize the user experience.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnShutdown(ShutdownEventArgs args)
+		protected override void OnShutdown(Wix.ShutdownEventArgs args)
 		{
 			LogVerbose("Enter Method: OnShutdown");
-			WPFBootstrapperEventArgs<ShutdownEventArgs> cancelArgs = new WPFBootstrapperEventArgs<ShutdownEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.ShutdownEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.ShutdownEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnShutdown(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnShutdown(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnShutdown");
@@ -600,10 +599,10 @@ namespace WixWPF
 		#region OnStartup
 		/// <summary>Called by the engine on startup of the bootstrapper application.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnStartup(StartupEventArgs args)
+		protected override void OnStartup(Wix.StartupEventArgs args)
 		{
 			LogVerbose("Enter Method: OnStartup");
-			WPFBootstrapperEventArgs<StartupEventArgs> cancelArgs = new WPFBootstrapperEventArgs<StartupEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.StartupEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.StartupEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnStartup(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnStartup(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnStartup");
@@ -613,10 +612,10 @@ namespace WixWPF
 		#region OnSystemShutdown
 		/// <summary>Called when the system is shutting down or the user is logging off.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnSystemShutdown(SystemShutdownEventArgs args)
+		protected override void OnSystemShutdown(Wix.SystemShutdownEventArgs args)
 		{
 			LogVerbose("Enter Method: OnSystemShutdown");
-			WPFBootstrapperEventArgs<SystemShutdownEventArgs> cancelArgs = new WPFBootstrapperEventArgs<SystemShutdownEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.SystemShutdownEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.SystemShutdownEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnSystemShutdown(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnSystemShutdown(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnSystemShutdown");
@@ -626,10 +625,10 @@ namespace WixWPF
 		#region OnUnregisterBegin
 		/// <summary>Called when the engine has begun removing the registration for the location and visibility of the bundle.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnUnregisterBegin(UnregisterBeginEventArgs args)
+		protected override void OnUnregisterBegin(Wix.UnregisterBeginEventArgs args)
 		{
 			LogVerbose("Enter Method: OnUnregisterBegin");
-			WPFBootstrapperEventArgs<UnregisterBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<UnregisterBeginEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.UnregisterBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.UnregisterBeginEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnUnregisterBegin(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnUnregisterBegin(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnUnregisterBegin");
@@ -639,15 +638,25 @@ namespace WixWPF
 		#region OnUnregisterComplete
 		/// <summary>Called when the engine has completed removing the registration for the location and visibility of the bundle.</summary>
 		/// <param name="args">The arguments of the event.</param>
-		protected override void OnUnregisterComplete(UnregisterCompleteEventArgs args)
+		protected override void OnUnregisterComplete(Wix.UnregisterCompleteEventArgs args)
 		{
 			LogVerbose("Enter Method: OnUnregisterComplete");
-			WPFBootstrapperEventArgs<UnregisterCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<UnregisterCompleteEventArgs>(args);
+			WPFBootstrapperEventArgs<Wix.UnregisterCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.UnregisterCompleteEventArgs>(args);
 			TryInvoke(new Action(() => { _mainWindow.OnUnregisterComplete(cancelArgs); }));
 			if (!cancelArgs.Cancel) { base.OnUnregisterComplete(cancelArgs.Arguments); }
 			LogVerbose("Leaving Method: OnUnregisterComplete");
 		}
 		#endregion OnUnregisterComplete
+
+		#region OnWindowClosed
+		/// <summary>Raised when the main window of the bootstrapper is closed.</summary>
+		/// <param name="sender">The sender of the event.</param>
+		/// <param name="e">The arguments of the event.</param>
+		private void OnWindowClosed(object sender, EventArgs e)
+		{
+			Engine.Quit(0);
+		}
+		#endregion OnWindowClosed
 
 		#endregion Event Handlers
 
@@ -661,7 +670,6 @@ namespace WixWPF
 			BaseBAWindow retVal = null;
 			string implType = GetAppSetting("BootstrapperUI");
 			Type type = null;
-			ConstructorInfo ctor = null;
 
 			if (!string.IsNullOrEmpty(implType))
 			{
@@ -673,15 +681,13 @@ namespace WixWPF
 			if (type != null)
 			{
 				LogVerbose("full type name = " + type.AssemblyQualifiedName);
-				try { ctor = type.GetConstructor(new Type[] { this.GetType() }); }
+				try { retVal = Activator.CreateInstance(type) as BaseBAWindow; }
 				catch (Exception e) { LogError(e); }
 			}
 
-			if (ctor != null)
+			if (retVal != null)
 			{
-				LogVerbose("got a constructor");
-				try { retVal = ctor.Invoke(new object[] { this }) as BaseBAWindow; }
-				catch (Exception e) { LogError(e); }
+				retVal.Bootstrapper = this;
 			}
 
 			return retVal;
@@ -706,6 +712,24 @@ namespace WixWPF
 		}
 		#endregion GetAppSetting
 
+		#region SetMainWindow
+		/// <summary>Sets the main window to the specified <paramref name="window"/>.</summary>
+		/// <param name="window">The new main window.</param>
+		public void SetMainWindow(BaseBAWindow window)
+		{
+			if (window == null)
+			{
+				Exception error = new ArgumentNullException("window");
+				LogError(error);
+				throw error;
+			}
+			_mainWindow.Closed -= OnWindowClosed;
+			_mainWindow = window;
+			_mainWindow.Closed += OnWindowClosed;
+			UIDispatcher = _mainWindow.Dispatcher;
+		}
+		#endregion SetMainWindow
+
 		#region Run
 		/// <summary>Called when the bootstrap application is run.</summary>
 		protected override void Run()
@@ -719,7 +743,7 @@ namespace WixWPF
 					try
 					{
 						UIDispatcher = _mainWindow.Dispatcher;
-						_mainWindow.Closed += (s, e) => { Engine.Quit(0); };
+						_mainWindow.Closed += OnWindowClosed;
 						_mainWindow.Show();
 
 						Engine.Detect();
@@ -753,7 +777,7 @@ namespace WixWPF
 		{
 			if (!string.IsNullOrEmpty(message))
 			{
-				WriteToLog(LogLevel.Verbose, message);
+				WriteToLog(Wix.LogLevel.Verbose, message);
 			}
 		}
 		#endregion LogVerbose
@@ -793,7 +817,7 @@ namespace WixWPF
 		/// <param name="message">The message to write.</param>
 		public void LogError(string message)
 		{
-			WriteToLog(LogLevel.Error, message ?? "An unknown error occurred in CoreMBA");
+			WriteToLog(Wix.LogLevel.Error, message ?? "An unknown error occurred in CoreMBA");
 		}
 		#endregion LogError
 
@@ -801,7 +825,7 @@ namespace WixWPF
 		/// <summary>Write the specified <paramref name="message"/> to the log using the specified log <paramref name="level"/>.</summary>
 		/// <param name="level">The log level.</param>
 		/// <param name="message">The message to log.</param>
-		public void WriteToLog(LogLevel level, string message)
+		public void WriteToLog(Wix.LogLevel level, string message)
 		{
 			Engine.Log(level, string.Format("CoreMBA Entry: {0}", message ?? string.Empty));
 		}

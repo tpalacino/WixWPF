@@ -7,19 +7,6 @@ namespace WixWPF
 	/// <summary>Provides bootstrap application interaction functionality to derived classes.</summary>
 	public class BaseBAWindow : Window
 	{
-		#region Constructors
-
-		/// <summary>Creates a new instance of <see cref="BaseBAWindow"/> for the specified <paramref name="bootstrapper"/>.</summary>
-		/// <param name="bootstrapper">The managed bootstrapper application instance.</param>
-		public BaseBAWindow(WPFBootstrapper bootstrapper)
-		{
-			if (bootstrapper == null) { throw new ArgumentNullException("bootstrapper"); }
-
-			Bootstrapper = bootstrapper;
-		}
-
-		#endregion Constructors
-
 		#region Properties
 
 		#region Bootstrapper

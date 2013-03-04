@@ -73,10 +73,6 @@
         <member name="T:WixWPF.BaseBAWindow">
             <summary>Provides bootstrap application interaction functionality to derived classes.</summary>
         </member>
-        <member name="M:WixWPF.BaseBAWindow.#ctor(WixWPF.WPFBootstrapper)">
-            <summary>Creates a new instance of <see cref="T:WixWPF.BaseBAWindow"/> for the specified <paramref name="bootstrapper"/>.</summary>
-            <param name="bootstrapper">The managed bootstrapper application instance.</param>
-        </member>
         <member name="M:WixWPF.BaseBAWindow.IsValid``1(WixWPF.WPFBootstrapperEventArgs{``0})">
             <summary>Determines if the specified <paramref name="arguments"/> is valid.</summary>
             <typeparam name="T">The type of arguments.</typeparam>
@@ -255,7 +251,7 @@
             <summary>True to cancel the event, otherwise false.</summary>
         </member>
         <member name="T:WixWPF.WPFBootstrapper">
-            <summary>The core managed bootstrap application.</summary>
+            <summary>The WPF managed bootstrap application.</summary>
         </member>
         <member name="F:WixWPF.WPFBootstrapper._mainWindow">
             <summary>The main user interface for the bootstrap application.</summary>
@@ -451,6 +447,11 @@
             <summary>Called when the engine has completed removing the registration for the location and visibility of the bundle.</summary>
             <param name="args">The arguments of the event.</param>
         </member>
+        <member name="M:WixWPF.WPFBootstrapper.OnWindowClosed(System.Object,System.EventArgs)">
+            <summary>Raised when the main window of the bootstrapper is closed.</summary>
+            <param name="sender">The sender of the event.</param>
+            <param name="e">The arguments of the event.</param>
+        </member>
         <member name="M:WixWPF.WPFBootstrapper.GetApplicationUI">
             <summary>Gets the <see cref="T:WixWPF.BaseBAWindow"/> derivation from the configured UI implementation assembly.</summary>
             <returns>A BaseBAWindow instance or null.</returns>
@@ -459,6 +460,10 @@
             <summary>Attempts to get the value of the application settings with the specified <paramref name="key" />.</summary>
             <param name="key">The key of the setting.</param>
             <returns>The value of the settings or null.</returns>
+        </member>
+        <member name="M:WixWPF.WPFBootstrapper.SetMainWindow(WixWPF.BaseBAWindow)">
+            <summary>Sets the main window to the specified <paramref name="window"/>.</summary>
+            <param name="window">The new main window.</param>
         </member>
         <member name="M:WixWPF.WPFBootstrapper.Run">
             <summary>Called when the bootstrap application is run.</summary>

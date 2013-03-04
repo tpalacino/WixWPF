@@ -13,8 +13,8 @@ namespace ProductBA
 		/// <summary>Indicates if the product is installed.</summary>
 		private bool _isInstalled = false;
 
-		/// <summary>Indicates if the installer can be exited.</summary>
-		private bool _canExit = false;
+		/// <summary>Indicates if the installer is busy processing.</summary>
+		private bool _isBusy = false;
 
 		#endregion Member Variables
 
@@ -38,10 +38,10 @@ namespace ProductBA
 		public bool CanInstall { get { return !IsInstalled && !string.IsNullOrEmpty(CommandArgs); } }
 		#endregion CanInstall
 
-		#region CanExit
-		/// <summary>Indicates if the installer can be exited.</summary>
-		public bool CanExit { get { return _canExit; } set { _canExit = value; OnPropertyChanged("CanExit"); } }
-		#endregion CanExit
+		#region IsBusy
+		/// <summary>Indicates if the installer is busy processing.</summary>
+		public bool IsBusy { get { return _isBusy; } set { _isBusy = value; OnPropertyChanged("IsBusy"); } }
+		#endregion IsBusy
 
 		#region IsInstalled
 		/// <summary>Indicates if the product is installed.</summary>
