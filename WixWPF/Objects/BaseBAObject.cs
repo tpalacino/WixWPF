@@ -34,6 +34,21 @@ namespace WixWPF
 		}
 		#endregion OnPropertyChanged
 
+		#region OnPropertiesChanged
+		/// <summary>Called to notify listeners that the value of the specified <paramref name="propertyNames"/> has changed.</summary>
+		/// <param name="propertyNames">The names of the properties that changed.</param>
+		protected void OnPropertiesChanged(params string[] propertyNames)
+		{
+			if (propertyNames != null && PropertyChanged != null)
+			{
+				foreach (string propertyName in propertyNames)
+				{
+					OnPropertyChanged(propertyName);
+				}
+			}
+		}
+		#endregion OnPropertiesChanged
+
 		#endregion Methods
 	}
 }
