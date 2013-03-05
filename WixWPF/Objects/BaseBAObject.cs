@@ -8,7 +8,7 @@ namespace WixWPF
 		#region Events
 
 		#region PropertyChanged
-		/// <summary>The event that will be raised when a property on a derived class changes.</summary>
+		/// <summary>Represents the method that handles the event of a property having changed.</summary>
 		public event PropertyChangedEventHandler PropertyChanged;
 		#endregion PropertyChanged
 
