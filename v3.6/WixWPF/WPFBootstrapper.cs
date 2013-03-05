@@ -556,14 +556,7 @@ namespace WixWPF
 			TryInvoke(new Action(() => { _mainWindow.OnResolveSource(cancelArgs); }));
 			if (!cancelArgs.Cancel)
 			{
-				if (!string.IsNullOrEmpty(args.DownloadSource))
-				{
-					args.Result = Wix.Result.Download;
-				}
-				else
-				{
-					args.Result = Wix.Result.Ok;
-				}
+				args.Result = !string.IsNullOrEmpty(args.DownloadSource) ? Wix.Result.Download : Wix.Result.Ok;
 				base.OnResolveSource(cancelArgs.Arguments);
 			}
 			LogVerbose("Leaving Method: OnResolveSource");
