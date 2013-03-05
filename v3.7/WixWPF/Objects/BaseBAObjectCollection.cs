@@ -13,7 +13,7 @@ namespace WixWPF
 		#region Events
 
 		#region CollectionChanged
-		/// <summary>No Summary Provided</summary>
+		/// <summary>Represents the method that handles the event of the collection having changed.</summary>
 		public override event NotifyCollectionChangedEventHandler CollectionChanged;
 		#endregion CollectionChanged
 
@@ -35,7 +35,8 @@ namespace WixWPF
 		#region Event Handlers
 
 		#region OnCollectionChanged
-		/// <summary>No Summary Provided</summary>
+		/// <summary>Raised when there is a change in the collection.</summary>
+		/// <param name="e">The arguments of the event.</param>
 		protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
 		{
 			// Be nice - use BlockReentrancy like MSDN said
@@ -64,7 +65,9 @@ namespace WixWPF
 		#endregion OnCollectionChanged
 
 		#region ItemPropertyChanged
-		/// <summary>No Summary Provided</summary>
+		/// <summary>Raised when a property on an item in this collection changes.</summary>
+		/// <param name="sender">The sender of the event.</param>
+		/// <param name="e">The arguments of the event.</param>
 		private void ItemPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
 			var arg = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, sender, sender);
@@ -77,7 +80,7 @@ namespace WixWPF
 		#region Methods
 
 		#region ClearItems
-		/// <summary>No Summary Provided</summary>
+		/// <summary>Removes all items from the collection.</summary>
 		protected override void ClearItems()
 		{
 			foreach (T item in Items) { if (item != null) { item.PropertyChanged -= ItemPropertyChanged; } }
@@ -86,7 +89,9 @@ namespace WixWPF
 		#endregion ClearItems
 
 		#region InsertItem
-		/// <summary>No Summary Provided</summary>
+		/// <summary>Inserts an item into the collection at the specified index.</summary>
+		/// <param name="index">The zero-based index at which item should be inserted.</param>
+		/// <param name="item">The object to insert.</param>
 		protected override void InsertItem(int index, T item)
 		{
 			if (item != null) { item.PropertyChanged += ItemPropertyChanged; }
@@ -95,7 +100,8 @@ namespace WixWPF
 		#endregion InsertItem
 
 		#region RemoveItem
-		/// <summary>No Summary Provided</summary>
+		/// <summary>Removes the item at the specified index of the collection.</summary>
+		/// <param name="index">The zero-based index of the element to remove.</param>
 		protected override void RemoveItem(int index)
 		{
 			if (Items[index] != null) { Items[index].PropertyChanged -= ItemPropertyChanged; }
@@ -104,7 +110,9 @@ namespace WixWPF
 		#endregion RemoveItem
 
 		#region SetItem
-		/// <summary>No Summary Provided</summary>
+		/// <summary>Replaces the element at the specified index.</summary>
+		/// <param name="index">The zero-based index of the element to replace.</param>
+		/// <param name="item">The new value for the element at the specified index.</param>
 		protected override void SetItem(int index, T item)
 		{
 			if (item != null) { item.PropertyChanged += ItemPropertyChanged; }

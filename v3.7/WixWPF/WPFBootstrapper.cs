@@ -21,6 +21,45 @@ namespace WixWPF
 
 		#region Event Handlers
 
+		#region OnDetectUpdateBegin
+		/// <summary>Called when the engine has begun installing the bundle.</summary>
+		/// <param name="args">The arguments of the event.</param>
+		protected override void OnDetectUpdateBegin(Wix.DetectUpdateBeginEventArgs args)
+		{
+			LogVerbose("Enter Method: OnDetectUpdateBegin");
+			WPFBootstrapperEventArgs<Wix.DetectUpdateBeginEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectUpdateBeginEventArgs>(args);
+			TryInvoke(new Action(() => { _mainWindow.OnDetectUpdateBegin(cancelArgs); }));
+			if (!cancelArgs.Cancel) { base.OnDetectUpdateBegin(cancelArgs.Arguments); }
+			LogVerbose("Leaving Method: OnDetectUpdateBegin");
+		}
+		#endregion OnDetectUpdateBegin
+
+		#region OnDetectUpdateComplete
+		/// <summary>Called when the engine has begun installing the bundle.</summary>
+		/// <param name="args">The arguments of the event.</param>
+		protected override void OnDetectUpdateComplete(Wix.DetectUpdateCompleteEventArgs args)
+		{
+			LogVerbose("Enter Method: OnDetectUpdateComplete");
+			WPFBootstrapperEventArgs<Wix.DetectUpdateCompleteEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectUpdateCompleteEventArgs>(args);
+			TryInvoke(new Action(() => { _mainWindow.OnDetectUpdateComplete(cancelArgs); }));
+			if (!cancelArgs.Cancel) { base.OnDetectUpdateComplete(cancelArgs.Arguments); }
+			LogVerbose("Leaving Method: OnDetectUpdateComplete");
+		}
+		#endregion OnDetectUpdateComplete
+
+		#region OnDetectForwardCompatibleBundle
+		/// <summary>Called when the engine has begun installing the bundle.</summary>
+		/// <param name="args">The arguments of the event.</param>
+		protected override void OnDetectForwardCompatibleBundle(Wix.DetectForwardCompatibleBundleEventArgs args)
+		{
+			LogVerbose("Enter Method: OnDetectForwardCompatibleBundle");
+			WPFBootstrapperEventArgs<Wix.DetectForwardCompatibleBundleEventArgs> cancelArgs = new WPFBootstrapperEventArgs<Wix.DetectForwardCompatibleBundleEventArgs>(args);
+			TryInvoke(new Action(() => { _mainWindow.OnDetectForwardCompatibleBundle(cancelArgs); }));
+			if (!cancelArgs.Cancel) { base.OnDetectForwardCompatibleBundle(cancelArgs.Arguments); }
+			LogVerbose("Leaving Method: OnDetectForwardCompatibleBundle");
+		}
+		#endregion OnDetectForwardCompatibleBundle
+
 		#region OnApplyBegin
 		/// <summary>Called when the engine has begun installing the bundle.</summary>
 		/// <param name="args">The arguments of the event.</param>
@@ -556,14 +595,7 @@ namespace WixWPF
 			TryInvoke(new Action(() => { _mainWindow.OnResolveSource(cancelArgs); }));
 			if (!cancelArgs.Cancel)
 			{
-				if (!string.IsNullOrEmpty(args.DownloadSource))
-				{
-					args.Result = Wix.Result.Download;
-				}
-				else
-				{
-					args.Result = Wix.Result.Ok;
-				}
+				args.Result = !string.IsNullOrEmpty(args.DownloadSource) ? Wix.Result.Download : Wix.Result.Ok;
 				base.OnResolveSource(cancelArgs.Arguments);
 			}
 			LogVerbose("Leaving Method: OnResolveSource");

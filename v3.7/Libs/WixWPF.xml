@@ -50,25 +50,33 @@
             <summary>Creates a new instance of <see cref="T:WixWPF.BaseBAObjectCollection`1"/>.</summary>
         </member>
         <member name="M:WixWPF.BaseBAObjectCollection`1.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
-            <summary>No Summary Provided</summary>
+            <summary>Raised when there is a change in the collection.</summary>
+            <param name="e">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAObjectCollection`1.ItemPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
-            <summary>No Summary Provided</summary>
+            <summary>Raised when a property on an item in this collection changes.</summary>
+            <param name="sender">The sender of the event.</param>
+            <param name="e">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAObjectCollection`1.ClearItems">
-            <summary>No Summary Provided</summary>
+            <summary>Removes all items from the collection.</summary>
         </member>
         <member name="M:WixWPF.BaseBAObjectCollection`1.InsertItem(System.Int32,`0)">
-            <summary>No Summary Provided</summary>
+            <summary>Inserts an item into the collection at the specified index.</summary>
+            <param name="index">The zero-based index at which item should be inserted.</param>
+            <param name="item">The object to insert.</param>
         </member>
         <member name="M:WixWPF.BaseBAObjectCollection`1.RemoveItem(System.Int32)">
-            <summary>No Summary Provided</summary>
+            <summary>Removes the item at the specified index of the collection.</summary>
+            <param name="index">The zero-based index of the element to remove.</param>
         </member>
         <member name="M:WixWPF.BaseBAObjectCollection`1.SetItem(System.Int32,`0)">
-            <summary>No Summary Provided</summary>
+            <summary>Replaces the element at the specified index.</summary>
+            <param name="index">The zero-based index of the element to replace.</param>
+            <param name="item">The new value for the element at the specified index.</param>
         </member>
         <member name="E:WixWPF.BaseBAObjectCollection`1.CollectionChanged">
-            <summary>No Summary Provided</summary>
+            <summary>Represents the method that handles the event of the collection having changed.</summary>
         </member>
         <member name="T:WixWPF.BaseBAWindow">
             <summary>Provides bootstrap application interaction functionality to derived classes.</summary>
@@ -79,146 +87,205 @@
             <param name="arguments">The arguments.</param>
             <returns>True if the arguments are valid, otherwise false.</returns>
         </member>
+        <member name="M:WixWPF.BaseBAWindow.OnDetectUpdateBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateBeginEventArgs})">
+            <summary>Called when the engine has begun installing the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:WixWPF.BaseBAWindow.OnDetectUpdateComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateCompleteEventArgs})">
+            <summary>Called when the engine has begun installing the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:WixWPF.BaseBAWindow.OnDetectForwardCompatibleBundle(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs})">
+            <summary>Called when the engine has begun installing the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
         <member name="M:WixWPF.BaseBAWindow.OnApplyBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ApplyBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has begun installing the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnApplyComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ApplyCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has completed installing the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnCacheAcquireBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.CacheAcquireBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine begins to cache the container or payload.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnCacheAcquireComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.CacheAcquireCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine completes caching of the container or payload.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnCacheAcquireProgress(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.CacheAcquireProgressEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has progressed on caching the container or payload.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnCacheBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.CacheBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine begins to cache the installation sources.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnCacheComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.CacheCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called after the engine has cached the installation sources.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnCachePackageBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.CachePackageBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called by the engine when it begins to cache a specific package.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnCachePackageComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.CachePackageCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine completes caching a specific package.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnCacheVerifyBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.CacheVerifyBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has started verify the payload.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnCacheVerifyComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.CacheVerifyCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine completes verification of the payload.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnDetectBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the overall detection phase has begun.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnDetectComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the detection phase has completed.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnDetectMsiFeature(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectMsiFeatureEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when an MSI feature has been detected for a package.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnDetectPackageBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectPackageBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the detection for a specific package has begun.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnDetectPackageComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectPackageCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the detection for a specific package has completed.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnDetectPriorBundle(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectPriorBundleEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the detection for a prior bundle has begun.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnDetectRelatedBundle(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectRelatedBundleEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when a related bundle has been detected for a bundle.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnDetectRelatedMsiPackage(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectRelatedMsiPackageEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when a related MSI package has been detected for a package.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnDetectTargetMsiPackage(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectTargetMsiPackageEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when an MSP package detects a target MSI has been detected.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnElevate(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ElevateEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine is about to start the elevated process.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnError(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ErrorEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has encountered an error.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnExecuteBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ExecuteBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has begun installing packages.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnExecuteComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ExecuteCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has completed installing packages.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnExecuteFilesInUse(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ExecuteFilesInUseEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when Windows Installer sends a file in use installation message.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnExecuteMsiMessage(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ExecuteMsiMessageEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when Windows Installer sends an installation message.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnExecutePackageBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ExecutePackageBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has begun installing a specific package.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnExecutePackageComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ExecutePackageCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has completed installing a specific package.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnExecutePatchTarget(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ExecutePatchTargetEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine executes one or more patches targeting a product.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnExecuteProgress(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ExecuteProgressEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called by the engine while executing on payload.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnPlanBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.PlanBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has begun planning the installation.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnPlanComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.PlanCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has completed planning the installation.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnPlanMsiFeature(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.PlanMsiFeatureEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine is about to plan an MSI feature of a specific package.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnPlanPackageBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.PlanPackageBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has begun planning the installation of a specific package.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnPlanPackageComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.PlanPackageCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when then engine has completed planning the installation of a specific package.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnPlanRelatedBundle(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.PlanRelatedBundleEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has begun planning for a prior bundle.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnPlanTargetMsiPackage(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.PlanTargetMsiPackageEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine is about to plan the target MSI of a MSP package.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnProgress(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ProgressEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has changed progress for the bundle installation.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnRegisterBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.RegisterBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has begun registering the location and visibility of the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnRegisterComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.RegisterCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has completed registering the location and visilibity of the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnResolveSource(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ResolveSourceEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called by the engine to allow the user experience to change the source using <see cref="M:Engine.SetLocalSource"/> or <see cref="M:Engine.SetDownloadSource"/>.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnRestartRequired(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.RestartRequiredEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called by the engine to request a restart now or inform the user a manual restart is required later.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnShutdown(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ShutdownEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called by the engine to uninitialize the user experience.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnStartup(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.StartupEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called by the engine on startup of the bootstrapper application.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnSystemShutdown(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.SystemShutdownEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the system is shutting down or the user is logging off.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnUnregisterBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.UnregisterBeginEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has begun removing the registration for the location and visibility of the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.BaseBAWindow.OnUnregisterComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.UnregisterCompleteEventArgs})">
-            <summary>No Summary Provided</summary>
+            <summary>Called when the engine has completed removing the registration for the location and visibility of the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="P:WixWPF.BaseBAWindow.Bootstrapper">
             <summary>Gets or sets Bootstrapper</summary>
@@ -235,7 +302,7 @@
             <param name="propertyNames">The names of the properties that changed.</param>
         </member>
         <member name="E:WixWPF.BaseBAObject.PropertyChanged">
-            <summary>The event that will be raised when a property on a derived class changes.</summary>
+            <summary>Represents the method that handles the event of a property having changed.</summary>
         </member>
         <member name="T:WixWPF.WPFBootstrapperEventArgs`1">
             <summary>A event arguments wrapper used when notifying WPF UI implementation of events.</summary>
@@ -258,6 +325,18 @@
         </member>
         <member name="F:WixWPF.WPFBootstrapper.UIDispatcher">
             <summary>The dispatcher from the UI implementation.</summary>
+        </member>
+        <member name="M:WixWPF.WPFBootstrapper.OnDetectUpdateBegin(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateBeginEventArgs)">
+            <summary>Called when the engine has begun installing the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:WixWPF.WPFBootstrapper.OnDetectUpdateComplete(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateCompleteEventArgs)">
+            <summary>Called when the engine has begun installing the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:WixWPF.WPFBootstrapper.OnDetectForwardCompatibleBundle(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs)">
+            <summary>Called when the engine has begun installing the bundle.</summary>
+            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.WPFBootstrapper.OnApplyBegin(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ApplyBeginEventArgs)">
             <summary>Called when the engine has begun installing the bundle.</summary>
