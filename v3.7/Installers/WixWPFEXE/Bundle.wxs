@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" >
+	<?define LibsDir="..\..\Shared\Libs\" ?>
+	<Bundle Name="WixWPF" Version="1.0.0.0" Manufacturer="Troy Palacino" UpgradeCode="{74AD0976-D657-47B3-84F6-B1A95835F8BC}"
+					IconSourceFile="..\..\..\Images\Logo.ico" HelpUrl="http://wixwpf.codeplex.com/documentation">
+
+		<BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost" >
+			<Payload SourceFile="BootstrapperCore.config" />
+			<Payload SourceFile="$(var.LibsDir)WixWPF.dll" />
+			<Payload SourceFile="$(var.LibsDir)WixWPF.pdb" />
+			<Payload SourceFile="$(var.WixWPFUI.TargetPath)" />
+		</BootstrapperApplicationRef>
+
+		<Chain>
+			<PackageGroupRef Id="NetFx40Web"/>
+			<MsiPackage Id="WixWPFMSI" SourceFile="$(var.WixWPFMSI.TargetPath)" />
+		</Chain>
+		
+	</Bundle>
+</Wix>

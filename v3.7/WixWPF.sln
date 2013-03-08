@@ -6,6 +6,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{56674290-4E47-4E5B-AE66-6F64336F5B9F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product", "Example\Product\Product.csproj", "{1113DB74-E5F9-4904-BE39-40129C15C28E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CFC77CE9-B119-454E-B411-35DC710AC8BD} = {CFC77CE9-B119-454E-B411-35DC710AC8BD}
+	EndProjectSection
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ProductMSI", "Example\ProductMSI\ProductMSI.wixproj", "{C61845F3-E4B1-45D2-B5AE-94DB6976691B}"
 EndProject
@@ -16,9 +19,95 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductBA", "Example\Produc
 		{CFC77CE9-B119-454E-B411-35DC710AC8BD} = {CFC77CE9-B119-454E-B411-35DC710AC8BD}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installers", "Installers", "{27F7CAF4-BA9B-4131-82F9-4FB829365BF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixWPFUI", "Installers\WixWPFUI\WixWPFUI.csproj", "{D3714A87-B5A7-46C4-9A24-645A20A9A555}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixWPFMSI", "Installers\WixWPFMSI\WixWPFMSI.wixproj", "{98E51C44-C7FC-4C5C-9699-02C74A580232}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixWPFEXE", "Installers\WixWPFEXE\WixWPFEXE.wixproj", "{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{9B0260FF-9CD4-4AC7-9B56-004ED53283D1}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Logo.ico = Shared\Logo.ico
+		Shared\Logo.png = Shared\Logo.png
+		Shared\WixWPF.snk = Shared\WixWPF.snk
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{5BB8DDE0-CA70-4E25-B1F8-D1ECB4856B55}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\[Content_Types].xml = Templates\[Content_Types].xml
+		Templates\extension.vsixmanifest = Templates\extension.vsixmanifest
+		Templates\License.rtf = Templates\License.rtf
+		Templates\Logo.png = Templates\Logo.png
+		Templates\WixWPF.vsix = Templates\WixWPF.vsix
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPFBootstrapper", "WPFBootstrapper", "{99B2D322-8A89-4E18-B1DA-528353B19AA6}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\WPFBootstrapper\Bootstrapper.vstemplate = Templates\WPFBootstrapper\Bootstrapper.vstemplate
+		Templates\WPFBootstrapper\Bootstrapper.wixproj = Templates\WPFBootstrapper\Bootstrapper.wixproj
+		Templates\WPFBootstrapper\BootstrapperCore.config = Templates\WPFBootstrapper\BootstrapperCore.config
+		Templates\WPFBootstrapper\Bundle.wxs = Templates\WPFBootstrapper\Bundle.wxs
+		Templates\WPFBootstrapper\Logo.png = Templates\WPFBootstrapper\Logo.png
+		Templates\WPFBootstrapper\WPFBootstrapper.zip = Templates\WPFBootstrapper\WPFBootstrapper.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPFBootstrapperUI", "WPFBootstrapperUI", "{9FAEA1C9-DCBB-45B4-B9E1-387E2942DE87}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\WPFBootstrapperUI\BootstrapperUI.csproj = Templates\WPFBootstrapperUI\BootstrapperUI.csproj
+		Templates\WPFBootstrapperUI\BootstrapperUI.vstemplate = Templates\WPFBootstrapperUI\BootstrapperUI.vstemplate
+		Templates\WPFBootstrapperUI\Logo.png = Templates\WPFBootstrapperUI\Logo.png
+		Templates\WPFBootstrapperUI\MainWindow.xaml = Templates\WPFBootstrapperUI\MainWindow.xaml
+		Templates\WPFBootstrapperUI\MainWindow.xaml.cs = Templates\WPFBootstrapperUI\MainWindow.xaml.cs
+		Templates\WPFBootstrapperUI\WPFBootstrapperUI.zip = Templates\WPFBootstrapperUI\WPFBootstrapperUI.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPFBootstrapperSolution", "WPFBootstrapperSolution", "{AA7A8C19-0373-4EC0-8E29-80AF43BCE437}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\WPFBootstrapperSolution\Logo.png = Templates\WPFBootstrapperSolution\Logo.png
+		Templates\WPFBootstrapperSolution\WPFBootstrapperSolution.vstemplate = Templates\WPFBootstrapperSolution\WPFBootstrapperSolution.vstemplate
+		Templates\WPFBootstrapperSolution\WPFBootstrapperSolution.zip = Templates\WPFBootstrapperSolution\WPFBootstrapperSolution.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{59E54168-F7A3-49BD-9EF3-231103CF7F3B}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\WPFBootstrapperUI\Properties\AssemblyInfo.cs = Templates\WPFBootstrapperUI\Properties\AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootstrapper", "Bootstrapper", "{FD16DEE7-60D5-4EFF-921A-85FED053C074}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\WPFBootstrapperSolution\Bootstrapper\Bootstrapper.vstemplate = Templates\WPFBootstrapperSolution\Bootstrapper\Bootstrapper.vstemplate
+		Templates\WPFBootstrapperSolution\Bootstrapper\Bootstrapper.wixproj = Templates\WPFBootstrapperSolution\Bootstrapper\Bootstrapper.wixproj
+		Templates\WPFBootstrapperSolution\Bootstrapper\BootstrapperCore.config = Templates\WPFBootstrapperSolution\Bootstrapper\BootstrapperCore.config
+		Templates\WPFBootstrapperSolution\Bootstrapper\Bundle.wxs = Templates\WPFBootstrapperSolution\Bootstrapper\Bundle.wxs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootstrapperUI", "BootstrapperUI", "{40497094-62E1-4F71-8BEB-8A907CF99AE8}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\WPFBootstrapperSolution\BootstrapperUI\BootstrapperUI.csproj = Templates\WPFBootstrapperSolution\BootstrapperUI\BootstrapperUI.csproj
+		Templates\WPFBootstrapperSolution\BootstrapperUI\BootstrapperUI.vstemplate = Templates\WPFBootstrapperSolution\BootstrapperUI\BootstrapperUI.vstemplate
+		Templates\WPFBootstrapperSolution\BootstrapperUI\MainWindow.xaml = Templates\WPFBootstrapperSolution\BootstrapperUI\MainWindow.xaml
+		Templates\WPFBootstrapperSolution\BootstrapperUI\MainWindow.xaml.cs = Templates\WPFBootstrapperSolution\BootstrapperUI\MainWindow.xaml.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{B3FF5C31-B8F9-4C13-94DF-EB6161F821DB}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\WPFBootstrapperSolution\BootstrapperUI\Properties\AssemblyInfo.cs = Templates\WPFBootstrapperSolution\BootstrapperUI\Properties\AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{95F6FA0B-FB8A-4B9D-9D79-746838A26FE5}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Libs\BootstrapperCore.dll = Shared\Libs\BootstrapperCore.dll
+		Shared\Libs\BootstrapperCore.xml = Shared\Libs\BootstrapperCore.xml
+		Shared\Libs\WixWPF.dll = Shared\Libs\WixWPF.dll
+		Shared\Libs\WixWPF.pdb = Shared\Libs\WixWPF.pdb
+		Shared\Libs\WixWPF.xml = Shared\Libs\WixWPF.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
+		SccNumberOfProjects = 9
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs10
 		SccLocalPath0 = .
@@ -41,6 +130,18 @@ Global
 		SccProjectTopLevelParentUniqueName5 = WixWPF.sln
 		SccProjectName5 = Example/ProductEXE
 		SccLocalPath5 = Example\\ProductEXE
+		SccProjectUniqueName6 = Installers\\WixWPFUI\\WixWPFUI.csproj
+		SccProjectTopLevelParentUniqueName6 = WixWPF.sln
+		SccProjectName6 = Installers/WixWPFUI
+		SccLocalPath6 = Installers\\WixWPFUI
+		SccProjectUniqueName7 = Installers\\WixWPFMSI\\WixWPFMSI.wixproj
+		SccProjectTopLevelParentUniqueName7 = WixWPF.sln
+		SccProjectName7 = Installers/WixWPFMSI
+		SccLocalPath7 = Installers\\WixWPFMSI
+		SccProjectUniqueName8 = Installers\\WixWPFEXE\\WixWPFEXE.wixproj
+		SccProjectTopLevelParentUniqueName8 = WixWPF.sln
+		SccProjectName8 = Installers/WixWPFEXE
+		SccLocalPath8 = Installers\\WixWPFEXE
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +202,36 @@ Global
 		{9F27C49B-459A-4065-B20C-B9BFF314854B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9F27C49B-459A-4065-B20C-B9BFF314854B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9F27C49B-459A-4065-B20C-B9BFF314854B}.Release|x86.ActiveCfg = Release|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Release|x86.ActiveCfg = Release|Any CPU
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Debug|x86.ActiveCfg = Debug|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Debug|x86.Build.0 = Debug|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Release|Any CPU.ActiveCfg = Release|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Release|Mixed Platforms.Build.0 = Release|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Release|x86.ActiveCfg = Release|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Release|x86.Build.0 = Release|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Debug|x86.ActiveCfg = Debug|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Debug|x86.Build.0 = Debug|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Release|Any CPU.ActiveCfg = Release|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Release|Mixed Platforms.Build.0 = Release|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Release|x86.ActiveCfg = Release|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,5 +241,16 @@ Global
 		{C61845F3-E4B1-45D2-B5AE-94DB6976691B} = {56674290-4E47-4E5B-AE66-6F64336F5B9F}
 		{D05BA39A-6194-4BCC-ACC9-207E74CE8E50} = {56674290-4E47-4E5B-AE66-6F64336F5B9F}
 		{9F27C49B-459A-4065-B20C-B9BFF314854B} = {56674290-4E47-4E5B-AE66-6F64336F5B9F}
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{98E51C44-C7FC-4C5C-9699-02C74A580232} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{95F6FA0B-FB8A-4B9D-9D79-746838A26FE5} = {9B0260FF-9CD4-4AC7-9B56-004ED53283D1}
+		{99B2D322-8A89-4E18-B1DA-528353B19AA6} = {5BB8DDE0-CA70-4E25-B1F8-D1ECB4856B55}
+		{9FAEA1C9-DCBB-45B4-B9E1-387E2942DE87} = {5BB8DDE0-CA70-4E25-B1F8-D1ECB4856B55}
+		{AA7A8C19-0373-4EC0-8E29-80AF43BCE437} = {5BB8DDE0-CA70-4E25-B1F8-D1ECB4856B55}
+		{59E54168-F7A3-49BD-9EF3-231103CF7F3B} = {9FAEA1C9-DCBB-45B4-B9E1-387E2942DE87}
+		{FD16DEE7-60D5-4EFF-921A-85FED053C074} = {AA7A8C19-0373-4EC0-8E29-80AF43BCE437}
+		{40497094-62E1-4F71-8BEB-8A907CF99AE8} = {AA7A8C19-0373-4EC0-8E29-80AF43BCE437}
+		{B3FF5C31-B8F9-4C13-94DF-EB6161F821DB} = {40497094-62E1-4F71-8BEB-8A907CF99AE8}
 	EndGlobalSection
 EndGlobal

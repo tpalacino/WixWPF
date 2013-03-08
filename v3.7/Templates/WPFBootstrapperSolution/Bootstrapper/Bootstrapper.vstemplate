@@ -1,0 +1,19 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>WPF Bootstrapper</Name>
+    <Description>The bootstrapper that use WixWPF and installs the product.</Description>
+    <ProjectType>WiX</ProjectType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>WPFBootstrapper</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$safeprojectname$.wixproj" File="Bootstrapper.wixproj" ReplaceParameters="true" >
+      <ProjectItem TargetFileName="BootstrapperCore.config" ReplaceParameters="true" >BootstrapperCore.config</ProjectItem>
+      <ProjectItem TargetFileName="Bundle.wxs" ReplaceParameters="true" >Bundle.wxs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

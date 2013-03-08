@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:vs="http://schemas.microsoft.com/wix/VSExtension" >
+	<?define Shared="..\..\Shared\" ?>
+	<Product Id="*" Name="Wix WPF" Language="1033" Version="1.0.0.0" Manufacturer="Troy Palacino" UpgradeCode="{00DF778C-6F23-498D-BBFE-A33ECC28D5FE}">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<Media Id="1" Cabinet="WixWPFMedia.cab" EmbedCab="yes" />
+		
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="WixWPF" >
+					<Component Id="WixWPFComponent" Guid="{938B8463-7AE2-46F2-812D-3A47F68D8A78}" >
+						<CreateFolder />
+						<File Id="WixWPF.dll" Source="$(var.Shared)Libs\WixWPF.dll" Vital="yes" DiskId="1" />
+						<File Id="WixWPF.pdb" Source="$(var.Shared)Libs\WixWPF.pdb" Vital="yes" DiskId="1" />
+						<File Id="WixWPF.xml" Source="$(var.Shared)Libs\WixWPF.xml" Vital="yes" DiskId="1" />
+						<File Id="WixWPF.vsix" Source="..\..\Templates\WixWPF.vsix" Vital="yes" DiskId="1" >
+							<vs:VsixPackage PackageId="WixWPF.1F6D661E-02DE-4100-8837-23FDA0C155A9" />
+						</File>
+						<Environment Id="WixWPF.EnvVar" Name="WixWPF" Part="all" Value="[INSTALLFOLDER]" />
+					</Component>
+				</Directory>
+			</Directory>
+		</Directory>
+
+		<Feature Id="WixWPFFeature" Title="WixWPF" Level="1">
+			<ComponentRef Id="WixWPFComponent" />
+		</Feature>
+	</Product>
+</Wix>

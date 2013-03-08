@@ -36,8 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BootstrapperCore, Version=3.0.0.0, Culture=neutral, PublicKeyToken=ce35f76fcda82bad, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libs\BootstrapperCore.dll</HintPath>
+      <HintPath>..\..\Shared\Libs\BootstrapperCore.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -49,7 +48,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
     <Reference Include="WixWPF">
-      <HintPath>..\..\Libs\WixWPF.dll</HintPath>
+      <HintPath>..\..\Shared\Libs\WixWPF.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
