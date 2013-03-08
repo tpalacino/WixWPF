@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" >
+	<Bundle Name="$projectname$" Version="1.0.0.0" Manufacturer="$registeredorganization$" UpgradeCode="$guid2$">
+
+		<BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost" >
+			<Payload SourceFile="BootstrapperCore.config" />
+			<Payload SourceFile="$(env.WixWPF)WixWPF.dll" />
+			<Payload SourceFile="$(env.WixWPF)WixWPF.pdb" />
+			<Payload SourceFile="$(var.$safeprojectname$UI.TargetPath)" />
+		</BootstrapperApplicationRef>
+
+		<Chain>
+			<PackageGroupRef Id="NetFx40Web"/>
+			<!-- TODO: Add Content -->
+		</Chain>
+		
+	</Bundle>
+</Wix>
