@@ -1,0 +1,15 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+	<TemplateData>
+		<Name>WixWPF Solution</Name>
+		<Description>Projects that use WixWPF to build a Wix bootstrapper with custom WPF UI.</Description>
+		<Icon>Logo.png</Icon>
+		<ProjectType>WiX</ProjectType>
+		<DefaultName>WPFBootstrapper</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectCollection>
+			<ProjectTemplateLink ProjectName="$safeprojectname$UI">BootstrapperUI\BootstrapperUI.vstemplate</ProjectTemplateLink>
+			<ProjectTemplateLink ProjectName="$safeprojectname$">Bootstrapper\Bootstrapper.vstemplate</ProjectTemplateLink>
+		</ProjectCollection>
+	</TemplateContent>
+</VSTemplate>
