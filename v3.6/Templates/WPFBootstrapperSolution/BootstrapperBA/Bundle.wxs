@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" >
-	<Bundle Name="$projectname$" Version="1.0.0.0" Manufacturer="$registeredorganization$" UpgradeCode="$guid2$">
+	<Bundle Name="$globalprojectname$" Version="1.0.0.0" Manufacturer="$globalregisteredorganization$" UpgradeCode="$globalguid3$">
 
 		<BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost" >
 			<Payload SourceFile="BootstrapperCore.config" />
 			<Payload SourceFile="$(env.WixWPF)WixWPF.dll" />
 			<Payload SourceFile="$(env.WixWPF)WixWPF.pdb" />
-			<Payload SourceFile="$(var.$safeprojectname$UI.TargetPath)" />
+			<Payload SourceFile="$(var.$globalprojectname$UI.TargetPath)" />
 		</BootstrapperApplicationRef>
 
 		<Chain>

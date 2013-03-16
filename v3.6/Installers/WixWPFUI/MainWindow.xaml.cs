@@ -95,7 +95,7 @@ namespace WixWPFUI
 		/// <param name="args">The arguments of the event.</param>
 		public override void OnExecuteMsiMessage(WPFBootstrapperEventArgs<Wix.ExecuteMsiMessageEventArgs> args)
 		{
-			if (IsValid(args) && Wix.InstallMessage.Progress.Equals(args.Arguments.MessageType))
+			if (IsValid(args))
 			{
 				InstallData.Message = args.Arguments.Message;
 			}
