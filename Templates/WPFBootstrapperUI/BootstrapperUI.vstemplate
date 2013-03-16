@@ -15,6 +15,8 @@
     <Project TargetFileName="$safeprojectname$.csproj" File="BootstrapperUI.csproj" ReplaceParameters="true" >
       <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml">MainWindow.xaml</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml.cs">MainWindow.xaml.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="InstallerInfo.cs">InstallerInfo.cs</ProjectItem>
+      <ProjectItem TargetFileName="Logo.Png">Logo.png</ProjectItem>
       <Folder Name="Properties" TargetFolderName="Properties" >
         <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       </Folder>

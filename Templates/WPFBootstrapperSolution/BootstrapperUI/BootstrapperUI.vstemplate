@@ -11,12 +11,18 @@
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
   </TemplateData>
   <TemplateContent>
-    <Project TargetFileName="$safeprojectname$UI.csproj" File="BootstrapperUI.csproj" ReplaceParameters="true" >
+    <Project TargetFileName="$globalsafeprojectname$UI.csproj" File="BootstrapperUI.csproj" ReplaceParameters="true" >
       <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml">MainWindow.xaml</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml.cs">MainWindow.xaml.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="InstallerInfo.cs">InstallerInfo.cs</ProjectItem>
+      <ProjectItem TargetFileName="Logo.Png">Logo.png</ProjectItem>
       <Folder Name="Properties" TargetFolderName="Properties" >
         <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       </Folder>
     </Project>
   </TemplateContent>
+  <WizardExtension>
+    <Assembly>GlobalParams, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea5a5299819fb7c0</Assembly>
+    <FullClassName>GlobalParams.WizardMPT</FullClassName>
+  </WizardExtension>
 </VSTemplate>
