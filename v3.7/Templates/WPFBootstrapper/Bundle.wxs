@@ -7,6 +7,7 @@
 			<Payload SourceFile="$(env.WixWPF)WixWPF.dll" />
 			<Payload SourceFile="$(env.WixWPF)WixWPF.pdb" />
 			<!-- TODO: Add Payload that will include the WixWPF user interface implementation -->
+			<!-- <Payload SourceFile="" /> -->
 		</BootstrapperApplicationRef>
 
 		<Chain>

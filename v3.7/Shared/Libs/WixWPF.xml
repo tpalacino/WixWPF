@@ -4,6 +4,19 @@
         <name>WixWPF</name>
     </assembly>
     <members>
+        <member name="T:WixWPF.StartupWindowAttribute">
+            <summary>Used to identify the startup window class.</summary>
+        </member>
+        <member name="F:WixWPF.StartupWindowAttribute._startupWindowType">
+            <summary>The <see cref="T:System.Type"/> of the startup window.</summary>
+        </member>
+        <member name="M:WixWPF.StartupWindowAttribute.#ctor(System.Type)">
+            <summary>Creates a new instance of <see cref="T:WixWPF.StartupWindowAttribute"/>&gt;</summary>
+            <param name="startupWindowType">The <see cref="T:System.Type"/> of the startup window.</param>
+        </member>
+        <member name="P:WixWPF.StartupWindowAttribute.StartupWindowType">
+            <summary>The <see cref="T:System.Type"/> of the startup window.</summary>
+        </member>
         <member name="T:WixWPF.ConvertBoolToVisibility">
             <summary>Converts values between <see cref="T:System.Windows.Visibility"/> and <see cref="T:System.Boolean"/>.</summary>
         </member>
@@ -534,6 +547,11 @@
         <member name="M:WixWPF.WPFBootstrapper.GetApplicationUI">
             <summary>Gets the <see cref="T:WixWPF.BaseBAWindow"/> derivation from the configured UI implementation assembly.</summary>
             <returns>A BaseBAWindow instance or null.</returns>
+        </member>
+        <member name="M:WixWPF.WPFBootstrapper.GetUITypeFromAssembly(System.String)">
+            <summary>Gets the application user interface implementation type.</summary>
+            <param name="assemblyName">The name of the assembly that should defines the <see cref="T:WixWPF.StartupWindowAttribute"/>.</param>
+            <returns>The type specified by the first assembly that has the <see cref="T:WixWPF.StartupWindowAttribute"/>.</returns>
         </member>
         <member name="M:WixWPF.WPFBootstrapper.GetAppSetting(System.String)">
             <summary>Attempts to get the value of the application settings with the specified <paramref name="key" />.</summary>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Configuration;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using Threading = System.Windows.Threading;
 using Wix = Microsoft.Tools.WindowsInstallerXml.Bootstrapper;
 
@@ -706,7 +708,7 @@ namespace WixWPF
 			if (!string.IsNullOrEmpty(implType))
 			{
 				LogVerbose("configured implementation = " + implType ?? string.Empty);
-				try { type = Type.GetType(implType); }
+				try { type = GetUITypeFromAssembly(implType); }
 				catch (Exception e) { LogError(e); }
 			}
 
@@ -725,6 +727,41 @@ namespace WixWPF
 			return retVal;
 		}
 		#endregion GetApplicationUI
+
+		#region GetApplicationUIType
+		/// <summary>Gets the application user interface implementation type.</summary>
+		/// <param name="assemblyName">The name of the assembly that should defines the <see cref="StartupWindowAttribute"/>.</param>
+		/// <returns>The type specified by the first assembly that has the <see cref="StartupWindowAttribute"/>.</returns>
+		private Type GetUITypeFromAssembly(string assemblyName)
+		{
+			Type baType = null;
+			Assembly asm = null;
+			StartupWindowAttribute[] attrs = null;
+
+			if (!string.IsNullOrEmpty(assemblyName))
+			{
+				try
+				{
+					asm = AppDomain.CurrentDomain.Load(Path.GetFileNameWithoutExtension(assemblyName));
+				}
+				catch (Exception ex)
+				{
+					LogError("An error occurred loading assembly {0}. Details: {1}", assemblyName, ex);
+				}
+			}
+
+			if (asm != null)
+			{
+				attrs = (StartupWindowAttribute[])asm.GetCustomAttributes(typeof(StartupWindowAttribute), false);
+				if (attrs != null && attrs.Length > 0 && attrs[0] != null)
+				{
+					baType = attrs[0].StartupWindowType;
+				}
+			}
+
+			return baType;
+		}
+		#endregion GetApplicationUIType
 
 		#region GetAppSetting
 		/// <summary>Attempts to get the value of the application settings with the specified <paramref name="key" />.</summary>
