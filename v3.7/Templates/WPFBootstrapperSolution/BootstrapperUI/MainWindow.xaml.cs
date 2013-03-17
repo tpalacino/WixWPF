@@ -82,7 +82,7 @@ namespace $globalsafeprojectname$UI
 		/// <param name="args">The arguments of the event.</param>
 		public override void OnDetectPackageComplete(WPFBootstrapperEventArgs<Wix.DetectPackageCompleteEventArgs> args)
 		{
-			if (IsValid(args) && "WixWPFMSI".Equals(args.Arguments.PackageId, StringComparison.OrdinalIgnoreCase))
+			if (IsValid(args) && "PRODUCT_PACKAGE_ID".Equals(args.Arguments.PackageId, StringComparison.OrdinalIgnoreCase))
 			{
 				InstallData.IsInstalled = Wix.PackageState.Present.Equals(args.Arguments.State);
 			}
