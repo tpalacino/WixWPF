@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{98e51c44-c7fc-4c5c-9699-02c74a580232}</ProjectGuid>
-    <ProductVersion>3.6</ProductVersion>
+    <ProductVersion>3.7</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>WixWPF</OutputName>
     <OutputType>Package</OutputType>
