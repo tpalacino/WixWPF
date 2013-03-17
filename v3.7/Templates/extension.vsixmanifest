@@ -3,8 +3,8 @@
   <Identifier Id="WixWPF.1F6D661E-02DE-4100-8837-23FDA0C155A9">
     <Name>WixWPF</Name>
     <Author>Troy Palacino</Author>
-    <Version>1.0</Version>
-    <Description>Deploys templates for creating WixWPF projects and solutions.</Description>
+    <Version>3.7</Version>
+    <Description>Templates for creating WixWPF projects and solutions.</Description>
     <Locale>1033</Locale>
     <Icon>Logo.png</Icon>
 	<AllUsers>true</AllUsers>

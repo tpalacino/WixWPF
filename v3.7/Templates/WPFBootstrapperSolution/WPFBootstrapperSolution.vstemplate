@@ -1,15 +1,19 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
 	<TemplateData>
 		<Name>WixWPF Solution</Name>
-		<Description>Projects that use WixWPF to build a Wix bootstrapper with custom WPF UI.</Description>
+		<Description>A solution that uses WixWPF to build a Wix bootstrapper with custom WPF UI.</Description>
 		<Icon>Logo.png</Icon>
 		<ProjectType>WiX</ProjectType>
-		<DefaultName>WPFBootstrapper</DefaultName>
+		<DefaultName>WPFSolution</DefaultName>
 	</TemplateData>
 	<TemplateContent>
 		<ProjectCollection>
-			<ProjectTemplateLink ProjectName="$safeprojectname$UI">BootstrapperUI\BootstrapperUI.vstemplate</ProjectTemplateLink>
-			<ProjectTemplateLink ProjectName="$safeprojectname$">Bootstrapper\Bootstrapper.vstemplate</ProjectTemplateLink>
+			<ProjectTemplateLink ProjectName="$projectname$UI">BootstrapperUI\BootstrapperUI.vstemplate</ProjectTemplateLink>
+			<ProjectTemplateLink ProjectName="$projectname$BA">BootstrapperBA\BootstrapperBA.vstemplate</ProjectTemplateLink>
 		</ProjectCollection>
 	</TemplateContent>
+    <WizardExtension>
+        <Assembly>GlobalParams, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea5a5299819fb7c0</Assembly>
+        <FullClassName>GlobalParams.WizardMPT</FullClassName>
+    </WizardExtension>
 </VSTemplate>

@@ -19,8 +19,10 @@
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="20" />
 		</Grid.RowDefinitions>
-		<Image Grid.Row="1" MaxHeight="50" HorizontalAlignment="Center" Margin="0,0,200,0" Source="/WixWPFUI;component/Logo.png" Stretch="Uniform" />
-		<TextBlock Grid.Row="1" x:Name="TextBlockTitle" Text="WixWPF v1.0" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" />
+		<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+			<Image Grid.Row="1" MaxHeight="50" Source="/WixWPFUI;component/Logo.png" Stretch="Uniform" />
+			<TextBlock Grid.Row="1" Text="WixWPF v3.7" Margin="10,0,0,0" FontSize="24" VerticalAlignment="Center" />
+		</StackPanel>
 		<StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" >
 			<StackPanel.Resources>
 				<Style TargetType="Button">
