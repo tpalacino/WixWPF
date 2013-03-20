@@ -13,6 +13,10 @@
 						<Component Id="GlobalParamsComponent" Shared="yes" SharedDllRefCount="yes" Guid="{2C624B40-9E25-48E4-B100-5934BB8D5DE3}">
 							<File Id="GlobalParams.dll" Source="$(var.Shared)Libs\GlobalParams.dll" Vital="yes" DiskId="1" Assembly=".net" KeyPath="yes" />
 						</Component>
+						<Component Id="WixWPFRegistration" Guid="{1299DE3D-423E-45D4-9B94-5295758835A6}" >
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v3.5\AssemblyFoldersEx\WixWPF v3.7" Value="[WixWPFVersionDir]" Type="string" />
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\WixWPF v3.7" Value="[WixWPFVersionDir]" Type="string" />
+						</Component>
 						<Component Id="WixWPFComponent" Guid="{938B8463-7AE2-46F2-812D-3A47F68D8A78}" >
 							<CreateFolder />
 							<File Id="WixWPF.dll" Source="$(var.Shared)Libs\WixWPF.dll" Vital="yes" DiskId="1" />
@@ -23,7 +27,7 @@
 							</File>
 							<Environment Id="WixWPF.EnvVar" Name="WixWPF" Part="all" System="yes" Action="set" Value="[WixWPFVersionDir]" />
 						</Component>
-					</Directory>
+					</Directory>					
 				</Directory>
 			</Directory>
 		</Directory>
@@ -31,6 +35,7 @@
 		<Feature Id="WixWPFFeature" Title="WixWPF" Level="1">
 			<ComponentRef Id="GlobalParamsComponent" />
 			<ComponentRef Id="WixWPFComponent" />
+			<ComponentRef Id="WixWPFRegistration" />
 		</Feature>
 	</Product>
 </Wix>
