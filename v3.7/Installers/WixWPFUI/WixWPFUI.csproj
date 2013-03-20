@@ -9,15 +9,15 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WixWPFUI</RootNamespace>
     <AssemblyName>WixWPFUI</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-		<SignAssembly>true</SignAssembly>
-		<AssemblyOriginatorKeyFile>..\..\Shared\WixWPF.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Shared\WixWPF.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,12 +48,13 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="WixWPF">
+    <Reference Include="WixWPF, Version=3.7.0.0, Culture=neutral, PublicKeyToken=8665a3a8c7e50284, processorArchitecture=MSIL">
       <HintPath>..\..\Shared\Libs\WixWPF.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -63,9 +64,9 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-		<Compile Include="..\..\Shared\SharedAssemblyInfo.cs">
-			<Link>Properties\SharedAssemblyInfo.cs</Link>
-		</Compile>
+    <Compile Include="..\..\Shared\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xaml">
@@ -78,11 +79,11 @@
       <Link>Logo.png</Link>
     </Resource>
   </ItemGroup>
-	<ItemGroup>
-		<None Include="..\..\Shared\WixWPF.snk">
-			<Link>Properties\WixWPF.snk</Link>
-		</None>
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Shared\WixWPF.snk">
+      <Link>Properties\WixWPF.snk</Link>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

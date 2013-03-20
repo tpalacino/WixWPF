@@ -31,7 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixVSExtension">
-      <HintPath>$(WixExtDir)\WixVSExtension.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\WiX Toolset v3.6\bin\WixVSExtension.dll</HintPath>
       <Name>WixVSExtension</Name>
     </WixExtension>
   </ItemGroup>

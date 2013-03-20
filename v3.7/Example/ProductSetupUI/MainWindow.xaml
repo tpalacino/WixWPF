@@ -1,4 +1,4 @@
-﻿<mba:BaseBAWindow x:Class="ProductBA.MainWindow"
+﻿<mba:BaseBAWindow x:Class="ProductSetupUI.MainWindow"
 									xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 									xmlns:mba="clr-namespace:WixWPF;assembly=WixWPF"
 									xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

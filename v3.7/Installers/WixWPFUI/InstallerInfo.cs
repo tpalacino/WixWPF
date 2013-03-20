@@ -13,6 +13,9 @@ namespace WixWPFUI
 		/// <summary>Indicates if the installer is busy.</summary>
 		private bool _isBusy = false;
 
+		/// <summary>Indicates if Wix Toolset is installed.</summary>
+		private bool _hasWix = false;
+
 		/// <summary>The progress message.</summary>
 		private string _message = string.Empty;
 
@@ -22,12 +25,12 @@ namespace WixWPFUI
 
 		#region CanInstall
 		/// <summary>Indicates if the product can be installed.</summary>
-		public bool CanInstall { get { return !(IsInstalled); } }
+		public bool CanInstall { get { return (_hasWix && !_isInstalled); } }
 		#endregion CanInstall
 
 		#region CanUninstall
 		/// <summary>Indicates if the product can be uninstalled.</summary>
-		public bool CanUninstall { get { return (IsInstalled); } }
+		public bool CanUninstall { get { return (_isInstalled); } }
 		#endregion CanUninstall
 
 		#region IsInstalled
@@ -39,6 +42,16 @@ namespace WixWPFUI
 		/// <summary>Indicates if the installer is busy.</summary>
 		public bool IsBusy { get { return _isBusy; } set { _isBusy = value; OnPropertiesChanged("IsBusy"); } }
 		#endregion IsBusy
+
+		#region HasWix
+		/// <summary>Indicates if Wix Toolset is installed.</summary>
+		public bool HasWix { get { return _hasWix; } set { _hasWix = value; OnPropertiesChanged("HasWix", "CanInstall", "ShowWixMissing"); } }
+		#endregion HasWix
+
+		#region ShowWixMissing
+		/// <summary>Indicates if Wix Toolset is installed.</summary>
+		public bool ShowWixMissing { get { return !_hasWix && !_isInstalled; } }
+		#endregion ShowWixMissing
 
 		#region Message
 		/// <summary>The progress message.</summary>

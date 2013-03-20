@@ -7,8 +7,8 @@
     <ProjectGuid>{9F27C49B-459A-4065-B20C-B9BFF314854B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProductBA</RootNamespace>
-    <AssemblyName>ProductBA</AssemblyName>
+    <RootNamespace>ProductSetupUI</RootNamespace>
+    <AssemblyName>ProductSetupUI</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -47,7 +47,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="WixWPF">
+    <Reference Include="WixWPF, Version=3.7.0.0, Culture=neutral, PublicKeyToken=8665a3a8c7e50284, processorArchitecture=MSIL">
       <HintPath>..\..\Shared\Libs\WixWPF.dll</HintPath>
     </Reference>
   </ItemGroup>

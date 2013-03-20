@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using WixWPF;
 using Wix = Microsoft.Tools.WindowsInstallerXml.Bootstrapper;
 
@@ -46,13 +48,27 @@ namespace WixWPFUI
 		}
 		#endregion OnButtonClick
 
+		#region OnHyperlinkClick
+		/// <summary>Handles the event of a hyperlink being clicked.</summary>
+		/// <param name="sender">The sender of the event.</param>
+		/// <param name="e">The arguments of the event.</param>
+		private void OnHyperlinkClick(object sender, RoutedEventArgs e)
+		{
+			Hyperlink link = sender as Hyperlink;
+
+			if (link != null && link.NavigateUri != null)
+			{
+				Process.Start(link.NavigateUri.ToString());
+			}
+		}
+		#endregion OnHyperlinkClick
+
 		#region OnWindowLoaded
 		/// <summary>Raised after the window has been loaded.</summary>
 		/// <param name="sender">The sender of the event.</param>
 		/// <param name="e">The arguments of the event.</param>
 		private void OnWindowLoaded(object sender, RoutedEventArgs e)
 		{
-
 		}
 		#endregion OnWindowLoaded
 
@@ -74,6 +90,11 @@ namespace WixWPFUI
 		/// <param name="args">The arguments of the event.</param>
 		public override void OnDetectComplete(WPFBootstrapperEventArgs<Wix.DetectCompleteEventArgs> args)
 		{
+			if (Bootstrapper != null && Bootstrapper.Engine != null && Bootstrapper.Engine.NumericVariables != null &&
+				Bootstrapper.Engine.NumericVariables.Contains("HasWix37"))
+			{
+				InstallData.HasWix = Bootstrapper.Engine.NumericVariables["HasWix37"] == 1L;
+			}
 			InstallData.IsBusy = false;
 		}
 		#endregion OnDetectComplete
