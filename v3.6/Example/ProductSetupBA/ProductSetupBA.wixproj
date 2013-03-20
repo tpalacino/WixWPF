@@ -6,7 +6,7 @@
     <ProductVersion>3.7</ProductVersion>
     <ProjectGuid>{d05ba39a-6194-4bcc-acc9-207e74ce8e50}</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>Product</OutputName>
+    <OutputName>ProductSetup</OutputName>
     <OutputType>Bundle</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
@@ -14,6 +14,7 @@
     <SccProvider>SAK</SccProvider>
     <SccAuxPath>SAK</SccAuxPath>
     <SccLocalPath>SAK</SccLocalPath>
+    <Name>ProductSetupBA</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
@@ -49,17 +50,17 @@
     <Content Include="BootstrapperCore.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProductBA\ProductBA.csproj">
-      <Name>ProductBA</Name>
-      <Project>{9f27c49b-459a-4065-b20c-b9bff314854b}</Project>
+    <ProjectReference Include="..\ProductMSI\ProductMSI.wixproj">
+      <Name>ProductMSI</Name>
+      <Project>{c61845f3-e4b1-45d2-b5ae-94db6976691b}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
-    <ProjectReference Include="..\ProductMSI\ProductMSI.wixproj">
-      <Name>ProductMSI</Name>
-      <Project>{c61845f3-e4b1-45d2-b5ae-94db6976691b}</Project>
+    <ProjectReference Include="..\ProductSetupUI\ProductSetupUI.csproj">
+      <Name>ProductSetupUI</Name>
+      <Project>{9f27c49b-459a-4065-b20c-b9bff314854b}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
