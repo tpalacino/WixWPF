@@ -7,7 +7,7 @@
 			<Payload SourceFile="BootstrapperCore.config" />
 			<Payload SourceFile="$(var.LibsDir)WixWPF.dll" />
 			<Payload SourceFile="$(var.LibsDir)WixWPF.pdb" />
-			<Payload SourceFile="$(var.ProductBA.TargetPath)" />
+			<Payload SourceFile="$(var.ProductSetupUI.TargetPath)" />
 		</BootstrapperApplicationRef>
 
 		<Variable Name="CommandArgs" bal:Overridable="yes" />

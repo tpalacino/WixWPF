@@ -1,23 +1,23 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
-  <TemplateData>
-    <Name>WPF Bootstrapper</Name>
-    <Description>The bootstrapper that use WixWPF and installs the product.</Description>
-    <ProjectType>WiX</ProjectType>
-    <SortOrder>1000</SortOrder>
-    <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>WPFBootstrapper</DefaultName>
-    <ProvideDefaultName>true</ProvideDefaultName>
-    <LocationField>Enabled</LocationField>
-    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
-  </TemplateData>
-  <TemplateContent>
-    <Project TargetFileName="$globalsafeprojectname$BA.wixproj" File="BootstrapperBA.wixproj" ReplaceParameters="true" >
-      <ProjectItem TargetFileName="BootstrapperCore.config" ReplaceParameters="true" >BootstrapperCore.config</ProjectItem>
-      <ProjectItem TargetFileName="Bundle.wxs" ReplaceParameters="true" >Bundle.wxs</ProjectItem>
-    </Project>
-  </TemplateContent>
-  <WizardExtension>
-    <Assembly>GlobalParams, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea5a5299819fb7c0</Assembly>
-    <FullClassName>GlobalParams.WizardMPT</FullClassName>
-  </WizardExtension>
+	<TemplateData>
+		<Name>WPF Bootstrapper</Name>
+		<Description>The bootstrapper that use WixWPF and installs the product.</Description>
+		<ProjectType>WiX</ProjectType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>WPFBootstrapper</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="$globalsafeprojectname$BA.wixproj" File="BootstrapperBA.wixproj" ReplaceParameters="true" >
+			<ProjectItem TargetFileName="BootstrapperCore.config" ReplaceParameters="true">BootstrapperCore.config</ProjectItem>
+			<ProjectItem TargetFileName="Bundle.wxs" ReplaceParameters="true" OpenInEditor="true" OpenOrder="10" >Bundle.wxs</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>GlobalParams, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea5a5299819fb7c0</Assembly>
+		<FullClassName>GlobalParams.WizardMPT</FullClassName>
+	</WizardExtension>
 </VSTemplate>

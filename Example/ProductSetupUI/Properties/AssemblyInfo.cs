@@ -1,12 +1,13 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿using ProductSetupUI;
+using System.Reflection;
 using System.Runtime.InteropServices;
+using WixWPF;
 
-[assembly: AssemblyTitle("ProductBA")]
+[assembly: AssemblyTitle("ProductSetupUI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ProductBA")]
+[assembly: AssemblyProduct("ProductSetupUI")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -17,3 +18,5 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+[assembly: StartupWindow(typeof(MainWindow))]

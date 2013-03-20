@@ -1,6 +1,6 @@
 ﻿using WixWPF;
 
-namespace ProductBA
+namespace ProductSetupUI
 {
 	/// <summary>The information for the installer.</summary>
 	public class InstallerInfo : BaseBAObject

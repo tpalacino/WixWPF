@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using WixWPF;
 using Wix = Microsoft.Tools.WindowsInstallerXml.Bootstrapper;
 
-namespace ProductBA
+namespace ProductSetupUI
 {
 	/// <summary>Interaction logic for MainWindow.xaml</summary>
 	public partial class MainWindow : BaseBAWindow
