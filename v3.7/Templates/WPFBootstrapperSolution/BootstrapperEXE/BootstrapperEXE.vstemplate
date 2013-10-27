@@ -11,7 +11,7 @@
 		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
 	</TemplateData>
 	<TemplateContent>
-		<Project TargetFileName="$globalsafeprojectname$BA.wixproj" File="BootstrapperBA.wixproj" ReplaceParameters="true" >
+		<Project TargetFileName="$globalsafeprojectname$EXE.wixproj" File="BootstrapperEXE.wixproj" ReplaceParameters="true" >
 			<ProjectItem TargetFileName="BootstrapperCore.config" ReplaceParameters="true">BootstrapperCore.config</ProjectItem>
 			<ProjectItem TargetFileName="Bundle.wxs" ReplaceParameters="true" OpenInEditor="true" OpenOrder="10" >Bundle.wxs</ProjectItem>
 		</Project>

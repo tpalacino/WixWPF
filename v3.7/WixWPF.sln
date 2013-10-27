@@ -92,12 +92,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{DCDF5C67-5
 		Shared\Libs\WixWPF.xml = Shared\Libs\WixWPF.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootstrapperBA", "BootstrapperBA", "{87D31800-F9BA-49B1-A4B1-960641904E02}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootstrapperEXE", "BootstrapperEXE", "{87D31800-F9BA-49B1-A4B1-960641904E02}"
 	ProjectSection(SolutionItems) = preProject
-		Templates\WPFBootstrapperSolution\BootstrapperBA\BootstrapperBA.vstemplate = Templates\WPFBootstrapperSolution\BootstrapperBA\BootstrapperBA.vstemplate
-		Templates\WPFBootstrapperSolution\BootstrapperBA\BootstrapperBA.wixproj = Templates\WPFBootstrapperSolution\BootstrapperBA\BootstrapperBA.wixproj
-		Templates\WPFBootstrapperSolution\BootstrapperBA\BootstrapperCore.config = Templates\WPFBootstrapperSolution\BootstrapperBA\BootstrapperCore.config
-		Templates\WPFBootstrapperSolution\BootstrapperBA\Bundle.wxs = Templates\WPFBootstrapperSolution\BootstrapperBA\Bundle.wxs
+		Templates\WPFBootstrapperSolution\BootstrapperEXE\BootstrapperCore.config = Templates\WPFBootstrapperSolution\BootstrapperEXE\BootstrapperCore.config
+		Templates\WPFBootstrapperSolution\BootstrapperEXE\BootstrapperEXE.vstemplate = Templates\WPFBootstrapperSolution\BootstrapperEXE\BootstrapperEXE.vstemplate
+		Templates\WPFBootstrapperSolution\BootstrapperEXE\BootstrapperEXE.wixproj = Templates\WPFBootstrapperSolution\BootstrapperEXE\BootstrapperEXE.wixproj
+		Templates\WPFBootstrapperSolution\BootstrapperEXE\Bundle.wxs = Templates\WPFBootstrapperSolution\BootstrapperEXE\Bundle.wxs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductSetupUI", "Example\ProductSetupUI\ProductSetupUI.csproj", "{9F27C49B-459A-4065-B20C-B9BFF314854B}"
