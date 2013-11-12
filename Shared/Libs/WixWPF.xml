@@ -100,18 +100,6 @@
             <param name="arguments">The arguments.</param>
             <returns>True if the arguments are valid, otherwise false.</returns>
         </member>
-        <member name="M:WixWPF.BaseBAWindow.OnDetectUpdateBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateBeginEventArgs})">
-            <summary>Called when the engine has begun installing the bundle.</summary>
-            <param name="args">The arguments of the event.</param>
-        </member>
-        <member name="M:WixWPF.BaseBAWindow.OnDetectUpdateComplete(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateCompleteEventArgs})">
-            <summary>Called when the engine has begun installing the bundle.</summary>
-            <param name="args">The arguments of the event.</param>
-        </member>
-        <member name="M:WixWPF.BaseBAWindow.OnDetectForwardCompatibleBundle(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs})">
-            <summary>Called when the engine has begun installing the bundle.</summary>
-            <param name="args">The arguments of the event.</param>
-        </member>
         <member name="M:WixWPF.BaseBAWindow.OnApplyBegin(WixWPF.WPFBootstrapperEventArgs{Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ApplyBeginEventArgs})">
             <summary>Called when the engine has begun installing the bundle.</summary>
             <param name="args">The arguments of the event.</param>
@@ -338,18 +326,6 @@
         </member>
         <member name="F:WixWPF.WPFBootstrapper.UIDispatcher">
             <summary>The dispatcher from the UI implementation.</summary>
-        </member>
-        <member name="M:WixWPF.WPFBootstrapper.OnDetectUpdateBegin(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateBeginEventArgs)">
-            <summary>Called when the engine has begun installing the bundle.</summary>
-            <param name="args">The arguments of the event.</param>
-        </member>
-        <member name="M:WixWPF.WPFBootstrapper.OnDetectUpdateComplete(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateCompleteEventArgs)">
-            <summary>Called when the engine has begun installing the bundle.</summary>
-            <param name="args">The arguments of the event.</param>
-        </member>
-        <member name="M:WixWPF.WPFBootstrapper.OnDetectForwardCompatibleBundle(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs)">
-            <summary>Called when the engine has begun installing the bundle.</summary>
-            <param name="args">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.WPFBootstrapper.OnApplyBegin(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.ApplyBeginEventArgs)">
             <summary>Called when the engine has begun installing the bundle.</summary>

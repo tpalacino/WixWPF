@@ -4,7 +4,7 @@
 		<Description>A solution that uses WixWPF to build a Wix bootstrapper with custom WPF UI.</Description>
 		<Icon>Logo.png</Icon>
 		<ProjectType>WiX</ProjectType>
-		<DefaultName>WPFSolution</DefaultName>
+		<DefaultName>WixWPF</DefaultName>
 	</TemplateData>
 	<TemplateContent>
 		<ProjectCollection>
