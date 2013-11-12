@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -10,7 +12,14 @@ namespace WixWPFUI
 {
 	/// <summary>Interaction logic for MainWindow.xaml</summary>
 	public partial class MainWindow : BaseBAWindow
-	{
+  {
+    #region Member Variables
+
+    /// <summary>The detected package states.</summary>
+    private Dictionary<string, Wix.PackageState> _packageStates = new Dictionary<string, Wix.PackageState>();
+
+    #endregion Member Variables
+
 		#region Constructors
 
 		/// <summary>Creates a new instance of <see cref="MainWindow" />.</summary>
@@ -76,12 +85,19 @@ namespace WixWPFUI
 		/// <summary>Raised by the bootstrapper when the it is notified that the apply stage is complete.</summary>
 		/// <param name="args">The arguments of the event.</param>
 		public override void OnApplyComplete(WPFBootstrapperEventArgs<Wix.ApplyCompleteEventArgs> args)
-		{
-			if (IsValid(args) && Wix.Result.None.Equals(args.Arguments.Result))
-			{
-				args.Cancel = true;
-				Bootstrapper.Engine.Detect();
-			}
+    {
+      if (IsValid(args) && Wix.Result.None.Equals(args.Arguments.Result))
+      {
+        if (Wix.RelationType.Upgrade.Equals(Bootstrapper.Command.Relation) && !InstallData.IsInstalled)
+        {
+          Close();
+        }
+        else
+        {
+          args.Cancel = true;
+          Bootstrapper.Engine.Detect();
+        }
+      }
 		}
 		#endregion OnApplyComplete
 
@@ -95,7 +111,13 @@ namespace WixWPFUI
 			{
 				InstallData.HasWix = Bootstrapper.Engine.NumericVariables["HasWix36"] == 1L;
 			}
-			InstallData.IsBusy = false;
+      InstallData.IsBusy = false;
+      InstallData.IsInstalled = _packageStates.All(x => Wix.PackageState.Present.Equals(x.Value));
+      
+      if (Wix.RelationType.Upgrade.Equals(Bootstrapper.Command.Relation) && !InstallData.IsInstalled)
+      {
+        Bootstrapper.Engine.Plan(Wix.LaunchAction.Uninstall);
+      }
 		}
 		#endregion OnDetectComplete
 
@@ -103,11 +125,11 @@ namespace WixWPFUI
 		/// <summary>Called when a packages source is being resolved.</summary>
 		/// <param name="args">The arguments of the event.</param>
 		public override void OnDetectPackageComplete(WPFBootstrapperEventArgs<Wix.DetectPackageCompleteEventArgs> args)
-		{
-			if (IsValid(args) && "WixWPFMSI".Equals(args.Arguments.PackageId, StringComparison.OrdinalIgnoreCase))
-			{
-				InstallData.IsInstalled = Wix.PackageState.Present.Equals(args.Arguments.State);
-			}
+    {
+      if (IsValid(args))
+      {
+        _packageStates[args.Arguments.PackageId] = args.Arguments.State;
+      }
 		}
 		#endregion OnDetectPackageComplete
 

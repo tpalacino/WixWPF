@@ -29,24 +29,6 @@ namespace WixWPF
 		}
 		#endregion IsValid
 
-		#region OnDetectUpdateBegin
-		/// <summary>Called when the engine has begun installing the bundle.</summary>
-		/// <param name="args">The arguments of the event.</param>
-		public virtual void OnDetectUpdateBegin(WPFBootstrapperEventArgs<Wix.DetectUpdateBeginEventArgs> args) { }
-		#endregion OnDetectUpdateBegin
-
-		#region OnDetectUpdateComplete
-		/// <summary>Called when the engine has begun installing the bundle.</summary>
-		/// <param name="args">The arguments of the event.</param>
-		public virtual void OnDetectUpdateComplete(WPFBootstrapperEventArgs<Wix.DetectUpdateCompleteEventArgs> args) { }
-		#endregion OnDetectUpdateComplete
-
-		#region OnDetectForwardCompatibleBundle
-		/// <summary>Called when the engine has begun installing the bundle.</summary>
-		/// <param name="args">The arguments of the event.</param>
-		public virtual void OnDetectForwardCompatibleBundle(WPFBootstrapperEventArgs<Wix.DetectForwardCompatibleBundleEventArgs> args) { }
-		#endregion OnDetectForwardCompatibleBundle
-
 		#region OnApplyBegin
 		/// <summary>Called when the engine has begun installing the bundle.</summary>
 		/// <param name="args">The arguments of the event.</param>

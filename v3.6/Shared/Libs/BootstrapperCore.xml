@@ -60,24 +60,6 @@
             </summary>
             <param name="args">Additional arguments for this event.</param>
         </member>
-        <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.BootstrapperApplication.OnDetectForwardCompatibleBundle(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs)">
-            <summary>
-            Called when the update detection phase has begun.
-            </summary>
-            <param name="args">Additional arguments for this event.</param>
-        </member>
-        <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.BootstrapperApplication.OnDetectUpdateBegin(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateBeginEventArgs)">
-            <summary>
-            Called when the update detection phase has begun.
-            </summary>
-            <param name="args">Additional arguments for this event.</param>
-        </member>
-        <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.BootstrapperApplication.OnDetectUpdateComplete(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateCompleteEventArgs)">
-            <summary>
-            Called when the update detection phase has completed.
-            </summary>
-            <param name="args">Additional arguments for this event.</param>
-        </member>
         <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.BootstrapperApplication.OnDetectPriorBundle(Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectPriorBundleEventArgs)">
             <summary>
             Called when the detection for a prior bundle has begun.
@@ -367,21 +349,6 @@
         <member name="E:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.BootstrapperApplication.DetectBegin">
             <summary>
             Fired when the overall detection phase has begun.
-            </summary>
-        </member>
-        <member name="E:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.BootstrapperApplication.DetectForwardCompatibleBundle">
-            <summary>
-            Fired when a forward compatible bundle is detected.
-            </summary>
-        </member>
-        <member name="E:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.BootstrapperApplication.DetectUpdateBegin">
-            <summary>
-            Fired when the update detection phase has begun.
-            </summary>
-        </member>
-        <member name="E:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.BootstrapperApplication.DetectUpdateComplete">
-            <summary>
-            Fired when the update detection phase has completed.
             </summary>
         </member>
         <member name="E:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.BootstrapperApplication.DetectPriorBundle">
@@ -777,16 +744,6 @@
             </summary>
             <param name="action">The action to perform when planning.</param>
         </member>
-        <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.Engine.SetUpdate(System.String,System.String,System.Int64,Microsoft.Tools.WindowsInstallerXml.Bootstrapper.UpdateHashType,System.Byte[])">
-            <summary>
-            Set the update information for a bundle.
-            </summary>
-            <param name="localSource">Optional local source path for the update. Default is "update\[OriginalNameOfBundle].exe".</param>
-            <param name="downloadSource">Optional download source for the update.</param>
-            <param name="size">Size of the expected update.</param>
-            <param name="hashType">Type of the hash expected on the update.</param>
-            <param name="hash">Optional hash expected for the update.</param>
-        </member>
         <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.Engine.SetLocalSource(System.String,System.String,System.String)">
             <summary>
             Set the local source for a package or container.
@@ -969,7 +926,7 @@
             Creates a new instance of the <see cref="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.SystemShutdownEventArgs"/> class.
             </summary>
             <param name="reasons">The reason the application is requested to close or being closed.</param>
-            <param name="recommendation">The recommendation from the engine.</param>
+            <param name="recommendation">The recommdation from the engine.</param>
         </member>
         <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.SystemShutdownEventArgs.Reasons">
             <summary>
@@ -988,96 +945,15 @@
             Additional arguments used when the overall detection phase has begun.
             </summary>
         </member>
-        <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectBeginEventArgs.#ctor(System.Boolean,System.Int32)">
+        <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectBeginEventArgs.#ctor(System.Int32)">
             <summary>
             Creates a new instance of the <see cref="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectBeginEventArgs"/> class.
             </summary>
-            <param name="installed">Specifies whether the bundle is installed.</param>
             <param name="packageCount">The number of packages to detect.</param>
-        </member>
-        <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectBeginEventArgs.Installed">
-            <summary>
-            Gets whether the bundle is installed.
-            </summary>
         </member>
         <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectBeginEventArgs.PackageCount">
             <summary>
             Gets the number of packages to detect.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs">
-            <summary>
-            Additional arguments used when detected a forward compatible bundle.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs.#ctor(System.String,Microsoft.Tools.WindowsInstallerXml.Bootstrapper.RelationType,System.String,System.Boolean,System.Int64,System.Int32)">
-            <summary>
-            Creates a new instance of the <see cref="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateBeginEventArgs"/> class.
-            </summary>
-            <param name="bundleId">The identity of the forward compatible bundle.</param>
-            <param name="relationType">Relationship type for this forward compatible bundle.</param>
-            <param name="bundleTag">The tag of the forward compatible bundle.</param>
-            <param name="perMachine">Whether the detected forward compatible bundle is per machine.</param>
-            <param name="version">The version of the forward compatible bundle detected.</param>
-            <param name="recommendation">The recommendation from the engine.</param>
-        </member>
-        <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs.BundleId">
-            <summary>
-            Gets the identity of the forward compatible bundle detected.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs.RelationType">
-            <summary>
-            Gets the relationship type of the forward compatible bundle.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs.BundleTag">
-            <summary>
-            Gets the tag of the forward compatible bundle.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs.PerMachine">
-            <summary>
-            Gets whether the detected forward compatible bundle is per machine.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectForwardCompatibleBundleEventArgs.Version">
-            <summary>
-            Gets the version of the forward compatible bundle detected.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateBeginEventArgs">
-            <summary>
-            Additional arguments used when the detection for an update has begun.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateBeginEventArgs.#ctor(System.String,System.Int32)">
-            <summary>
-            Creates a new instance of the <see cref="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateBeginEventArgs"/> class.
-            </summary>
-            <param name="updateLocation">The location to check for an updated bundle.</param>
-            <param name="recommendation">The recommendation from the engine.</param>
-        </member>
-        <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateBeginEventArgs.UpdateLocation">
-            <summary>
-            Gets the identity of the bundle to detect.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateCompleteEventArgs">
-            <summary>
-            Additional arguments used when the detection for an update has completed.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateCompleteEventArgs.#ctor(System.Int32,System.String)">
-            <summary>
-            Creates a new instance of the <see cref="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateCompleteEventArgs"/> class.
-            </summary>
-            <param name="status">The return code of the operation.</param>
-            <param name="updateLocation">The location of the updated bundle.</param>
-        </member>
-        <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectUpdateCompleteEventArgs.UpdateLocation">
-            <summary>
-            Gets the location of the updated bundle if one was detected.
             </summary>
         </member>
         <member name="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectPriorBundleEventArgs">
@@ -1101,12 +977,11 @@
             Additional arguments used when a related bundle has been detected for a bundle.
             </summary>
         </member>
-        <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectRelatedBundleEventArgs.#ctor(System.String,Microsoft.Tools.WindowsInstallerXml.Bootstrapper.RelationType,System.String,System.Boolean,System.Int64,Microsoft.Tools.WindowsInstallerXml.Bootstrapper.RelatedOperation)">
+        <member name="M:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectRelatedBundleEventArgs.#ctor(System.String,System.String,System.Boolean,System.Int64,Microsoft.Tools.WindowsInstallerXml.Bootstrapper.RelatedOperation)">
             <summary>
             Creates a new instance of the <see cref="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectRelatedBundleEventArgs"/> class.
             </summary>
             <param name="productCode">The identity of the related package bundle.</param>
-            <param name="relationType">Relationship type for this related bundle.</param>
             <param name="bundleTag">The tag of the related package bundle.</param>
             <param name="perMachine">Whether the detected bundle is per machine.</param>
             <param name="version">The version of the related bundle detected.</param>
@@ -1115,11 +990,6 @@
         <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectRelatedBundleEventArgs.ProductCode">
             <summary>
             Gets the identity of the related bundle detected.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectRelatedBundleEventArgs.RelationType">
-            <summary>
-            Gets the relationship type of the related bundle.
             </summary>
         </member>
         <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.DetectRelatedBundleEventArgs.BundleTag">
@@ -2433,12 +2303,7 @@
         </member>
         <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.Command.Relation">
             <summary>
-            If this was run from a related bundle, specifies the relation type.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.Command.Passthrough">
-            <summary>
-            If this was run from a backward compatible bundle.
+            If this was run from a related bundle, specifies the relation type
             </summary>
         </member>
         <member name="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.IBootstrapperEngine">
@@ -2453,7 +2318,7 @@
         </member>
         <member name="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.LaunchAction">
             <summary>
-            The action for the BA to perform.
+            The action for the UX to perform.
             </summary>
         </member>
         <member name="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.LogLevel">
@@ -2484,21 +2349,6 @@
         <member name="F:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.LogLevel.Error">
             <summary>
             Error messages.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.UpdateHashType">
-            <summary>
-            Type of hash used for update bundle.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.UpdateHashType.None">
-            <summary>
-            No hash provided.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.UpdateHashType.Sha1">
-            <summary>
-            SHA-1 based hash provided.
             </summary>
         </member>
         <member name="T:Microsoft.Tools.WindowsInstallerXml.Bootstrapper.PackageState">
