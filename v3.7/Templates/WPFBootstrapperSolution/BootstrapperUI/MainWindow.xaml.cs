@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using WixWPF;
@@ -9,6 +11,13 @@ namespace $globalsafeprojectname$UI
 	/// <summary>Interaction logic for MainWindow.xaml</summary>
 	public partial class MainWindow : BaseBAWindow
 	{
+		#region Member Variables
+
+		/// <summary>The detected package states.</summary>
+		private Dictionary<string, Wix.PackageState> _packageStates = new Dictionary<string, Wix.PackageState>();
+
+		#endregion Member Variables
+
 		#region Constructors
 
 		/// <summary>Creates a new instance of <see cref="MainWindow" />.</summary>
@@ -74,6 +83,7 @@ namespace $globalsafeprojectname$UI
 		public override void OnDetectComplete(WPFBootstrapperEventArgs<Wix.DetectCompleteEventArgs> args)
 		{
 			InstallData.IsBusy = false;
+			InstallData.IsInstalled = _packageStates.All(x => Wix.PackageState.Present.Equals(x.Value));
 		}
 		#endregion OnDetectComplete
 
@@ -82,9 +92,9 @@ namespace $globalsafeprojectname$UI
 		/// <param name="args">The arguments of the event.</param>
 		public override void OnDetectPackageComplete(WPFBootstrapperEventArgs<Wix.DetectPackageCompleteEventArgs> args)
 		{
-			if (IsValid(args) && "PRODUCT_PACKAGE_ID".Equals(args.Arguments.PackageId, StringComparison.OrdinalIgnoreCase))
+			if (IsValid(args))
 			{
-				InstallData.IsInstalled = Wix.PackageState.Present.Equals(args.Arguments.State);
+				_packageStates[args.Arguments.PackageId] = args.Arguments.State;
 			}
 		}
 		#endregion OnDetectPackageComplete

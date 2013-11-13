@@ -13,12 +13,12 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="$safeprojectname$.csproj" File="BootstrapperUI.csproj" ReplaceParameters="true" >
-			<ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml" OpenInEditor="true" OpenOrder="10" >MainWindow.xaml</ProjectItem>
-			<ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml.cs" >MainWindow.xaml.cs</ProjectItem>
-			<ProjectItem ReplaceParameters="true" TargetFileName="InstallerInfo.cs" >InstallerInfo.cs</ProjectItem>
+			<ProjectItem TargetFileName="MainWindow.xaml" OpenInEditor="true" OpenOrder="10" ReplaceParameters="true" >MainWindow.xaml</ProjectItem>
+			<ProjectItem TargetFileName="MainWindow.xaml.cs" ReplaceParameters="true" >MainWindow.xaml.cs</ProjectItem>
+			<ProjectItem TargetFileName="InstallerInfo.cs" ReplaceParameters="true" >InstallerInfo.cs</ProjectItem>
 			<ProjectItem TargetFileName="Logo.Png" >SampleLogo.png</ProjectItem>
       <Folder Name="Properties" TargetFolderName="Properties" >
-        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem TargetFileName="AssemblyInfo.cs" ReplaceParameters="true" >AssemblyInfo.cs</ProjectItem>
       </Folder>
     </Project>
   </TemplateContent>

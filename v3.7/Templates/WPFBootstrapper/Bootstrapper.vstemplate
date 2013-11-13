@@ -12,20 +12,9 @@
 		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
 	</TemplateData>
 	<TemplateContent>
-		<Project
-			TargetFileName="$safeprojectname$.wixproj"
-			File="Bootstrapper.wixproj"
-			ReplaceParameters="true" >
-			<ProjectItem
-				TargetFileName="BootstrapperCore.config"
-				ReplaceParameters="true"
-				OpenInEditor="true"
-				OpenOrder="10" >BootstrapperCore.config</ProjectItem>
-			<ProjectItem
-				TargetFileName="Bundle.wxs"
-				ReplaceParameters="true"
-				OpenInEditor="true"
-				OpenOrder="20" >Bundle.wxs</ProjectItem>
+		<Project TargetFileName="$safeprojectname$.wixproj" File="Bootstrapper.wixproj" ReplaceParameters="true" >
+			<ProjectItem TargetFileName="BootstrapperCore.config" OpenInEditor="true" OpenOrder="10" ReplaceParameters="true" >BootstrapperCore.config</ProjectItem>
+			<ProjectItem TargetFileName="Bundle.wxs" OpenInEditor="true" OpenOrder="20" ReplaceParameters="true" >Bundle.wxs</ProjectItem>
 		</Project>
 	</TemplateContent>
 </VSTemplate>
