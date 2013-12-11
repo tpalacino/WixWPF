@@ -7,13 +7,15 @@
 		<DefaultName>WixWPF</DefaultName>
 	</TemplateData>
 	<TemplateContent>
-		<ProjectCollection>
-			<ProjectTemplateLink ProjectName="$projectname$UI">BootstrapperUI\BootstrapperUI.vstemplate</ProjectTemplateLink>
-			<ProjectTemplateLink ProjectName="$projectname$BA">BootstrapperBA\BootstrapperBA.vstemplate</ProjectTemplateLink>
-		</ProjectCollection>
 	</TemplateContent>
     <WizardExtension>
-        <Assembly>GlobalParams, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ea5a5299819fb7c0</Assembly>
+        <Assembly>GlobalParams, Version=1.1.0.0, Culture=neutral, PublicKeyToken=ea5a5299819fb7c0</Assembly>
         <FullClassName>GlobalParams.WizardMPT</FullClassName>
     </WizardExtension>
+	<WizardData>
+		<Settings>
+			<MappedProjectTemplate name="$projectname$UI" path="$projectname$UI" template="BootstrapperUI\BootstrapperUI.vstemplate" />
+			<MappedProjectTemplate name="$projectname$BA" path="$projectname$BA" template="BootstrapperBA\BootstrapperBA.vstemplate" />
+		</Settings>
+	</WizardData>
 </VSTemplate>
