@@ -4,7 +4,7 @@
 				  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 				  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 				  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" WindowStartupLocation="CenterScreen"
-				  Title="WixWPF Installer" Height="190" Width="300" ResizeMode="NoResize" mc:Ignorable="d" >
+				  Title="WixWPF Installer" Height="190" Width="300" ResizeMode="NoResize" mc:Ignorable="d" Activated="OnActivated" >
   <Window.Resources>
     <mba:ConvertBoolToVisibility x:Key="BoolToVis" />
     <mba:ConvertBoolToVisibility x:Key="BoolToVisNeg" TrueValue="Collapsed" FalseValue="Visible" />
@@ -45,15 +45,14 @@
       <Button x:Name="ButtonInstall" Content="Install" Visibility="{Binding CanInstall, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" />
       <Button x:Name="ButtonRepair" Content="Repair" Visibility="{Binding CanRepair, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" />
       <Button x:Name="ButtonUninstall" Content="Uninstall" Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" />
-      <Button x:Name="ButtonRecheck" Content="Recheck" Visibility="{Binding HasPreReqs, Converter={StaticResource BoolToVisNeg}}" Click="OnButtonClick" />
       <Button x:Name="ButtonQuit" Content="Quit" Click="OnButtonClick" />
     </StackPanel>
     <Canvas Grid.Row="0" Grid.RowSpan="6" Visibility="{Binding IsBusy, Converter={StaticResource BoolToVis}}" >
       <!-- Visibility="Collapsed" -->
       <Border Canvas.Left="0" Canvas.Top="0" Height="{Binding ElementName=LayoutRoot, Path=ActualHeight}" Width="{Binding ElementName=LayoutRoot, Path=ActualWidth}" Background="Black" Opacity="0.75" />
       <Grid Canvas.Left="0" Canvas.Top="0" Height="{Binding ElementName=LayoutRoot, Path=ActualHeight}" Width="{Binding ElementName=LayoutRoot, Path=ActualWidth}" >
-        <TextBlock Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,15,0,0" />
-        <ProgressBar IsIndeterminate="True" Height="10" Margin="0,55,0,0" />
+        <TextBlock Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,5" TextWrapping="Wrap" />
+        <ProgressBar IsIndeterminate="True" Height="22" VerticalAlignment="Bottom" Margin="0,0,0,10" />
       </Grid>
     </Canvas>
   </Grid>

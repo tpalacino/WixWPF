@@ -28,12 +28,16 @@
     <SuppressValidation>True</SuppressValidation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Product.wxs" />
     <Compile Include="VS2013.wxs" />
     <Compile Include="VS2012.wxs" />
-    <Compile Include="Product.wxs" />
     <Compile Include="VS2010.wxs" />
   </ItemGroup>
   <ItemGroup>
+    <WixExtension Include="WixVSExtension">
+      <HintPath>$(WixExtDir)\WixVSExtension.dll</HintPath>
+      <Name>WixVSExtension</Name>
+    </WixExtension>
     <WixExtension Include="WixUtilExtension">
       <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
       <Name>WixUtilExtension</Name>

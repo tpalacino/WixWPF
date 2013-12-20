@@ -16,15 +16,6 @@ namespace WixWPFUI
     /// <summary>Indicates if the product is being repaired.</summary>
     private bool _isRepairing = false;
 
-    /// <summary>Indicates if WixWPF v3.6 feature is enabled.</summary>
-    private bool _enable36 = false;
-
-    /// <summary>Indicates if WixWPF v3.7 feature is enabled.</summary>
-    private bool _enable37 = false;
-
-    /// <summary>Indicates if WixWPF v3.8 feature is enabled.</summary>
-    private bool _enable38 = false;
-
     /// <summary>Indicates if Wix Toolset v3.6 is installed.</summary>
     private bool _hasWix36 = false;
 
@@ -100,21 +91,6 @@ namespace WixWPFUI
     /// <summary>Indicates if the product is being repaired.</summary>
     public bool IsRepairing { get { return _isRepairing; } set { _isRepairing = value; OnPropertiesChanged("IsRepairing", "IsBusy"); } }
     #endregion IsRepairing
-
-    #region Enable36
-    /// <summary>Indicates if WixWPF v3.6 feature is enabled.</summary>
-    public bool Enable36 { get { return _enable36; } set { _enable36 = value; OnPropertiesChanged("Enable36"); } }
-    #endregion Enable36
-
-    #region Enable37
-    /// <summary>Indicates if WixWPF v3.7 feature is enabled.</summary>
-    public bool Enable37 { get { return _enable37; } set { _enable37 = value; OnPropertiesChanged("Enable37"); } }
-    #endregion Enable37
-
-    #region Enable38
-    /// <summary>Indicates if WixWPF v3.8 feature is enabled.</summary>
-    public bool Enable38 { get { return _enable38; } set { _enable38 = value; OnPropertiesChanged("Enable38"); } }
-    #endregion Enable38
 
     #region HasWix
     /// <summary>Indicates if Wix Toolset is installed.</summary>
