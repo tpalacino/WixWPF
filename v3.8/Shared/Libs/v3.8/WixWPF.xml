@@ -66,15 +66,18 @@
         </member>
         <member name="T:WixWPF.BaseBAObjectCollection`1">
             <summary>Provides collection changed notification when a property on an item in the collection changes.</summary>
+            <typeparam name="T">Any derivation of <see cref="T:WixWPF.BaseBAObject"/>.</typeparam>
         </member>
         <member name="M:WixWPF.BaseBAObjectCollection`1.#ctor">
             <summary>Creates a new instance of <see cref="T:WixWPF.BaseBAObjectCollection`1"/>.</summary>
         </member>
         <member name="M:WixWPF.BaseBAObjectCollection`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
             <summary>Creates a new instance of <see cref="T:WixWPF.BaseBAObjectCollection`1"/>.</summary>
+            <param name="items">The items to populate the new collection with.</param>
         </member>
         <member name="M:WixWPF.BaseBAObjectCollection`1.#ctor(System.Collections.Generic.List{`0})">
             <summary>Creates a new instance of <see cref="T:WixWPF.BaseBAObjectCollection`1"/>.</summary>
+            <param name="items">The items to populate the new collection with.</param>
         </member>
         <member name="M:WixWPF.BaseBAObjectCollection`1.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>Raised when there is a change in the collection.</summary>
@@ -320,6 +323,7 @@
         </member>
         <member name="T:WixWPF.WPFBootstrapperEventArgs`1">
             <summary>A event arguments wrapper used when notifying WPF UI implementation of events.</summary>
+            <typeparam name="T">Any derivation of <see cref="T:System.EventArgs"/>.</typeparam>
         </member>
         <member name="M:WixWPF.WPFBootstrapperEventArgs`1.#ctor(`0)">
             <summary>Creates a new instance of <see cref="T:WixWPF.WPFBootstrapperEventArgs`1"/> with the specified <paramref name="args"/>.</summary>

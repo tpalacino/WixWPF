@@ -4,37 +4,37 @@
   <Fragment>
     <ComponentGroup Id="WixWPF36_VS$(var.VsVer)Extension">
       <Component Id="WixWPF36_VS$(var.VsVer)WPFBootstrapperComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="{A699D934-ADED-49A7-821C-7E984A0C45E8}">
-        <File Id="WixWPF36_VS$(var.VsVer)WPFBootstrapperFile" KeyPath="yes" Source="$(var.Ext36)\WPFBootstrapper\WPFBootstrapper.zip" />
+        <File Id="WixWPF36_VS$(var.VsVer)WPFBootstrapperFile" KeyPath="yes" Source="$(var.Ext36)\WixWPFBundle.zip" />
       </Component>
       <Component Id="WixWPF36_VS$(var.VsVer)WPFBootstrapperSolutionComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="{BC5010B6-ECDC-4039-B786-DD4B617E3FEA}">
-        <File Id="WixWPF36_VS$(var.VsVer)WPFBootstrapperSolutionFile" KeyPath="yes" Source="$(var.Ext36)\WPFBootstrapperSolution\WPFBootstrapperSolution.zip" />
+        <File Id="WixWPF36_VS$(var.VsVer)WPFBootstrapperSolutionFile" KeyPath="yes" Source="$(var.Ext36)\WixWPFSolution.zip" />
       </Component>
       <Component Id="WixWPF36_VS$(var.VsVer)WPFBootstrapperUIComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="{A1CA72E0-EFB3-41BF-A2F6-D9C40C835B0D}">
-        <File Id="WixWPF36_VS$(var.VsVer)WPFBootstrapperUIFile" KeyPath="yes" Source="$(var.Ext36)\WPFBootstrapperUI\WPFBootstrapperUI.zip" />
+        <File Id="WixWPF36_VS$(var.VsVer)WPFBootstrapperUIFile" KeyPath="yes" Source="$(var.Ext36)\WixWPFLibrary.zip" />
       </Component>
     </ComponentGroup>
     
     <ComponentGroup Id="WixWPF37_VS$(var.VsVer)Extension">
       <Component Id="WixWPF37_VS$(var.VsVer)WPFBootstrapperComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="{560C7AEF-E47C-421C-9093-C1F9A47512BD}">
-        <File Id="WixWPF37_VS$(var.VsVer)WPFBootstrapperFile" KeyPath="yes" Source="$(var.Ext37)\WPFBootstrapper\WPFBootstrapper.zip" />
+        <File Id="WixWPF37_VS$(var.VsVer)WPFBootstrapperFile" KeyPath="yes" Source="$(var.Ext37)\WixWPFBundle.zip" />
       </Component>
       <Component Id="WixWPF37_VS$(var.VsVer)WPFBootstrapperSolutionComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="{89D25701-C1FE-412C-B990-7743DF0D9B53}">
-        <File Id="WixWPF37_VS$(var.VsVer)WPFBootstrapperSolutionFile" KeyPath="yes" Source="$(var.Ext37)\WPFBootstrapperSolution\WPFBootstrapperSolution.zip" />
+        <File Id="WixWPF37_VS$(var.VsVer)WPFBootstrapperSolutionFile" KeyPath="yes" Source="$(var.Ext37)\WixWPFSolution.zip" />
       </Component>
       <Component Id="WixWPF37_VS$(var.VsVer)WPFBootstrapperUIComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="{1DC5061D-551F-4FA5-845D-1D0F1A23E6C5}">
-        <File Id="WixWPF37_VS$(var.VsVer)WPFBootstrapperUIFile" KeyPath="yes" Source="$(var.Ext37)\WPFBootstrapperUI\WPFBootstrapperUI.zip" />
+        <File Id="WixWPF37_VS$(var.VsVer)WPFBootstrapperUIFile" KeyPath="yes" Source="$(var.Ext37)\WixWPFLibrary.zip" />
       </Component>
     </ComponentGroup>
     
     <ComponentGroup Id="WixWPF38_VS$(var.VsVer)Extension">
       <Component Id="WixWPF38_VS$(var.VsVer)WPFBootstrapperComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="{E704446E-8C03-4CD6-B4FD-104CD1692FDE}">
-        <File Id="WixWPF38_VS$(var.VsVer)WPFBootstrapperFile" KeyPath="yes" Source="$(var.Ext38)\WPFBootstrapper\WPFBootstrapper.zip" />
+        <File Id="WixWPF38_VS$(var.VsVer)WPFBootstrapperFile" KeyPath="yes" Source="$(var.Ext38)\WixWPFBundle.zip" />
       </Component>
       <Component Id="WixWPF38_VS$(var.VsVer)WPFBootstrapperSolutionComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="{D892BF7E-87A6-4574-A8A2-6E8EF5DE815C}">
-        <File Id="WixWPF38_VS$(var.VsVer)WPFBootstrapperSolutionFile" KeyPath="yes" Source="$(var.Ext38)\WPFBootstrapperSolution\WPFBootstrapperSolution.zip" />
+        <File Id="WixWPF38_VS$(var.VsVer)WPFBootstrapperSolutionFile" KeyPath="yes" Source="$(var.Ext38)\WixWPFSolution.zip" />
       </Component>
       <Component Id="WixWPF38_VS$(var.VsVer)WPFBootstrapperUIComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="{BCDF9DA3-1EEA-47F4-9130-2B8B832015D2}">
-        <File Id="WixWPF38_VS$(var.VsVer)WPFBootstrapperUIFile" KeyPath="yes" Source="$(var.Ext38)\WPFBootstrapperUI\WPFBootstrapperUI.zip" />
+        <File Id="WixWPF38_VS$(var.VsVer)WPFBootstrapperUIFile" KeyPath="yes" Source="$(var.Ext38)\WixWPFLibrary.zip" />
       </Component>
     </ComponentGroup>
 

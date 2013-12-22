@@ -33,6 +33,7 @@
               <File Id="WixWPFV36.dll" Source="$(var.Shared)Libs\v3.6\WixWPF.dll" Vital="yes" DiskId="1" />
               <File Id="WixWPFV36.pdb" Source="$(var.Shared)Libs\v3.6\WixWPF.pdb" Vital="yes" DiskId="1" />
               <File Id="WixWPFV36.xml" Source="$(var.Shared)Libs\v3.6\WixWPF.xml" Vital="yes" DiskId="1" />
+              <File Id="WixWPFV36.chm" Source="..\..\Docs\WixWPF36Docs\Help\WixWPF.chm" Vital="yes" DiskId="1" />
             </Component>
             <Directory Id="WixWPFv36ExtDir" Name="Extension" />
           </Directory>
@@ -48,6 +49,7 @@
               <File Id="WixWPFV37.dll" Source="$(var.Shared)Libs\v3.7\WixWPF.dll" Vital="yes" DiskId="1" />
               <File Id="WixWPFV37.pdb" Source="$(var.Shared)Libs\v3.7\WixWPF.pdb" Vital="yes" DiskId="1" />
               <File Id="WixWPFV37.xml" Source="$(var.Shared)Libs\v3.7\WixWPF.xml" Vital="yes" DiskId="1" />
+              <File Id="WixWPFV37.chm" Source="..\..\Docs\WixWPF37Docs\Help\WixWPF.chm" Vital="yes" DiskId="1" />
             </Component>
             <Directory Id="WixWPFv37ExtDir" Name="Extension" />
           </Directory>
@@ -63,10 +65,27 @@
               <File Id="WixWPFV38.dll" Source="$(var.Shared)Libs\v3.8\WixWPF.dll" Vital="yes" DiskId="1" />
               <File Id="WixWPFV38.pdb" Source="$(var.Shared)Libs\v3.8\WixWPF.pdb" Vital="yes" DiskId="1" />
               <File Id="WixWPFV38.xml" Source="$(var.Shared)Libs\v3.8\WixWPF.xml" Vital="yes" DiskId="1" />
+              <File Id="WixWPFV38.chm" Source="..\..\Docs\WixWPF38Docs\Help\WixWPF.chm" Vital="yes" DiskId="1" />
             </Component>
             <Directory Id="WixWPFv38ExtDir" Name="Extension" />
           </Directory>
           
+        </Directory>
+        <Directory Id="ProgramMenuFolder" Name="ProgramMenuFolder">
+          <Directory Id="ProgramGroupDir" Name="[ProductName]">
+            <Component Id="WixWPF36Shortcuts" Guid="{6C8A2CCF-DFD2-4A69-B6C1-127455C49FF3}" >
+              <Shortcut Id="WixWPF36DocumentationLink" Name="WixWPF Documentation" Target="[#WixWPFV36.chm]" />
+            </Component>
+            <Component Id="WixWPF37Shortcuts" Guid="{799A2CA1-0F15-4076-8E0C-42D47D66815F}" >
+              <Shortcut Id="WixWPF37DocumentationLink" Name="WixWPF Documentation" Target="[#WixWPFV37.chm]" />
+            </Component>
+            <Component Id="WixWPF38Shortcuts" Guid="{D7D12627-20AD-4A92-B4A7-6C4C3BC07B73}" >
+              <Shortcut Id="WixWPF38DocumentationLink" Name="WixWPF Documentation" Target="[#WixWPFV38.chm]" />
+            </Component>
+            <Component Id="WixWPFRemoveShortcuts" Guid="{591AE990-BFB9-4E1B-8277-2CF44393B60E}" >
+              <RemoveFolder Id="ProgramGroupDir" On="uninstall" />
+            </Component>
+          </Directory>
         </Directory>
         <Directory Id="VS2010InstallDir" Name="Microsoft Visual Studio 10.0">
           <Directory Id="Vs2010Common7Dir" Name="Common7">
@@ -108,10 +127,12 @@
       <Condition Level="1"><![CDATA[(ENABLE36 = 1) OR (ENABLE37 = 1) OR (ENABLE38 = 1)]]></Condition>
       <ComponentRef Id="GlobalParamsComponent" />
       <ComponentRef Id="WixWPFEnvVarComponent" />
+      <ComponentRef Id="WixWPFRemoveShortcuts" />
       <Feature Id="WixWPFV36Feature" Title="v3.6" Level="0">
         <Condition Level="1"><![CDATA[ENABLE36 = 1]]></Condition>
         <ComponentRef Id="WixWPFV36Component" />
         <ComponentRef Id="WixWPFV36Registration" />
+        <ComponentRef Id="WixWPF36Shortcuts" />
         <Feature Id="WixWPFV36VSIX" Title="Visual Studio Integration" Level="0">
           <Condition Level="1"><![CDATA[DEPLOYVS = 1]]></Condition>
           <Feature Id="WixWPFv36VSIX_VS2010" Title="2010" Level="0">
@@ -132,6 +153,7 @@
         <Condition Level="1"><![CDATA[ENABLE37 = 1]]></Condition>
         <ComponentRef Id="WixWPFV37Component" />
         <ComponentRef Id="WixWPFV37Registration" />
+        <ComponentRef Id="WixWPF37Shortcuts" />
         <Feature Id="WixWPFV37VSIX" Title="Visual Studio Integration" Level="0">
           <Condition Level="1"><![CDATA[DEPLOYVS = 1]]></Condition>
           <Feature Id="WixWPFv37VSIX_VS2010" Title="2010" Level="0">
@@ -152,6 +174,7 @@
         <Condition Level="1"><![CDATA[ENABLE38 = 1]]></Condition>
         <ComponentRef Id="WixWPFV38Component" />
         <ComponentRef Id="WixWPFV38Registration" />
+        <ComponentRef Id="WixWPF38Shortcuts" />
         <Feature Id="WixWPFV38VSIX" Title="Visual Studio Integration" Level="0">
           <Condition Level="1"><![CDATA[DEPLOYVS = 1]]></Condition>
           <Feature Id="WixWPFv38VSIX_VS2010" Title="2010" Level="0">
