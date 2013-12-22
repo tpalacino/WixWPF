@@ -72,7 +72,7 @@
           
         </Directory>
         <Directory Id="ProgramMenuFolder" Name="ProgramMenuFolder">
-          <Directory Id="ProgramGroupDir" Name="[ProductName]">
+          <Directory Id="ProgramGroupDir" Name="$(var.ProductName)">
             <Component Id="WixWPF36Shortcuts" Guid="{6C8A2CCF-DFD2-4A69-B6C1-127455C49FF3}" >
               <Shortcut Id="WixWPF36DocumentationLink" Name="WixWPF Documentation" Target="[#WixWPFV36.chm]" />
             </Component>
