@@ -23,6 +23,9 @@
       <DocumentationSource sourceFile="..\..\WixWPF37\WixWPF37.csproj" xmlns="" />
     </DocumentationSources>
     <PlugInConfigurations>
+      <PlugInConfig id="Additional Content Only" enabled="False">
+        <configuration />
+      </PlugInConfig>
     </PlugInConfigurations>
     <SyntaxFilters>Standard</SyntaxFilters>
     <SdkLinkTarget>Blank</SdkLinkTarget>
@@ -41,7 +44,7 @@
     <NamespaceSummaries>
       <NamespaceSummaryItem name="WixWPF" isDocumented="True" xmlns="">The namespace for all WixWPF elements.</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Internals, Privates, Protected, SealedProtected, PrivateFields</VisibleItems>
+    <VisibleItems>InheritedMembers, Internals, Privates, Protected, SealedProtected, PrivateFields</VisibleItems>
     <ComponentConfigurations>
       <ComponentConfig id="Code Block Component" enabled="False" xmlns="">
         <component id="Code Block Component" type="SandcastleBuilder.Components.CodeBlockComponent" assembly="{@SHFBFolder}SandcastleBuilder.Components.dll">
@@ -94,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Icons" />
+    <Folder Include="Images" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\Shared\Logo.png">
@@ -103,6 +107,118 @@
       <ExcludeFromToc>True</ExcludeFromToc>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\WixWPF36Docs\Images\HowToEXE_01-Original.png">
+      <Link>Images\HowToEXE_01-Original.png</Link>
+      <ImageId>HowToEXE_01-Original</ImageId>
+      <AlternateText>The initial project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToEXE_02-AddNewProj.png">
+      <Link>Images\HowToEXE_02-AddNewProj.png</Link>
+      <ImageId>HowToEXE_02-AddNewProj</ImageId>
+      <AlternateText>About to add a new project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToEXE_03-NewProjDlg.png">
+      <Link>Images\HowToEXE_03-NewProjDlg.png</Link>
+      <ImageId>HowToEXE_03-NewProjDlg</ImageId>
+      <AlternateText>Adding the new project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToEXE_04-AddRefInBundle.png">
+      <Link>Images\HowToEXE_04-AddRefInBundle.png</Link>
+      <ImageId>HowToEXE_04-AddRefInBundle</ImageId>
+      <AlternateText>About to add a reference in the bundle project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToEXE_05-AddRefToNetFX.png">
+      <Link>Images\HowToEXE_05-AddRefToNetFX.png</Link>
+      <ImageId>HowToEXE_05-AddRefToNetFX</ImageId>
+      <AlternateText>Adding the reference to the Wix .Net Framework extension.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToEXE_06-AddRefToUI.png">
+      <Link>Images\HowToEXE_06-AddRefToUI.png</Link>
+      <ImageId>HowToEXE_06-AddRefToUI</ImageId>
+      <AlternateText>Adding the reference to the UI project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToEXE_07-ModBundleXml.png">
+      <Link>Images\HowToEXE_07-ModBundleXml.png</Link>
+      <ImageId>HowToEXE_07-ModBundleXml</ImageId>
+      <AlternateText>Modifying the bundle to use .Net extension, WixWPF, and the UI project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToEXE_08-AddExisting.png">
+      <Link>Images\HowToEXE_08-AddExisting.png</Link>
+      <ImageId>HowToEXE_08-AddExisting</ImageId>
+      <AlternateText>About to add an item from the Wix SDK.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToEXE_09-AddBootstrapperConfig.png">
+      <Link>Images\HowToEXE_09-AddBootstrapperConfig.png</Link>
+      <ImageId>HowToEXE_09-AddBootstrapperConfig</ImageId>
+      <AlternateText>Including the BootstrapperCore.config from the Wix Toolset SDK.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToEXE_10-UpdateBootstrapperConfig.png">
+      <Link>Images\HowToEXE_10-UpdateBootstrapperConfig.png</Link>
+      <ImageId>HowToEXE_10-UpdateBootstrapperConfig</ImageId>
+      <AlternateText>Modifying the BootstrapperCore.config file to use WixWPF and the UI project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToMSI_01-Original.png">
+      <Link>Images\HowToMSI_01-Original.png</Link>
+      <ImageId>HowToMSI_01-Original</ImageId>
+      <AlternateText>The initial project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToMSI_02-AddNewProj.png">
+      <Link>Images\HowToMSI_02-AddNewProj.png</Link>
+      <ImageId>HowToMSI_02-AddNewProj</ImageId>
+      <AlternateText>About to add a new project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToMSI_03-NewProjDlg.png">
+      <Link>Images\HowToMSI_03-NewProjDlg.png</Link>
+      <ImageId>HowToMSI_03-NewProjDlg</ImageId>
+      <AlternateText>Adding the new project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToMSI_04-AddRefInBundle.png">
+      <Link>Images\HowToMSI_04-AddRefInBundle.png</Link>
+      <ImageId>HowToMSI_04-AddRefInBundle</ImageId>
+      <AlternateText>About to add a reference in the bundle project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToMSI_05-AddRefToMSI.png">
+      <Link>Images\HowToMSI_05-AddRefToMSI.png</Link>
+      <ImageId>HowToMSI_05-AddRefToMSI</ImageId>
+      <AlternateText>Adding the reference to the MSI project.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowToMSI_06-AddMSIToChain.png">
+      <Link>Images\HowToMSI_06-AddMSIToChain.png</Link>
+      <ImageId>HowToMSI_06-AddMSIToChain</ImageId>
+      <AlternateText>Adding the MSI to the bundle chain.</AlternateText>
+    </Image>
+    <Image Include="..\WixWPF36Docs\Images\HowTo_01-PostBuild.png">
+      <Link>Images\HowTo_01-PostBuild.png</Link>
+      <ImageId>HowTo_01-PostBuild</ImageId>
+      <AlternateText>The WPF bootstrapper.</AlternateText>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentLayout Include="..\WixWPF36Docs\HowTo.content">
+      <Link>HowTo.content</Link>
+    </ContentLayout>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\WixWPF36Docs\HowToEXE.aml">
+      <Link>HowToEXE.aml</Link>
+    </None>
+    <None Include="..\WixWPF36Docs\HowToMSI.aml">
+      <Link>HowToMSI.aml</Link>
+    </None>
+    <None Include="..\WixWPF36Docs\Overview.aml">
+      <Link>Overview.aml</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Tokens Include="..\WixWPF36Docs\Content.tokens">
+      <Link>Content.tokens</Link>
+    </Tokens>
+    <Tokens Include="Version37.tokens" />
+  </ItemGroup>
   <!-- Import the SHFB build targets -->
   <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />
+  <Target Name="AfterBuildHelp">
+    <Copy SourceFiles="$(OutputPath)$(HtmlHelpName).chm" DestinationFolder="$(SolutionDir)Shared\Docs\v3.7" ContinueOnError="true" />
+  </Target>
 </Project>

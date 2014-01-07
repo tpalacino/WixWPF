@@ -19,6 +19,7 @@
     <Variable Name="PathVS2010" bal:Overridable="yes" />
     <Variable Name="PathVS2012" bal:Overridable="yes" />
     <Variable Name="PathVS2013" bal:Overridable="yes" />
+    <Variable Name="BundleID" bal:Overridable="yes" />
 
     <util:DirectorySearch Path="[ProgramFilesFolder]WixWPF\v3.6" Variable="HasOldWixWPF36" Result="exists" />
     <util:DirectorySearch Path="[ProgramFilesFolder]WixWPF\v3.7" Variable="HasOldWixWPF37" Result="exists" />
@@ -38,14 +39,26 @@
 
 		<Chain>
 			<PackageGroupRef Id="NetFx40Web"/>
-      <MsiPackage Id="WixWPFMSI" SourceFile="$(var.WixWPFMSI.TargetPath)" >
-        <MsiProperty Name="ENABLE36" Value="[Enable36]"/>
-        <MsiProperty Name="ENABLE37" Value="[Enable37]"/>
-        <MsiProperty Name="ENABLE38" Value="[Enable38]"/>
+      <MsiPackage Id="WixWPF36MSI" SourceFile="$(var.WixWPF36MSI.TargetPath)" InstallCondition="Enable36 = 1" >
         <MsiProperty Name="DEPLOYVS" Value="[DeployVS]"/>
         <MsiProperty Name="PATHVS2010" Value="[PathVS2010]"/>
         <MsiProperty Name="PATHVS2012" Value="[PathVS2012]"/>
         <MsiProperty Name="PATHVS2013" Value="[PathVS2013]"/>
+        <MsiProperty Name="BUNDLEID" Value="[BundleID]"/>
+      </MsiPackage>
+      <MsiPackage Id="WixWPF37MSI" SourceFile="$(var.WixWPF37MSI.TargetPath)" InstallCondition="Enable37 = 1" >
+        <MsiProperty Name="DEPLOYVS" Value="[DeployVS]"/>
+        <MsiProperty Name="PATHVS2010" Value="[PathVS2010]"/>
+        <MsiProperty Name="PATHVS2012" Value="[PathVS2012]"/>
+        <MsiProperty Name="PATHVS2013" Value="[PathVS2013]"/>
+        <MsiProperty Name="BUNDLEID" Value="[BundleID]"/>
+      </MsiPackage>
+      <MsiPackage Id="WixWPF38MSI" SourceFile="$(var.WixWPF38MSI.TargetPath)" InstallCondition="Enable38 = 1" >
+        <MsiProperty Name="DEPLOYVS" Value="[DeployVS]"/>
+        <MsiProperty Name="PATHVS2010" Value="[PathVS2010]"/>
+        <MsiProperty Name="PATHVS2012" Value="[PathVS2012]"/>
+        <MsiProperty Name="PATHVS2013" Value="[PathVS2013]"/>
+        <MsiProperty Name="BUNDLEID" Value="[BundleID]"/>
       </MsiPackage>
 		</Chain>
 

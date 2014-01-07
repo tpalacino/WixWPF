@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{98e51c44-c7fc-4c5c-9699-02c74a580232}</ProjectGuid>
+    <ProjectGuid>{F2773E38-E222-4642-92F1-B3546A2D0BCB}</ProjectGuid>
     <ProductVersion>3.8</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>WixWPF</OutputName>
@@ -14,24 +14,37 @@
     <SccProvider>SAK</SccProvider>
     <SccAuxPath>SAK</SccAuxPath>
     <SccLocalPath>SAK</SccLocalPath>
+    <UpgradeCodeGuid>{4558752D-89EB-4AFF-BA9C-920B1E3355E6}</UpgradeCodeGuid>
+    <GlobalParamsGuid>{389B3BFC-27ED-4081-8CF0-E8DACEBA19F2}</GlobalParamsGuid>
+    <EnvironmentGuid>{ABD2E853-581C-4E57-AEFA-E53F05C75D02}</EnvironmentGuid>
+    <ShortcutsGuid>{3FAAD666-A0DA-43EE-BB61-80CFB366F81A}</ShortcutsGuid>
+    <Name>WixWPF37MSI</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Debug;Ext36=$(SolutionDir)Templates\v3.6;Ext37=$(SolutionDir)Templates\v3.7;Ext38=$(SolutionDir)Templates\v3.8</DefineConstants>
+    <DefineConstants>Debug;Version=3.7;UpgradeCodeGuid=$(UpgradeCodeGuid);GlobalParamsGuid=$(GlobalParamsGuid);EnvironmentGuid=$(EnvironmentGuid);ShortcutsGuid=$(ShortcutsGuid);</DefineConstants>
     <SuppressValidation>True</SuppressValidation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Ext36=$(SolutionDir)Templates\v3.6;Ext37=$(SolutionDir)Templates\v3.7;Ext38=$(SolutionDir)Templates\v3.8</DefineConstants>
+    <DefineConstants>Version=3.7;UpgradeCodeGuid=$(UpgradeCodeGuid);GlobalParamsGuid=$(GlobalParamsGuid);EnvironmentGuid=$(EnvironmentGuid);ShortcutsGuid=$(ShortcutsGuid);</DefineConstants>
     <SuppressValidation>True</SuppressValidation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Product.wxs" />
-    <Compile Include="VS2013.wxs" />
-    <Compile Include="VS2012.wxs" />
-    <Compile Include="VS2010.wxs" />
+    <Compile Include="..\WixWPF36MSI\Product.wxs" >
+		<Link>Product.wxs</Link>
+	</Compile>
+    <Compile Include="..\WixWPF36MSI\VS2013.wxs" >
+		<Link>VS2013.wxs</Link>
+	</Compile>
+    <Compile Include="..\WixWPF36MSI\VS2012.wxs" >
+		<Link>VS2012.wxs</Link>
+	</Compile>
+    <Compile Include="..\WixWPF36MSI\VS2010.wxs" >
+		<Link>VS2010.wxs</Link>
+	</Compile>
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixVSExtension">
@@ -42,32 +55,6 @@
       <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
       <Name>WixUtilExtension</Name>
     </WixExtension>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Docs\WixWPF36Docs\WixWPF36Docs.shfbproj">
-      <Name>WixWPF36Docs</Name>
-      <Project>{930684d0-661e-41b6-9eee-fab5e1c22978}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Docs\WixWPF37Docs\WixWPF37Docs.shfbproj">
-      <Name>WixWPF37Docs</Name>
-      <Project>{b3427fbc-18fe-4684-968c-37f510fe4e92}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Docs\WixWPF38Docs\WixWPF38Docs.shfbproj">
-      <Name>WixWPF38Docs</Name>
-      <Project>{cf653ec8-e413-4c17-8521-a212f072c1f5}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

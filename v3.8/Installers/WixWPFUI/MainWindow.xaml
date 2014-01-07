@@ -19,7 +19,7 @@
     </Grid.RowDefinitions>
     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
       <Image Grid.Row="1" MaxHeight="50" Source="/WixWPFUI;component/Logo.png" Stretch="Uniform" />
-      <TextBlock Grid.Row="1" Text="WixWPF v3.8" Margin="10,0,0,0" FontSize="24" VerticalAlignment="Center" />
+      <TextBlock Grid.Row="1" Text="WixWPF" Margin="10,0,0,0" FontSize="24" VerticalAlignment="Center" />
     </StackPanel>
     <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding HasPreReqs, Converter={StaticResource BoolToVisNeg}}" >
       <!-- Visibility="Collapsed" -->

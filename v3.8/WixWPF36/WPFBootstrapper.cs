@@ -668,7 +668,7 @@ namespace WixWPF
 
             if (!string.IsNullOrEmpty(implType))
             {
-                LogVerbose("configured implementation = " + implType ?? string.Empty);
+                LogVerbose("configured implementation = " + implType);
                 try { type = GetUITypeFromAssembly(implType); }
                 catch (Exception e) { LogError(e); }
             }
@@ -703,7 +703,7 @@ namespace WixWPF
             {
                 try
                 {
-                    asm = AppDomain.CurrentDomain.Load(Path.GetFileNameWithoutExtension(assemblyName));
+                    asm = AppDomain.CurrentDomain.Load(assemblyName);
                 }
                 catch (Exception ex)
                 {

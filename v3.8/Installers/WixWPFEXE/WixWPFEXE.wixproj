@@ -46,8 +46,24 @@
     </WixExtension>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WixWPFMSI\WixWPFMSI.wixproj">
-      <Name>WixWPFMSI</Name>
+    <ProjectReference Include="..\WixWPF36MSI\WixWPF36MSI.wixproj">
+      <Name>WixWPF36MSI</Name>
+      <Project>{0944c1a1-d8ad-4511-99f4-de042c515bbd}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\WixWPF37MSI\WixWPF37MSI.wixproj">
+      <Name>WixWPF37MSI</Name>
+      <Project>{f2773e38-e222-4642-92f1-b3546a2d0bcb}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\WixWPF38MSI\WixWPF38MSI.wixproj">
+      <Name>WixWPF38MSI</Name>
       <Project>{98e51c44-c7fc-4c5c-9699-02c74a580232}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
