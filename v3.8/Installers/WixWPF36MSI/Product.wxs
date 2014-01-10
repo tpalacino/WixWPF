@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:vs="http://schemas.microsoft.com/wix/VSExtension" >
-  <?define VersionFull="$(var.Version).0.0" ?>
-  <?define ProductName="Wix WPF" ?>
+  <?define VersionBuild="0.0"?>
+  <?define VersionFull="$(var.Version).$(var.VersionBuild)" ?>
+  <?define ProductName="WixWPF" ?>
   <?define Manufacturer="Troy Palacino" ?>
   <?define Shared="..\..\Shared\" ?>
   <Product Id="*" Name="$(var.ProductName)" Language="1033" Version="$(var.VersionFull)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCodeGuid)">
@@ -11,7 +12,7 @@
     
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="WixWPF" >
+        <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)" >
 
           <Component Id="GlobalParamsComponent" Shared="yes" SharedDllRefCount="yes" Guid="$(var.GlobalParamsGuid)">
             <File Id="GlobalParams.dll" Source="$(var.Shared)Libs\GlobalParams.dll" Vital="yes" DiskId="1" Assembly=".net" KeyPath="yes" />
@@ -24,13 +25,11 @@
           <Directory Id="WixWPFDir" Name="v$(var.Version)">
             <Component Id="WixWPFRegistration" Guid="*" >
               <RegistryValue Root="HKLM" Key="SOFTWARE\Troy Palacino\WixWPF\v$(var.Version)" Value="true" Type="string" />
-              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v3.5\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFV38Dir]" Type="string" />
-              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFV38Dir]" Type="string" />
-              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.5\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFV38Dir]" Type="string" />
-              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.5.1\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFV38Dir]" Type="string" />
-              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.5.50709\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFV38Dir]" Type="string" />
-              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\[BUNDLEID]" Name="DisplayName" Type="string" Value="[ProductName] v$(var.Version)" />
-              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\[BUNDLEID]" Name="DisplayVersion" Type="string" Value="$(var.VersionFull)" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v3.5\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFDir]" Type="string" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFDir]" Type="string" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.5\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFDir]" Type="string" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.5.1\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFDir]" Type="string" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.5.50709\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFDir]" Type="string" />
             </Component>
             <Component Id="WixWPFComponent" Guid="*" >
               <CreateFolder/>
@@ -86,7 +85,7 @@
       </Directory>
     </Directory>
 
-    <Feature Id="WixWPFFeature" Title="WixWPF v$(var.Version)" Level="1">
+    <Feature Id="WixWPFFeature" Title="$(var.ProductName) v$(var.Version)" Level="1">
       <ComponentRef Id="GlobalParamsComponent" />
       <ComponentRef Id="WixWPFEnvVarComponent" />
       <ComponentRef Id="WixWPFComponent" />

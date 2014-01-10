@@ -42,10 +42,10 @@
           <Setter Property="Padding" Value="4,2" />
         </Style>
       </StackPanel.Resources>
-      <Button x:Name="ButtonInstall" Content="Install" Visibility="{Binding CanInstall, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" />
-      <Button x:Name="ButtonRepair" Content="Repair" Visibility="{Binding CanRepair, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" />
-      <Button x:Name="ButtonUninstall" Content="Uninstall" Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" />
-      <Button x:Name="ButtonQuit" Content="Quit" Click="OnButtonClick" />
+      <Button x:Name="ButtonInstall" Content="Install" Visibility="{Binding CanInstall, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" IsEnabled="{Binding IsNotBusy}" Focusable="{Binding IsNotBusy}" />
+      <Button x:Name="ButtonRepair" Content="Repair" Visibility="{Binding CanRepair, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" IsEnabled="{Binding IsNotBusy}" Focusable="{Binding IsNotBusy}" />
+      <Button x:Name="ButtonUninstall" Content="Uninstall" Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" IsEnabled="{Binding IsNotBusy}" Focusable="{Binding IsNotBusy}" />
+      <Button x:Name="ButtonQuit" Content="Quit" Click="OnButtonClick" IsEnabled="{Binding IsNotBusy}" Focusable="{Binding IsNotBusy}" />
     </StackPanel>
     <Canvas Grid.Row="0" Grid.RowSpan="6" Visibility="{Binding IsBusy, Converter={StaticResource BoolToVis}}" >
       <!-- Visibility="Collapsed" -->

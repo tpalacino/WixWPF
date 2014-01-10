@@ -18,6 +18,9 @@ namespace WixWPFUI
         /// <summary>The detected package states.</summary>
         private Dictionary<string, Wix.PackageState> _packageStates = new Dictionary<string, Wix.PackageState>();
 
+        /// <summary>The last action that was planned.</summary>
+        private string _lastAction = string.Empty;
+
         #endregion Member Variables
 
         #region Constructors
@@ -129,11 +132,7 @@ namespace WixWPFUI
                 }
             }
 
-            if (InstallData.IsRepairing)
-            {
-                InstallData.IsRepairing = false;
-            }
-            else if (Wix.RelationType.Upgrade.Equals(Bootstrapper.Command.Relation) && !InstallData.IsInstalled)
+            if (Wix.RelationType.Upgrade.Equals(Bootstrapper.Command.Relation) && !InstallData.IsInstalled)
             {
                 Execute(Wix.LaunchAction.Uninstall.ToString());
             }
@@ -184,23 +183,28 @@ namespace WixWPFUI
         /// <param name="args">The arguments of the event.</param>
         public override void OnPlanPackageBegin(WPFBootstrapperEventArgs<Wix.PlanPackageBeginEventArgs> args)
         {
-            if (IsValid(args) && InstallData.IsRepairing)
+            if (IsValid(args))
             {
                 switch (args.Arguments.PackageId)
                 {
                     case "WixWPF36MSI":
                         {
-                            args.Arguments.State = (InstallData.HasBuildTools && InstallData.HasWix36) ? Wix.RequestState.Present : Wix.RequestState.Absent;
+                            args.Arguments.State = (InstallData.HasBuildTools && InstallData.HasWix36) && !"UNINSTALL".Equals(_lastAction.ToUpperInvariant()) ? Wix.RequestState.Present : Wix.RequestState.Absent;
                         }
                         break;
                     case "WixWPF37MSI":
                         {
-                            args.Arguments.State = (InstallData.HasBuildTools && InstallData.HasWix37) ? Wix.RequestState.Present : Wix.RequestState.Absent;
+                            args.Arguments.State = (InstallData.HasBuildTools && InstallData.HasWix37) && !"UNINSTALL".Equals(_lastAction.ToUpperInvariant()) ? Wix.RequestState.Present : Wix.RequestState.Absent;
                         }
                         break;
                     case "WixWPF38MSI":
                         {
-                            args.Arguments.State = (InstallData.HasBuildTools && InstallData.HasWix38) ? Wix.RequestState.Present : Wix.RequestState.Absent;
+                            args.Arguments.State = (InstallData.HasBuildTools && InstallData.HasWix38) && !"UNINSTALL".Equals(_lastAction.ToUpperInvariant()) ? Wix.RequestState.Present : Wix.RequestState.Absent;
+                        }
+                        break;
+                    case "WixWPFCoreMSI":
+                        {
+                            args.Arguments.State = (InstallData.HasBuildTools && InstallData.HasWix) && !"UNINSTALL".Equals(_lastAction.ToUpperInvariant()) ? "REPAIR".Equals(_lastAction.ToUpperInvariant()) ? Wix.RequestState.Repair : Wix.RequestState.Present : Wix.RequestState.Absent;
                         }
                         break;
                 }
@@ -231,24 +235,19 @@ namespace WixWPFUI
             if (!string.IsNullOrEmpty(action))
             {
                 // Write Overridable Properties here for MSI to use
-                Bootstrapper.Engine.NumericVariables["Enable36"] = (InstallData.HasBuildTools && InstallData.HasWix36) ? 1L : 0L;
-                Bootstrapper.Engine.NumericVariables["Enable37"] = (InstallData.HasBuildTools && InstallData.HasWix37) ? 1L : 0L;
-                Bootstrapper.Engine.NumericVariables["Enable38"] = (InstallData.HasBuildTools && InstallData.HasWix38) ? 1L : 0L;
                 Bootstrapper.Engine.NumericVariables["DeployVS"] = InstallData.HasVS ? 1L : 0L;
                 Bootstrapper.Engine.StringVariables["PathVS2010"] = InstallData.HasVS2010 ? InstallData.PathVS2010 : string.Empty;
                 Bootstrapper.Engine.StringVariables["PathVS2012"] = InstallData.HasVS2012 ? InstallData.PathVS2012 : string.Empty;
                 Bootstrapper.Engine.StringVariables["PathVS2013"] = InstallData.HasVS2013 ? InstallData.PathVS2013 : string.Empty;
+                Bootstrapper.Engine.StringVariables["BundleVersion"] = InstallData.HasWix38 ? "3.8" : InstallData.HasWix37 ? "3.7" : InstallData.HasWix36 ? "3.6" : "3.8";
+
+                _lastAction = action;
 
                 switch (action.ToUpperInvariant())
                 {
                     case "INSTALL": { Bootstrapper.Engine.Plan(Wix.LaunchAction.Install); } break;
                     case "QUIT": { Close(); } break;
-                    case "REPAIR":
-                        {
-                            InstallData.IsRepairing = true;
-                            Bootstrapper.Engine.Plan(Wix.LaunchAction.Modify);
-                        }
-                        break;
+                    case "REPAIR": { Bootstrapper.Engine.Plan(Wix.LaunchAction.Modify); } break;
                     case "UNINSTALL": { Bootstrapper.Engine.Plan(Wix.LaunchAction.Uninstall); } break;
                 }
             }

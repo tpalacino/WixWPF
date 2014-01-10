@@ -107,9 +107,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.8", "v3.8", "{7A2CD741-D
 		Shared\Docs\v3.8\WixWPF.chm = Shared\Docs\v3.8\WixWPF.chm
 	EndProjectSection
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixWPFCoreMSI", "Installers\WixWPFCoreMSI\WixWPFCoreMSI.wixproj", "{689F107D-8F0B-4114-AF56-FA5B3B37106D}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 12
+		SccNumberOfProjects = 13
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs10
 		SccLocalPath0 = .
@@ -154,6 +156,10 @@ Global
 		SccProjectTopLevelParentUniqueName11 = WixWPF.sln
 		SccProjectName11 = Installers/WixWPF37MSI
 		SccLocalPath11 = Installers\\WixWPF37MSI
+		SccProjectUniqueName12 = Installers\\WixWPFCoreMSI\\WixWPFCoreMSI.wixproj
+		SccProjectTopLevelParentUniqueName12 = WixWPF.sln
+		SccProjectName12 = Installers/WixWPFCoreMSI
+		SccLocalPath12 = Installers\\WixWPFCoreMSI
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -276,6 +282,16 @@ Global
 		{F2773E38-E222-4642-92F1-B3546A2D0BCB}.Release|Mixed Platforms.Build.0 = Release|x86
 		{F2773E38-E222-4642-92F1-B3546A2D0BCB}.Release|x86.ActiveCfg = Release|x86
 		{F2773E38-E222-4642-92F1-B3546A2D0BCB}.Release|x86.Build.0 = Release|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Debug|x86.ActiveCfg = Debug|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Debug|x86.Build.0 = Debug|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Release|Any CPU.ActiveCfg = Release|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Release|Mixed Platforms.Build.0 = Release|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Release|x86.ActiveCfg = Release|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -286,6 +302,7 @@ Global
 		{98E51C44-C7FC-4C5C-9699-02C74A580232} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
 		{0944C1A1-D8AD-4511-99F4-DE042C515BBD} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
 		{F2773E38-E222-4642-92F1-B3546A2D0BCB} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
 		{DCDF5C67-59FA-4817-9CFE-2E2232514234} = {9B0260FF-9CD4-4AC7-9B56-004ED53283D1}
 		{CFDDF7FE-0044-4382-8B56-4D4A4310772F} = {9B0260FF-9CD4-4AC7-9B56-004ED53283D1}
 		{6C3948D3-A142-4DA1-9364-9CADB8A7DCC9} = {5BB8DDE0-CA70-4E25-B1F8-D1ECB4856B55}

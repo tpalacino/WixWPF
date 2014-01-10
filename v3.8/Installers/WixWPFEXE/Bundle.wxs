@@ -13,17 +13,16 @@
 			<Payload SourceFile="$(var.WixWPFUI.TargetPath)" />
 		</BootstrapperApplicationRef>
 
-    <Variable Name="Enable36" bal:Overridable="yes" />
-    <Variable Name="Enable37" bal:Overridable="yes" />
-    <Variable Name="Enable38" bal:Overridable="yes" />
     <Variable Name="PathVS2010" bal:Overridable="yes" />
     <Variable Name="PathVS2012" bal:Overridable="yes" />
     <Variable Name="PathVS2013" bal:Overridable="yes" />
     <Variable Name="BundleID" bal:Overridable="yes" />
+    <Variable Name="BundleVersion" bal:Overridable="yes" />
 
     <util:DirectorySearch Path="[ProgramFilesFolder]WixWPF\v3.6" Variable="HasOldWixWPF36" Result="exists" />
     <util:DirectorySearch Path="[ProgramFilesFolder]WixWPF\v3.7" Variable="HasOldWixWPF37" Result="exists" />
-    
+
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\[WixBundleProviderKey]" Variable="HasWixWPFBundle" Result="exists" />
     <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Troy Palacino\WixWPF\v3.6" Variable="HasWixWPF36" Result="exists" />
     <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Troy Palacino\WixWPF\v3.7" Variable="HasWixWPF37" Result="exists" />
     <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Troy Palacino\WixWPF\v3.8" Variable="HasWixWPF38" Result="exists" />
@@ -39,28 +38,29 @@
 
 		<Chain>
 			<PackageGroupRef Id="NetFx40Web"/>
-      <MsiPackage Id="WixWPF36MSI" SourceFile="$(var.WixWPF36MSI.TargetPath)" InstallCondition="Enable36 = 1" >
+      <MsiPackage Id="WixWPF36MSI" SourceFile="$(var.WixWPF36MSI.TargetPath)" >
         <MsiProperty Name="DEPLOYVS" Value="[DeployVS]"/>
         <MsiProperty Name="PATHVS2010" Value="[PathVS2010]"/>
         <MsiProperty Name="PATHVS2012" Value="[PathVS2012]"/>
         <MsiProperty Name="PATHVS2013" Value="[PathVS2013]"/>
-        <MsiProperty Name="BUNDLEID" Value="[BundleID]"/>
       </MsiPackage>
-      <MsiPackage Id="WixWPF37MSI" SourceFile="$(var.WixWPF37MSI.TargetPath)" InstallCondition="Enable37 = 1" >
+      <MsiPackage Id="WixWPF37MSI" SourceFile="$(var.WixWPF37MSI.TargetPath)" >
         <MsiProperty Name="DEPLOYVS" Value="[DeployVS]"/>
         <MsiProperty Name="PATHVS2010" Value="[PathVS2010]"/>
         <MsiProperty Name="PATHVS2012" Value="[PathVS2012]"/>
         <MsiProperty Name="PATHVS2013" Value="[PathVS2013]"/>
-        <MsiProperty Name="BUNDLEID" Value="[BundleID]"/>
       </MsiPackage>
-      <MsiPackage Id="WixWPF38MSI" SourceFile="$(var.WixWPF38MSI.TargetPath)" InstallCondition="Enable38 = 1" >
+      <MsiPackage Id="WixWPF38MSI" SourceFile="$(var.WixWPF38MSI.TargetPath)" >
         <MsiProperty Name="DEPLOYVS" Value="[DeployVS]"/>
         <MsiProperty Name="PATHVS2010" Value="[PathVS2010]"/>
         <MsiProperty Name="PATHVS2012" Value="[PathVS2012]"/>
         <MsiProperty Name="PATHVS2013" Value="[PathVS2013]"/>
-        <MsiProperty Name="BUNDLEID" Value="[BundleID]"/>
       </MsiPackage>
-		</Chain>
+      <MsiPackage Id="WixWPFCoreMSI" SourceFile="$(var.WixWPFCoreMSI.TargetPath)" >
+        <MsiProperty Name="BUNDLEID" Value="[BundleID]"/>
+        <MsiProperty Name="BUNDLEVERSION" Value="[BundleVersion]"/>
+      </MsiPackage>
+    </Chain>
 
 	</Bundle>
 </Wix>

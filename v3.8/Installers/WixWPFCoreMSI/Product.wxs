@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define VersionBuild="0.0"?>
+  <Product Id="*" Name="WixWPF" Language="1033" Version="3.8.0.0" Manufacturer="Troy Palacino" UpgradeCode="6A74CE20-92B3-48D5-AA19-355A9B41D822">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" InstallPrivileges="elevated" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <Media Id="1" Cabinet="WixWPFCoreMedia.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="WixWPF" >
+          <Component Id="WixWPFBundleRegistrationComponent" Guid="*">
+            <!--<Condition><![CDATA[NOT BUNDLEID = "" AND NOT BUNDLEVERSION = ""]]></Condition>-->
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\[BUNDLEID]" Name="DisplayName" Type="string" Value="[ProductName] v[BUNDLEVERSION]" />
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\[BUNDLEID]" Name="DisplayVersion" Type="string" Value="[BUNDLEVERSION].$(var.VersionBuild)" />
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="WixWPFCoreFeature" Title="WixWPF Core" Level="1">
+      <ComponentRef Id="WixWPFBundleRegistrationComponent" />
+    </Feature>
+  </Product>
+</Wix>

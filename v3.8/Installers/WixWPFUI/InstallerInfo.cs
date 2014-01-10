@@ -13,9 +13,6 @@ namespace WixWPFUI
     /// <summary>Indicates if the installer is busy.</summary>
     private bool _isBusy = true;
 
-    /// <summary>Indicates if the product is being repaired.</summary>
-    private bool _isRepairing = false;
-
     /// <summary>Indicates if Wix Toolset v3.6 is installed.</summary>
     private bool _hasWix36 = false;
 
@@ -84,13 +81,13 @@ namespace WixWPFUI
 
     #region IsBusy
     /// <summary>Indicates if the installer is busy.</summary>
-    public bool IsBusy { get { return _isBusy || _isRepairing; } set { _isBusy = value; OnPropertiesChanged("IsBusy"); } }
+    public bool IsBusy { get { return _isBusy; } set { _isBusy = value; OnPropertiesChanged("IsBusy", "IsNotBusy"); } }
     #endregion IsBusy
 
-    #region IsRepairing
-    /// <summary>Indicates if the product is being repaired.</summary>
-    public bool IsRepairing { get { return _isRepairing; } set { _isRepairing = value; OnPropertiesChanged("IsRepairing", "IsBusy"); } }
-    #endregion IsRepairing
+    #region IsNotBusy
+    /// <summary>Indicates if the installer is not busy.</summary>
+    public bool IsNotBusy { get { return !_isBusy; } }
+    #endregion IsNotBusy
 
     #region HasWix
     /// <summary>Indicates if Wix Toolset is installed.</summary>
