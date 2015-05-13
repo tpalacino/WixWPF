@@ -1,0 +1,57 @@
+﻿<mba:BaseBAWindow x:Class="ProductSetupUI.MainWindow"
+									xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+									xmlns:mba="clr-namespace:WixWPF;assembly=WixWPF"
+									xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+									xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+									xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+									Title="Example Product Installer" ResizeMode="NoResize"
+									mc:Ignorable="d" Height="213" Width="300">
+	<Window.Resources>
+		<mba:ConvertBoolToVisibility x:Key="BoolToVis" />
+		<mba:ConvertBoolToVisibility x:Key="BoolToVisNeg" TrueValue="Collapsed" FalseValue="Visible" />
+		<Style TargetType="Button">
+			<Setter Property="Margin" Value="6,0" />
+			<Setter Property="Padding" Value="4,2" />
+		</Style>
+	</Window.Resources>
+	<Grid x:Name="LayoutRoot" >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="30" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<TextBlock Grid.Row="1" Grid.Column="1" x:Name="TextBlockTitle" Text="Example Product" FontSize="24" HorizontalAlignment="Center" />
+		<StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsInstalled, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisNeg}}">
+			<TextBlock Text="Command line arguemtns:" />
+			<TextBox Text="{Binding CommandArgs, UpdateSourceTrigger=PropertyChanged}" ToolTip="A value must be supplied for the command line arguments." />
+		</StackPanel>
+		<StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+			<Button x:Name="ButtonInstall" Content="Install" IsEnabled="{Binding CanInstall}" Click="OnButtonClick" />
+			<Button x:Name="ButtonUninstall" Content="Uninstall" IsEnabled="{Binding CanUninstall}" Click="OnButtonClick" />
+			<Button x:Name="ButtonCancel" Content="Cancel" Click="OnButtonClick" />
+		</StackPanel>
+		<Canvas Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="3" Visibility="{Binding IsBusy, Converter={StaticResource BoolToVis}}" >
+			<Border Canvas.Left="0" Canvas.Top="0" Height="{Binding ElementName=LayoutRoot, Path=ActualHeight}" Width="{Binding ElementName=LayoutRoot, Path=ActualWidth}" Background="Black" Opacity="0.5" />
+			<Grid Canvas.Left="0" Canvas.Top="0" Height="{Binding ElementName=LayoutRoot, Path=ActualHeight}" Width="{Binding ElementName=LayoutRoot, Path=ActualWidth}" >
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<ProgressBar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" IsIndeterminate="True" Height="10" />
+			</Grid>
+		</Canvas>
+	</Grid>
+</mba:BaseBAWindow>
