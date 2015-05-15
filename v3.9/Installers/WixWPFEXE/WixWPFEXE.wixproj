@@ -6,7 +6,7 @@
     <ProjectGuid>{82d64fcd-1d32-40bd-9cfe-9e43802afe9c}</ProjectGuid>
     <ProductVersion>3.8</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>WixWPF38</OutputName>
+    <OutputName>WixWPF39</OutputName>
     <OutputType>Bundle</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
@@ -65,6 +65,14 @@
     <ProjectReference Include="..\WixWPF38MSI\WixWPF38MSI.wixproj">
       <Name>WixWPF38MSI</Name>
       <Project>{98e51c44-c7fc-4c5c-9699-02c74a580232}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\WixWPF39MSI\WixWPF39MSI.wixproj">
+      <Name>WixWPF39MSI</Name>
+      <Project>{6ecdedd5-cec7-4839-a953-d61c535bd6e2}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>

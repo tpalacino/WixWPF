@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?define VersionBuild="0.0"?>
-  <Product Id="*" Name="WixWPF" Language="1033" Version="3.8.0.0" Manufacturer="Troy Palacino" UpgradeCode="6A74CE20-92B3-48D5-AA19-355A9B41D822">
+  <Product Id="*" Name="WixWPF" Language="1033" Version="3.9.0.0" Manufacturer="Troy Palacino" UpgradeCode="6A74CE20-92B3-48D5-AA19-355A9B41D822">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" InstallPrivileges="elevated" />
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
     <Media Id="1" Cabinet="WixWPFCoreMedia.cab" EmbedCab="yes" />

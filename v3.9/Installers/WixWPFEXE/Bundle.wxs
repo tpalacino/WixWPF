@@ -2,8 +2,8 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" >
-	<?define LibsDir="..\..\Shared\Libs\v3.8\" ?>
-	<Bundle Name="WixWPF v3.8" Version="3.8.0.0" Manufacturer="Troy Palacino" UpgradeCode="{74AD0976-D657-47B3-84F6-B1A95835F8BC}"
+	<?define LibsDir="..\..\Shared\Libs\v3.9\" ?>
+	<Bundle Name="WixWPF v3.9" Version="3.9.0.0" Manufacturer="Troy Palacino" UpgradeCode="{74AD0976-D657-47B3-84F6-B1A95835F8BC}"
 					IconSourceFile="..\..\..\Images\Logo.ico" HelpUrl="http://wixwpf.codeplex.com" DisableRemove="yes" >
 
 		<BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost" >
@@ -26,9 +26,11 @@
     <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Troy Palacino\WixWPF\v3.6" Variable="HasWixWPF36" Result="exists" />
     <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Troy Palacino\WixWPF\v3.7" Variable="HasWixWPF37" Result="exists" />
     <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Troy Palacino\WixWPF\v3.8" Variable="HasWixWPF38" Result="exists" />
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Troy Palacino\WixWPF\v3.9" Variable="HasWixWPF39" Result="exists" />
     <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Windows Installer XML\3.6" Variable="HasWix36" Result="exists" />
     <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Windows Installer XML\3.7" Variable="HasWix37" Result="exists" />
     <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Windows Installer XML\3.8" Variable="HasWix38" Result="exists" />
+    <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Windows Installer XML\3.9" Variable="HasWix39" Result="exists" />
     
     <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\TeamFoundationServer\10.0" Variable="HasTFS2010" Result="exists" />
     <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\TeamFoundationServer\11.0" Variable="HasTFS2012" Result="exists" />
@@ -51,6 +53,12 @@
         <MsiProperty Name="PATHVS2013" Value="[PathVS2013]"/>
       </MsiPackage>
       <MsiPackage Id="WixWPF38MSI" SourceFile="$(var.WixWPF38MSI.TargetPath)" >
+        <MsiProperty Name="DEPLOYVS" Value="[DeployVS]"/>
+        <MsiProperty Name="PATHVS2010" Value="[PathVS2010]"/>
+        <MsiProperty Name="PATHVS2012" Value="[PathVS2012]"/>
+        <MsiProperty Name="PATHVS2013" Value="[PathVS2013]"/>
+      </MsiPackage>
+      <MsiPackage Id="WixWPF39MSI" SourceFile="$(var.WixWPF39MSI.TargetPath)" >
         <MsiProperty Name="DEPLOYVS" Value="[DeployVS]"/>
         <MsiProperty Name="PATHVS2010" Value="[PathVS2010]"/>
         <MsiProperty Name="PATHVS2012" Value="[PathVS2012]"/>

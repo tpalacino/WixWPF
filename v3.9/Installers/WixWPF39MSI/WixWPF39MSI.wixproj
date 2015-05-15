@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{6ecdedd5-cec7-4839-a953-d61c535bd6e2}</ProjectGuid>
+    <ProductVersion>3.8</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>WixWPF</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <UpgradeCodeGuid>{767DB6AB-94E0-4FDF-8DA7-62B79DE906F4}</UpgradeCodeGuid>
+    <GlobalParamsGuid>{205D824A-ABCD-4B0A-B34E-8A7FFA9D569D}</GlobalParamsGuid>
+    <EnvironmentGuid>{EA47D58A-2C74-402F-975F-010463156C69}</EnvironmentGuid>
+    <ShortcutsGuid>{C043F440-67B0-4F9F-859A-1383380D5F8C}</ShortcutsGuid>
+    <Name>WixWPF39MSI</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug;Version=3.9;UpgradeCodeGuid=$(UpgradeCodeGuid);GlobalParamsGuid=$(GlobalParamsGuid);EnvironmentGuid=$(EnvironmentGuid);ShortcutsGuid=$(ShortcutsGuid);</DefineConstants>
+    <SuppressValidation>True</SuppressValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Version=3.9;UpgradeCodeGuid=$(UpgradeCodeGuid);GlobalParamsGuid=$(GlobalParamsGuid);EnvironmentGuid=$(EnvironmentGuid);ShortcutsGuid=$(ShortcutsGuid);</DefineConstants>
+    <SuppressValidation>True</SuppressValidation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\WixWPF36MSI\Product.wxs">
+      <Link>Product.wxs</Link>
+    </Compile>
+    <Compile Include="..\WixWPF36MSI\VS2013.wxs">
+      <Link>VS2013.wxs</Link>
+    </Compile>
+    <Compile Include="..\WixWPF36MSI\VS2012.wxs">
+      <Link>VS2012.wxs</Link>
+    </Compile>
+    <Compile Include="..\WixWPF36MSI\VS2010.wxs">
+      <Link>VS2010.wxs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixVSExtension">
+      <HintPath>$(WixExtDir)\WixVSExtension.dll</HintPath>
+      <Name>WixVSExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

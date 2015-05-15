@@ -115,11 +115,13 @@ namespace WixWPFUI
                     InstallData.HasWix36 = (Bootstrapper.Engine.NumericVariables.Contains("HasWix36") && Bootstrapper.Engine.NumericVariables["HasWix36"] == 1L);
                     InstallData.HasWix37 = (Bootstrapper.Engine.NumericVariables.Contains("HasWix37") && Bootstrapper.Engine.NumericVariables["HasWix37"] == 1L);
                     InstallData.HasWix38 = (Bootstrapper.Engine.NumericVariables.Contains("HasWix38") && Bootstrapper.Engine.NumericVariables["HasWix38"] == 1L);
+                    InstallData.HasWix39 = (Bootstrapper.Engine.NumericVariables.Contains("HasWix39") && Bootstrapper.Engine.NumericVariables["HasWix39"] == 1L);
                     InstallData.HasTFS2010 = (Bootstrapper.Engine.NumericVariables.Contains("HasTFS2010") && Bootstrapper.Engine.NumericVariables["HasTFS2010"] == 1L);
                     InstallData.HasTFS2012 = (Bootstrapper.Engine.NumericVariables.Contains("HasTFS2012") && Bootstrapper.Engine.NumericVariables["HasTFS2012"] == 1L);
                     InstallData.HasWixWPF36 = (Bootstrapper.Engine.NumericVariables.Contains("HasWixWPF36") && Bootstrapper.Engine.NumericVariables["HasWixWPF36"] == 1L);
                     InstallData.HasWixWPF37 = (Bootstrapper.Engine.NumericVariables.Contains("HasWixWPF37") && Bootstrapper.Engine.NumericVariables["HasWixWPF37"] == 1L);
                     InstallData.HasWixWPF38 = (Bootstrapper.Engine.NumericVariables.Contains("HasWixWPF38") && Bootstrapper.Engine.NumericVariables["HasWixWPF38"] == 1L);
+                    InstallData.HasWixWPF39 = (Bootstrapper.Engine.NumericVariables.Contains("HasWixWPF39") && Bootstrapper.Engine.NumericVariables["HasWixWPF39"] == 1L);
                     InstallData.HasOldWixWPF36 = (Bootstrapper.Engine.NumericVariables.Contains("HasOldWixWPF36") && Bootstrapper.Engine.NumericVariables["HasOldWixWPF36"] == 1L);
                     InstallData.HasOldWixWPF37 = (Bootstrapper.Engine.NumericVariables.Contains("HasOldWixWPF37") && Bootstrapper.Engine.NumericVariables["HasOldWixWPF37"] == 1L);
                 }

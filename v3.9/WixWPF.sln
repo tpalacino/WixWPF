@@ -122,9 +122,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.9", "v3.9", "{70C18A3D-3
 		Shared\Libs\v3.9\WixWPF.xml = Shared\Libs\v3.9\WixWPF.xml
 	EndProjectSection
 EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "WixWPF39Docs", "Docs\WixWPF39Docs\WixWPF39Docs.shfbproj", "{E779A77C-685E-42C9-8492-5EA15C0AE947}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixWPF39MSI", "Installers\WixWPF39MSI\WixWPF39MSI.wixproj", "{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.9", "v3.9", "{F4D4CABB-E778-4FC5-A9B1-0F67ABB8B7CF}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Docs\v3.9\WixWPF.chm = Shared\Docs\v3.9\WixWPF.chm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.9", "v3.9", "{FD790BEE-BEA5-4171-A751-BDE8CB749A25}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\v3.9\WixWPFBundle.zip = Templates\v3.9\WixWPFBundle.zip
+		Templates\v3.9\WixWPFLibrary.zip = Templates\v3.9\WixWPFLibrary.zip
+		Templates\v3.9\WixWPFSolution.zip = Templates\v3.9\WixWPFSolution.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 14
+		SccNumberOfProjects = 16
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs10
 		SccLocalPath0 = .
@@ -176,6 +192,14 @@ Global
 		SccProjectUniqueName13 = WixWPF39\\WixWPF39.csproj
 		SccProjectName13 = WixWPF39
 		SccLocalPath13 = WixWPF39
+		SccProjectUniqueName14 = Docs\\WixWPF39Docs\\WixWPF39Docs.shfbproj
+		SccProjectTopLevelParentUniqueName14 = WixWPF.sln
+		SccProjectName14 = Docs/WixWPF39Docs
+		SccLocalPath14 = Docs\\WixWPF39Docs
+		SccProjectUniqueName15 = Installers\\WixWPF39MSI\\WixWPF39MSI.wixproj
+		SccProjectTopLevelParentUniqueName15 = WixWPF.sln
+		SccProjectName15 = Installers/WixWPF39MSI
+		SccLocalPath15 = Installers\\WixWPF39MSI
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -231,6 +255,13 @@ Global
 		{BAC5F4D7-6A00-4A75-8CE9-A9EC732AE7D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAC5F4D7-6A00-4A75-8CE9-A9EC732AE7D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAC5F4D7-6A00-4A75-8CE9-A9EC732AE7D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E779A77C-685E-42C9-8492-5EA15C0AE947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E779A77C-685E-42C9-8492-5EA15C0AE947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E779A77C-685E-42C9-8492-5EA15C0AE947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2}.Debug|Any CPU.Build.0 = Debug|x86
+		{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2}.Release|Any CPU.ActiveCfg = Release|x86
+		{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2}.Release|Any CPU.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -257,5 +288,9 @@ Global
 		{7A2CD741-D9B7-4384-905B-6443E6611C60} = {CFDDF7FE-0044-4382-8B56-4D4A4310772F}
 		{689F107D-8F0B-4114-AF56-FA5B3B37106D} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
 		{70C18A3D-3E29-461C-A4BA-83544FB3D236} = {DCDF5C67-59FA-4817-9CFE-2E2232514234}
+		{E779A77C-685E-42C9-8492-5EA15C0AE947} = {CC90FAFB-5123-4C79-AF8A-BB4DA7FA7B45}
+		{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{F4D4CABB-E778-4FC5-A9B1-0F67ABB8B7CF} = {CFDDF7FE-0044-4382-8B56-4D4A4310772F}
+		{FD790BEE-BEA5-4171-A751-BDE8CB749A25} = {5BB8DDE0-CA70-4E25-B1F8-D1ECB4856B55}
 	EndGlobalSection
 EndGlobal
