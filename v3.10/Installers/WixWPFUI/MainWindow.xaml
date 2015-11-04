@@ -25,11 +25,11 @@
       <!-- Visibility="Collapsed" -->
       <TextBlock Text="You are missing the following prerequisites:" />
       <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Visibility="{Binding HasWix, Converter={StaticResource BoolToVisNeg}}" >
-        <Hyperlink NavigateUri="http://wix.codeplex.com/releases/" Click="OnHyperlinkClick" >Wix Toolset</Hyperlink> v3.6, v3.7, or v3.8
+        <Hyperlink NavigateUri="http://wix.codeplex.com/releases/" Click="OnHyperlinkClick" >Wix Toolset</Hyperlink> v3.6, v3.7, v3.8, v3.9 or v3.10
       </TextBlock>
       <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Visibility="{Binding HasBuildTools, Converter={StaticResource BoolToVisNeg}}" >
         <Hyperlink NavigateUri="http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx" Click="OnHyperlinkClick" >VS</Hyperlink> or
-        <Hyperlink NavigateUri="http://msdn.microsoft.com/en-us/vstudio/ff637362.aspx" Click="OnHyperlinkClick" >TFS</Hyperlink> 2010, 2012, or 2013
+        <Hyperlink NavigateUri="http://msdn.microsoft.com/en-us/vstudio/ff637362.aspx" Click="OnHyperlinkClick" >TFS</Hyperlink> 2010, 2012, 2013 or 2015
       </TextBlock>
     </StackPanel>
     <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding HasOldWixWPF, Converter={StaticResource BoolToVis}}">

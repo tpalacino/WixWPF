@@ -11,7 +11,7 @@
             <summary>The <see cref="T:System.Type"/> of the startup window.</summary>
         </member>
         <member name="M:WixWPF.StartupWindowAttribute.#ctor(System.Type)">
-            <summary>Creates a new instance of <see cref="T:WixWPF.StartupWindowAttribute"/>&gt;</summary>
+            <summary>Creates a new instance of <see cref="T:WixWPF.StartupWindowAttribute"/>></summary>
             <param name="startupWindowType">The <see cref="T:System.Type"/> of the startup window.</param>
         </member>
         <member name="P:WixWPF.StartupWindowAttribute.StartupWindowType">
@@ -25,6 +25,14 @@
         </member>
         <member name="F:WixWPF.ConvertBoolToVisibility._falseValue">
             <summary>The default false value mapped visibility.</summary>
+        </member>
+        <member name="P:WixWPF.ConvertBoolToVisibility.TrueValue">
+            <summary>The visibility that maps to the Boolean value "True".</summary>
+            <value><seealso cref="F:System.Windows.Visibility.Visible"/></value>
+        </member>
+        <member name="P:WixWPF.ConvertBoolToVisibility.FalseValue">
+            <summary>The visibility that maps to the Boolean value "False".</summary>
+            <value><seealso cref="F:System.Windows.Visibility.Collapsed"/></value>
         </member>
         <member name="M:WixWPF.ConvertBoolToVisibility.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>Converts the specified <paramref name="value"/> to a <see cref="T:System.Windows.Visibility"/>.</summary>
@@ -42,17 +50,12 @@
             <param name="culture">The culture information for this conversion.</param>
             <returns>True if the specified <paramref name="value"/> matches the value of the <seealso cref="P:WixWPF.ConvertBoolToVisibility.TrueValue"/>, otherwise False.</returns>
         </member>
-        <member name="P:WixWPF.ConvertBoolToVisibility.TrueValue">
-            <summary>The visibility that maps to the Boolean value "True".</summary>
-            <value><seealso cref="F:System.Windows.Visibility.Visible"/></value>
-        </member>
-        <member name="P:WixWPF.ConvertBoolToVisibility.FalseValue">
-            <summary>The visibility that maps to the Boolean value "False".</summary>
-            <value><seealso cref="F:System.Windows.Visibility.Collapsed"/></value>
-        </member>
         <member name="T:WixWPF.BaseBAObjectCollection`1">
             <summary>Provides collection changed notification when a property on an item in the collection changes.</summary>
             <typeparam name="T">Any derivation of <see cref="T:WixWPF.BaseBAObject"/>.</typeparam>
+        </member>
+        <member name="E:WixWPF.BaseBAObjectCollection`1.CollectionChanged">
+            <summary>Represents the method that handles the event of the collection having changed.</summary>
         </member>
         <member name="M:WixWPF.BaseBAObjectCollection`1.#ctor">
             <summary>Creates a new instance of <see cref="T:WixWPF.BaseBAObjectCollection`1"/>.</summary>
@@ -91,11 +94,11 @@
             <param name="index">The zero-based index of the element to replace.</param>
             <param name="item">The new value for the element at the specified index.</param>
         </member>
-        <member name="E:WixWPF.BaseBAObjectCollection`1.CollectionChanged">
-            <summary>Represents the method that handles the event of the collection having changed.</summary>
-        </member>
         <member name="T:WixWPF.BaseBAWindow">
             <summary>Provides bootstrap application interaction functionality to derived classes.</summary>
+        </member>
+        <member name="P:WixWPF.BaseBAWindow.Bootstrapper">
+            <summary>Gets or sets Bootstrapper</summary>
         </member>
         <member name="M:WixWPF.BaseBAWindow.IsValid``1(WixWPF.WPFBootstrapperEventArgs{``0})">
             <summary>Determines if the specified <paramref name="arguments"/> is valid.</summary>
@@ -291,11 +294,11 @@
             <summary>Called when the engine has completed removing the registration for the location and visibility of the bundle.</summary>
             <param name="args">The arguments of the event.</param>
         </member>
-        <member name="P:WixWPF.BaseBAWindow.Bootstrapper">
-            <summary>Gets or sets Bootstrapper</summary>
-        </member>
         <member name="T:WixWPF.BaseBAObject">
             <summary>Provides a thread safe <see cref="T:System.ComponentModel.INotifyPropertyChanged"/> implementation to derived classes.</summary>
+        </member>
+        <member name="E:WixWPF.BaseBAObject.PropertyChanged">
+            <summary>Represents the method that handles the event of a property having changed.</summary>
         </member>
         <member name="M:WixWPF.BaseBAObject.OnPropertyChanged(System.String)">
             <summary>Called by property setters in derived classes to notify listeners that the value has changed.</summary>
@@ -304,9 +307,6 @@
         <member name="M:WixWPF.BaseBAObject.OnPropertiesChanged(System.String[])">
             <summary>Called to notify listeners that the value of the specified <paramref name="propertyNames"/> has changed.</summary>
             <param name="propertyNames">The names of the properties that changed.</param>
-        </member>
-        <member name="E:WixWPF.BaseBAObject.PropertyChanged">
-            <summary>Represents the method that handles the event of a property having changed.</summary>
         </member>
         <member name="T:WixWPF.WPFBootstrapperEventArgs`1">
             <summary>A event arguments wrapper used when notifying WPF UI implementation of events.</summary>
@@ -525,7 +525,7 @@
             <param name="e">The arguments of the event.</param>
         </member>
         <member name="M:WixWPF.WPFBootstrapper.GetApplicationUI">
-            <summary>Gets the <see cref="T:WixWPF.BaseBAWindow"/> derivation from the configured UI implementation assembly.</summary>
+            <summary>Gets the <see cref="T:WixWPF.BaseBAWindow" /> derivation from the configured UI implementation assembly.</summary>
             <returns>A BaseBAWindow instance or null.</returns>
         </member>
         <member name="M:WixWPF.WPFBootstrapper.GetUITypeFromAssembly(System.String)">

@@ -82,6 +82,17 @@
             </Directory>
           </Directory>
         </Directory>
+        <Directory Id="VS2015InstallDir" Name="Microsoft Visual Studio 14.0">
+          <Directory Id="Vs2015Common7Dir" Name="Common7">
+            <Directory Id="Vs2015IDEDir" Name="IDE">
+              <Directory Id="Vs2015ProjectTemplates" Name="ProjectTemplates">
+                <Directory Id="Vs2015ProjectTemplatesWix" Name="Wix">
+                  <Directory Id="Vs2015ProjectTemplatesProduct" Name="$(var.ProductName)" />
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
       </Directory>
     </Directory>
 
@@ -104,6 +115,10 @@
         <Feature Id="WixWPFVSIX_VS2013" Title="2013" Level="0">
           <Condition Level="1"><![CDATA[DEPLOYVS = 1 AND NOT PATHVS2013 = ""]]></Condition>
           <ComponentGroupRef Id="WixWPF_VS2013Extension" />
+        </Feature>
+        <Feature Id="WixWPFVSIX_VS2015" Title="2015" Level="0">
+          <Condition Level="1"><![CDATA[DEPLOYVS = 1 AND NOT PATHVS2015 = ""]]></Condition>
+          <ComponentGroupRef Id="WixWPF_VS2015Extension" />
         </Feature>
       </Feature>
     </Feature>

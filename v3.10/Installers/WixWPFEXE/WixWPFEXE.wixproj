@@ -4,9 +4,9 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{82d64fcd-1d32-40bd-9cfe-9e43802afe9c}</ProjectGuid>
-    <ProductVersion>3.8</ProductVersion>
+    <ProductVersion>3.10</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>WixWPF39</OutputName>
+    <OutputName>WixWPF310</OutputName>
     <OutputType>Bundle</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
@@ -46,6 +46,14 @@
     </WixExtension>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WixWPF310MSI\WixWPF310MSI.wixproj">
+      <Name>WixWPF310MSI</Name>
+      <Project>{dc166a99-408e-4b75-9373-4aaaa2c63de5}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\WixWPF36MSI\WixWPF36MSI.wixproj">
       <Name>WixWPF36MSI</Name>
       <Project>{0944c1a1-d8ad-4511-99f4-de042c515bbd}</Project>

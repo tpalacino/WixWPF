@@ -37,6 +37,7 @@
     <Compile Include="VS2013.wxs" />
     <Compile Include="VS2012.wxs" />
     <Compile Include="VS2010.wxs" />
+    <Compile Include="VS2015.wxs" />
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixVSExtension">
