@@ -33,18 +33,21 @@
     <SuppressValidation>True</SuppressValidation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\WixWPF36MSI\Product.wxs" >
-		<Link>Product.wxs</Link>
-	</Compile>
-    <Compile Include="..\WixWPF36MSI\VS2013.wxs" >
-		<Link>VS2013.wxs</Link>
-	</Compile>
-    <Compile Include="..\WixWPF36MSI\VS2012.wxs" >
-		<Link>VS2012.wxs</Link>
-	</Compile>
-    <Compile Include="..\WixWPF36MSI\VS2010.wxs" >
-		<Link>VS2010.wxs</Link>
-	</Compile>
+    <Compile Include="..\WixWPF36MSI\Product.wxs">
+      <Link>Product.wxs</Link>
+    </Compile>
+    <Compile Include="..\WixWPF36MSI\VS2013.wxs">
+      <Link>VS2013.wxs</Link>
+    </Compile>
+    <Compile Include="..\WixWPF36MSI\VS2012.wxs">
+      <Link>VS2012.wxs</Link>
+    </Compile>
+    <Compile Include="..\WixWPF36MSI\VS2010.wxs">
+      <Link>VS2010.wxs</Link>
+    </Compile>
+    <Compile Include="..\WixWPF36MSI\VS2015.wxs">
+      <Link>VS2015.wxs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixVSExtension">
