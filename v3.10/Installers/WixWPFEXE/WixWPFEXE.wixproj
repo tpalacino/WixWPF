@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{82d64fcd-1d32-40bd-9cfe-9e43802afe9c}</ProjectGuid>
+    <ProductVersion>3.8</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>WixWPF310</OutputName>
+    <OutputType>Bundle</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <SccProjectName>
+    </SccProjectName>
+    <SccProvider>
+    </SccProvider>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccLocalPath>
+    </SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Bundle.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixBalExtension">
+      <HintPath>$(WixExtDir)\WixBalExtension.dll</HintPath>
+      <Name>WixBalExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WixWPF310MSI\WixWPF310MSI.wixproj">
+      <Name>WixWPF310MSI</Name>
+      <Project>{dc166a99-408e-4b75-9373-4aaaa2c63de5}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\WixWPF36MSI\WixWPF36MSI.wixproj">
+      <Name>WixWPF36MSI</Name>
+      <Project>{0944c1a1-d8ad-4511-99f4-de042c515bbd}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\WixWPF37MSI\WixWPF37MSI.wixproj">
+      <Name>WixWPF37MSI</Name>
+      <Project>{f2773e38-e222-4642-92f1-b3546a2d0bcb}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\WixWPF38MSI\WixWPF38MSI.wixproj">
+      <Name>WixWPF38MSI</Name>
+      <Project>{98e51c44-c7fc-4c5c-9699-02c74a580232}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\WixWPF39MSI\WixWPF39MSI.wixproj">
+      <Name>WixWPF39MSI</Name>
+      <Project>{6ecdedd5-cec7-4839-a953-d61c535bd6e2}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\WixWPFCoreMSI\WixWPFCoreMSI.wixproj">
+      <Name>WixWPFCoreMSI</Name>
+      <Project>{689f107d-8f0b-4114-af56-fa5b3b37106d}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\WixWPFUI\WixWPFUI.csproj">
+      <Name>WixWPFUI</Name>
+      <Project>{d3714a87-b5a7-46c4-9a24-645a20a9a555}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BootstrapperCore.config" />
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

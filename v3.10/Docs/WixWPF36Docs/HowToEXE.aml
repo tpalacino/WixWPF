@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="d83e47ae-13aa-40c2-ac60-ab6c687339c0" revisionNumber="1">
+  <developerHowToDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>This topic will walk you through using WixWPF if you are currently distributing a bootstrapper EXE.</para>
+      <token>SystemNotice</token>
+    </introduction>
+    <procedure>
+      <title>How To Update an Existing Bootstrapper to use WixWPF</title>
+      <steps class="ordered">
+        <step>
+          <content>
+            <para>Start with the solution that has the existing product, MSI, and bootstrapper projects.</para>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToEXE_01-Original" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Right click on the solution node > point to "Add" > click on "New Project..."</para>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToEXE_02-AddNewProj" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>On the left hand side, expand "Windows Installer XML" and select "Wix WPF".</para>
+            <para>On the right hand side, choose the "WixWPF BootstrapperUI" template > provide a name and location > click "OK".</para>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToEXE_03-NewProjDlg" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Right click on the bootstrapper project ("ProductSetup" in this example) > point to "Add" > click "Reference...".</para>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToEXE_04-AddRefInBundle" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Select the "Browse" tab of the "Add Reference" dialog > select "WixNetFxExtension" > click the "Add" button.</para>
+            <alert class="note">
+              <para>You can skip this if the project already has a reference to "WixNetFxExtension".</para>
+            </alert>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToEXE_05-AddRefToNetFX" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Select the "Projects" tab of the "Add Reference" dialog > select the UI project ("ProductSetupUI" in this example) > click the "Add" button > click "OK".</para>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToEXE_06-AddRefToUI" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>
+              Open the file in the bootstrapper project that defines the bundle ("Bundle.wxs" in this example) > perform the following modifications:
+            </para>
+            <list class="bullet">
+              <listItem>
+                <para>Set the value of the "Wix/Bundle/BootstrapperApplicationRef/@Id" attribute to "ManagedBootstrapperApplicationHost".</para>
+              </listItem>
+              <listItem>
+                <para>Ensure the "BootstrapperApplicationRef" element includes the following "Payload" elements. Where "ProductSetupUI" is the name of the project with the UI.</para>
+                <token>PayloadInclude</token>
+              </listItem>
+              <listItem>
+                <para>
+                  Ensure the "Chain" element includes the following xml.
+                </para>
+                <code language="xml" >
+                  <![CDATA[<PackageGroupRef Id="NetFx40Web"/>]]>
+                </code>
+              </listItem>
+            </list>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToEXE_07-ModBundleXml" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Right click on the bootstrapper project > point to "Add" > click "Existing Item....".</para>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToEXE_08-AddExisting" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Enter "%WIX%SDK\BootstrapperCore.config" as the file name > "OK".</para>
+            <alert class="tip">
+              <para>It does not matter what the initial folder is in the browse dialog. The "%WIX%" environment variable should be resolve by windows to the absolute path of the Wix installation.</para>
+            </alert>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToEXE_09-AddBootstrapperConfig" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Open the "BootstrapperCore.config" file from the bootstrapper project > perform the following modifications:</para>
+            <list class="bullet">
+              <listItem>
+                <para>Set the value of the "configuration/wix.bootstrapper/host/@assemblyName" attribute to "WixWPF".</para>
+              </listItem>
+              <listItem>
+                <para>Insert the following xml just before the closing "configuration" tag. Where "ProductSetupUI" is the name of the assembly with the UI.</para>
+                <code language="xml">
+                  <![CDATA[<appSettings>
+  <add key="BootstrapperUI" value="ProductSetupUI" />
+</appSettings>]]>
+                </code>
+              </listItem>
+            </list>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToEXE_10-UpdateBootstrapperConfig" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <token>BuildBootstrapperContent</token>
+          </content>
+        </step>
+      </steps>
+    </procedure>
+    <relatedTopics></relatedTopics>
+  </developerHowToDocument>
+</topic>
