@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define VsVer=2010 ?>
+  <Fragment>
+    <ComponentGroup Id="WixWPF_VS$(var.VsVer)Extension">
+      <Component Id="WixWPF_VS$(var.VsVer)WPFBootstrapperComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="*">
+        <File Id="WixWPF_VS$(var.VsVer)WPFBootstrapperFile" KeyPath="yes" Source="$(var.SolutionDir)Templates\v$(var.Version)\WixWPFBundle.zip" />
+      </Component>
+      <Component Id="WixWPF_VS$(var.VsVer)WPFBootstrapperSolutionComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="*">
+        <File Id="WixWPF_VS$(var.VsVer)WPFBootstrapperSolutionFile" KeyPath="yes" Source="$(var.SolutionDir)Templates\v$(var.Version)\WixWPFSolution.zip" />
+      </Component>
+      <Component Id="WixWPF_VS$(var.VsVer)WPFBootstrapperUIComponent" Directory="Vs$(var.VsVer)ProjectTemplatesProduct" Guid="*">
+        <File Id="WixWPF_VS$(var.VsVer)WPFBootstrapperUIFile" KeyPath="yes" Source="$(var.SolutionDir)Templates\v$(var.Version)\WixWPFLibrary.zip" />
+      </Component>
+    </ComponentGroup>
+
+    <CustomActionRef Id="VS$(var.VsVer)InstallVSTemplates"/>
+
+    <UI>
+      <ProgressText Action="VS$(var.VsVer)InstallVSTemplates" Template="[1]" >Updating Visual Studio $(var.VsVer) Registration</ProgressText>
+    </UI>
+  </Fragment>
+</Wix>

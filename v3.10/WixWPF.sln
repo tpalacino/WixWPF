@@ -1,0 +1,296 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installers", "Installers", "{27F7CAF4-BA9B-4131-82F9-4FB829365BF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixWPFUI", "Installers\WixWPFUI\WixWPFUI.csproj", "{D3714A87-B5A7-46C4-9A24-645A20A9A555}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixWPFEXE", "Installers\WixWPFEXE\WixWPFEXE.wixproj", "{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{9B0260FF-9CD4-4AC7-9B56-004ED53283D1}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Logo.ico = Shared\Logo.ico
+		Shared\Logo.png = Shared\Logo.png
+		Shared\SharedAssemblyInfo.cs = Shared\SharedAssemblyInfo.cs
+		Shared\WixWPF.snk = Shared\WixWPF.snk
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{5BB8DDE0-CA70-4E25-B1F8-D1ECB4856B55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{DCDF5C67-59FA-4817-9CFE-2E2232514234}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Libs\GlobalParams.dll = Shared\Libs\GlobalParams.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.6", "v3.6", "{6C3948D3-A142-4DA1-9364-9CADB8A7DCC9}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\v3.6\WixWPFBundle.zip = Templates\v3.6\WixWPFBundle.zip
+		Templates\v3.6\WixWPFLibrary.zip = Templates\v3.6\WixWPFLibrary.zip
+		Templates\v3.6\WixWPFSolution.zip = Templates\v3.6\WixWPFSolution.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.6", "v3.6", "{7C231BB8-0D3A-4579-97DA-C227DFA8EA4B}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Libs\v3.6\BootstrapperCore.dll = Shared\Libs\v3.6\BootstrapperCore.dll
+		Shared\Libs\v3.6\BootstrapperCore.xml = Shared\Libs\v3.6\BootstrapperCore.xml
+		Shared\Libs\v3.6\WixWPF.dll = Shared\Libs\v3.6\WixWPF.dll
+		Shared\Libs\v3.6\WixWPF.pdb = Shared\Libs\v3.6\WixWPF.pdb
+		Shared\Libs\v3.6\WixWPF.xml = Shared\Libs\v3.6\WixWPF.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.7", "v3.7", "{8C1E27BE-0E87-4CD7-9725-5490AF722676}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Libs\v3.7\BootstrapperCore.dll = Shared\Libs\v3.7\BootstrapperCore.dll
+		Shared\Libs\v3.7\BootstrapperCore.xml = Shared\Libs\v3.7\BootstrapperCore.xml
+		Shared\Libs\v3.7\WixWPF.dll = Shared\Libs\v3.7\WixWPF.dll
+		Shared\Libs\v3.7\WixWPF.pdb = Shared\Libs\v3.7\WixWPF.pdb
+		Shared\Libs\v3.7\WixWPF.xml = Shared\Libs\v3.7\WixWPF.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.7", "v3.7", "{45B1D53A-3FEF-4359-8F41-853F7FC7A36E}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\v3.7\WixWPFBundle.zip = Templates\v3.7\WixWPFBundle.zip
+		Templates\v3.7\WixWPFLibrary.zip = Templates\v3.7\WixWPFLibrary.zip
+		Templates\v3.7\WixWPFSolution.zip = Templates\v3.7\WixWPFSolution.zip
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixWPF36", "WixWPF36\WixWPF36.csproj", "{CFC77CE9-B119-454E-B411-35DC710AC8BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixWPF37", "WixWPF37\WixWPF37.csproj", "{7D04F8FD-9000-41CC-AC7D-FD76E23C65E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixWPF38", "WixWPF38\WixWPF38.csproj", "{D8EAA19B-D5EF-44B6-8EEA-F2B252BE6211}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.8", "v3.8", "{D76206FF-D536-4079-9509-F464CC6C57A6}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Libs\v3.8\BootstrapperCore.dll = Shared\Libs\v3.8\BootstrapperCore.dll
+		Shared\Libs\v3.8\BootstrapperCore.xml = Shared\Libs\v3.8\BootstrapperCore.xml
+		Shared\Libs\v3.8\WixWPF.dll = Shared\Libs\v3.8\WixWPF.dll
+		Shared\Libs\v3.8\WixWPF.pdb = Shared\Libs\v3.8\WixWPF.pdb
+		Shared\Libs\v3.8\WixWPF.xml = Shared\Libs\v3.8\WixWPF.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.8", "v3.8", "{2931F1F9-2CF8-4CBA-A9FC-FEB9EFCE9BD9}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\v3.8\WixWPFBundle.zip = Templates\v3.8\WixWPFBundle.zip
+		Templates\v3.8\WixWPFLibrary.zip = Templates\v3.8\WixWPFLibrary.zip
+		Templates\v3.8\WixWPFSolution.zip = Templates\v3.8\WixWPFSolution.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{CC90FAFB-5123-4C79-AF8A-BB4DA7FA7B45}"
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "WixWPF36Docs", "Docs\WixWPF36Docs\WixWPF36Docs.shfbproj", "{930684D0-661E-41B6-9EEE-FAB5E1C22978}"
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "WixWPF37Docs", "Docs\WixWPF37Docs\WixWPF37Docs.shfbproj", "{B3427FBC-18FE-4684-968C-37F510FE4E92}"
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "WixWPF38Docs", "Docs\WixWPF38Docs\WixWPF38Docs.shfbproj", "{CF653EC8-E413-4C17-8521-A212F072C1F5}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixWPF38MSI", "Installers\WixWPF38MSI\WixWPF38MSI.wixproj", "{98E51C44-C7FC-4C5C-9699-02C74A580232}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixWPF36MSI", "Installers\WixWPF36MSI\WixWPF36MSI.wixproj", "{0944C1A1-D8AD-4511-99F4-DE042C515BBD}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixWPF37MSI", "Installers\WixWPF37MSI\WixWPF37MSI.wixproj", "{F2773E38-E222-4642-92F1-B3546A2D0BCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{CFDDF7FE-0044-4382-8B56-4D4A4310772F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.6", "v3.6", "{8F441A03-7B1A-4B6E-807B-082C06F52147}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Docs\v3.6\WixWPF.chm = Shared\Docs\v3.6\WixWPF.chm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.7", "v3.7", "{441898C0-872C-46B5-99F2-D9B1C1F81F85}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Docs\v3.7\WixWPF.chm = Shared\Docs\v3.7\WixWPF.chm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.8", "v3.8", "{7A2CD741-D9B7-4384-905B-6443E6611C60}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Docs\v3.8\WixWPF.chm = Shared\Docs\v3.8\WixWPF.chm
+	EndProjectSection
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixWPFCoreMSI", "Installers\WixWPFCoreMSI\WixWPFCoreMSI.wixproj", "{689F107D-8F0B-4114-AF56-FA5B3B37106D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixWPF39", "WixWPF39\WixWPF39.csproj", "{BAC5F4D7-6A00-4A75-8CE9-A9EC732AE7D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.9", "v3.9", "{70C18A3D-3E29-461C-A4BA-83544FB3D236}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Libs\v3.9\BootstrapperCore.dll = Shared\Libs\v3.9\BootstrapperCore.dll
+		Shared\Libs\v3.9\BootstrapperCore.xml = Shared\Libs\v3.9\BootstrapperCore.xml
+		Shared\Libs\v3.9\WixWPF.dll = Shared\Libs\v3.9\WixWPF.dll
+		Shared\Libs\v3.9\WixWPF.pdb = Shared\Libs\v3.9\WixWPF.pdb
+		Shared\Libs\v3.9\WixWPF.xml = Shared\Libs\v3.9\WixWPF.xml
+	EndProjectSection
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "WixWPF39Docs", "Docs\WixWPF39Docs\WixWPF39Docs.shfbproj", "{E779A77C-685E-42C9-8492-5EA15C0AE947}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WixWPF39MSI", "Installers\WixWPF39MSI\WixWPF39MSI.wixproj", "{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.9", "v3.9", "{F4D4CABB-E778-4FC5-A9B1-0F67ABB8B7CF}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Docs\v3.9\WixWPF.chm = Shared\Docs\v3.9\WixWPF.chm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v3.9", "v3.9", "{FD790BEE-BEA5-4171-A751-BDE8CB749A25}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\v3.9\WixWPFBundle.zip = Templates\v3.9\WixWPFBundle.zip
+		Templates\v3.9\WixWPFLibrary.zip = Templates\v3.9\WixWPFLibrary.zip
+		Templates\v3.9\WixWPFSolution.zip = Templates\v3.9\WixWPFSolution.zip
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 16
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs10
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Installers\\WixWPFUI\\WixWPFUI.csproj
+		SccProjectTopLevelParentUniqueName1 = WixWPF.sln
+		SccProjectName1 = Installers/WixWPFUI
+		SccLocalPath1 = Installers\\WixWPFUI
+		SccProjectUniqueName2 = WixWPF36\\WixWPF36.csproj
+		SccProjectName2 = WixWPF36
+		SccLocalPath2 = WixWPF36
+		SccProjectUniqueName3 = WixWPF37\\WixWPF37.csproj
+		SccProjectName3 = WixWPF37
+		SccLocalPath3 = WixWPF37
+		SccProjectUniqueName4 = WixWPF38\\WixWPF38.csproj
+		SccProjectName4 = WixWPF38
+		SccLocalPath4 = WixWPF38
+		SccProjectUniqueName5 = Installers\\WixWPFEXE\\WixWPFEXE.wixproj
+		SccProjectTopLevelParentUniqueName5 = WixWPF.sln
+		SccProjectName5 = Installers/WixWPFEXE
+		SccLocalPath5 = Installers\\WixWPFEXE
+		SccProjectUniqueName6 = Docs\\WixWPF36Docs\\WixWPF36Docs.shfbproj
+		SccProjectTopLevelParentUniqueName6 = WixWPF.sln
+		SccProjectName6 = Docs/WixWPF36Docs
+		SccLocalPath6 = Docs\\WixWPF36Docs
+		SccProjectUniqueName7 = Docs\\WixWPF37Docs\\WixWPF37Docs.shfbproj
+		SccProjectTopLevelParentUniqueName7 = WixWPF.sln
+		SccProjectName7 = Docs/WixWPF37Docs
+		SccLocalPath7 = Docs\\WixWPF37Docs
+		SccProjectUniqueName8 = Docs\\WixWPF38Docs\\WixWPF38Docs.shfbproj
+		SccProjectTopLevelParentUniqueName8 = WixWPF.sln
+		SccProjectName8 = Docs/WixWPF38Docs
+		SccLocalPath8 = Docs\\WixWPF38Docs
+		SccProjectUniqueName9 = Installers\\WixWPF38MSI\\WixWPF38MSI.wixproj
+		SccProjectTopLevelParentUniqueName9 = WixWPF.sln
+		SccProjectName9 = Installers/WixWPF38MSI
+		SccLocalPath9 = Installers\\WixWPF38MSI
+		SccProjectUniqueName10 = Installers\\WixWPF36MSI\\WixWPF36MSI.wixproj
+		SccProjectTopLevelParentUniqueName10 = WixWPF.sln
+		SccProjectName10 = Installers/WixWPF36MSI
+		SccLocalPath10 = Installers\\WixWPF36MSI
+		SccProjectUniqueName11 = Installers\\WixWPF37MSI\\WixWPF37MSI.wixproj
+		SccProjectTopLevelParentUniqueName11 = WixWPF.sln
+		SccProjectName11 = Installers/WixWPF37MSI
+		SccLocalPath11 = Installers\\WixWPF37MSI
+		SccProjectUniqueName12 = Installers\\WixWPFCoreMSI\\WixWPFCoreMSI.wixproj
+		SccProjectTopLevelParentUniqueName12 = WixWPF.sln
+		SccProjectName12 = Installers/WixWPFCoreMSI
+		SccLocalPath12 = Installers\\WixWPFCoreMSI
+		SccProjectUniqueName13 = WixWPF39\\WixWPF39.csproj
+		SccProjectName13 = WixWPF39
+		SccLocalPath13 = WixWPF39
+		SccProjectUniqueName14 = Docs\\WixWPF39Docs\\WixWPF39Docs.shfbproj
+		SccProjectTopLevelParentUniqueName14 = WixWPF.sln
+		SccProjectName14 = Docs/WixWPF39Docs
+		SccLocalPath14 = Docs\\WixWPF39Docs
+		SccProjectUniqueName15 = Installers\\WixWPF39MSI\\WixWPF39MSI.wixproj
+		SccProjectTopLevelParentUniqueName15 = WixWPF.sln
+		SccProjectName15 = Installers/WixWPF39MSI
+		SccLocalPath15 = Installers\\WixWPF39MSI
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Debug|Any CPU.Build.0 = Debug|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Release|Any CPU.ActiveCfg = Release|x86
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C}.Release|Any CPU.Build.0 = Release|x86
+		{CFC77CE9-B119-454E-B411-35DC710AC8BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC77CE9-B119-454E-B411-35DC710AC8BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC77CE9-B119-454E-B411-35DC710AC8BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC77CE9-B119-454E-B411-35DC710AC8BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D04F8FD-9000-41CC-AC7D-FD76E23C65E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D04F8FD-9000-41CC-AC7D-FD76E23C65E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D04F8FD-9000-41CC-AC7D-FD76E23C65E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D04F8FD-9000-41CC-AC7D-FD76E23C65E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8EAA19B-D5EF-44B6-8EEA-F2B252BE6211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8EAA19B-D5EF-44B6-8EEA-F2B252BE6211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8EAA19B-D5EF-44B6-8EEA-F2B252BE6211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8EAA19B-D5EF-44B6-8EEA-F2B252BE6211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{930684D0-661E-41B6-9EEE-FAB5E1C22978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{930684D0-661E-41B6-9EEE-FAB5E1C22978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{930684D0-661E-41B6-9EEE-FAB5E1C22978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3427FBC-18FE-4684-968C-37F510FE4E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3427FBC-18FE-4684-968C-37F510FE4E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3427FBC-18FE-4684-968C-37F510FE4E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF653EC8-E413-4C17-8521-A212F072C1F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF653EC8-E413-4C17-8521-A212F072C1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF653EC8-E413-4C17-8521-A212F072C1F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Debug|Any CPU.Build.0 = Debug|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Release|Any CPU.ActiveCfg = Release|x86
+		{98E51C44-C7FC-4C5C-9699-02C74A580232}.Release|Any CPU.Build.0 = Release|x86
+		{0944C1A1-D8AD-4511-99F4-DE042C515BBD}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0944C1A1-D8AD-4511-99F4-DE042C515BBD}.Debug|Any CPU.Build.0 = Debug|x86
+		{0944C1A1-D8AD-4511-99F4-DE042C515BBD}.Release|Any CPU.ActiveCfg = Release|x86
+		{0944C1A1-D8AD-4511-99F4-DE042C515BBD}.Release|Any CPU.Build.0 = Release|x86
+		{F2773E38-E222-4642-92F1-B3546A2D0BCB}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{F2773E38-E222-4642-92F1-B3546A2D0BCB}.Debug|Any CPU.Build.0 = Debug|x86
+		{F2773E38-E222-4642-92F1-B3546A2D0BCB}.Release|Any CPU.ActiveCfg = Release|x86
+		{F2773E38-E222-4642-92F1-B3546A2D0BCB}.Release|Any CPU.Build.0 = Release|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Debug|Any CPU.Build.0 = Debug|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Release|Any CPU.ActiveCfg = Release|x86
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D}.Release|Any CPU.Build.0 = Release|x86
+		{BAC5F4D7-6A00-4A75-8CE9-A9EC732AE7D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAC5F4D7-6A00-4A75-8CE9-A9EC732AE7D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAC5F4D7-6A00-4A75-8CE9-A9EC732AE7D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAC5F4D7-6A00-4A75-8CE9-A9EC732AE7D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E779A77C-685E-42C9-8492-5EA15C0AE947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E779A77C-685E-42C9-8492-5EA15C0AE947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E779A77C-685E-42C9-8492-5EA15C0AE947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2}.Debug|Any CPU.Build.0 = Debug|x86
+		{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2}.Release|Any CPU.ActiveCfg = Release|x86
+		{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2}.Release|Any CPU.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D3714A87-B5A7-46C4-9A24-645A20A9A555} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{82D64FCD-1D32-40BD-9CFE-9E43802AFE9C} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{DCDF5C67-59FA-4817-9CFE-2E2232514234} = {9B0260FF-9CD4-4AC7-9B56-004ED53283D1}
+		{6C3948D3-A142-4DA1-9364-9CADB8A7DCC9} = {5BB8DDE0-CA70-4E25-B1F8-D1ECB4856B55}
+		{7C231BB8-0D3A-4579-97DA-C227DFA8EA4B} = {DCDF5C67-59FA-4817-9CFE-2E2232514234}
+		{8C1E27BE-0E87-4CD7-9725-5490AF722676} = {DCDF5C67-59FA-4817-9CFE-2E2232514234}
+		{45B1D53A-3FEF-4359-8F41-853F7FC7A36E} = {5BB8DDE0-CA70-4E25-B1F8-D1ECB4856B55}
+		{D76206FF-D536-4079-9509-F464CC6C57A6} = {DCDF5C67-59FA-4817-9CFE-2E2232514234}
+		{2931F1F9-2CF8-4CBA-A9FC-FEB9EFCE9BD9} = {5BB8DDE0-CA70-4E25-B1F8-D1ECB4856B55}
+		{930684D0-661E-41B6-9EEE-FAB5E1C22978} = {CC90FAFB-5123-4C79-AF8A-BB4DA7FA7B45}
+		{B3427FBC-18FE-4684-968C-37F510FE4E92} = {CC90FAFB-5123-4C79-AF8A-BB4DA7FA7B45}
+		{CF653EC8-E413-4C17-8521-A212F072C1F5} = {CC90FAFB-5123-4C79-AF8A-BB4DA7FA7B45}
+		{98E51C44-C7FC-4C5C-9699-02C74A580232} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{0944C1A1-D8AD-4511-99F4-DE042C515BBD} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{F2773E38-E222-4642-92F1-B3546A2D0BCB} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{CFDDF7FE-0044-4382-8B56-4D4A4310772F} = {9B0260FF-9CD4-4AC7-9B56-004ED53283D1}
+		{8F441A03-7B1A-4B6E-807B-082C06F52147} = {CFDDF7FE-0044-4382-8B56-4D4A4310772F}
+		{441898C0-872C-46B5-99F2-D9B1C1F81F85} = {CFDDF7FE-0044-4382-8B56-4D4A4310772F}
+		{7A2CD741-D9B7-4384-905B-6443E6611C60} = {CFDDF7FE-0044-4382-8B56-4D4A4310772F}
+		{689F107D-8F0B-4114-AF56-FA5B3B37106D} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{70C18A3D-3E29-461C-A4BA-83544FB3D236} = {DCDF5C67-59FA-4817-9CFE-2E2232514234}
+		{E779A77C-685E-42C9-8492-5EA15C0AE947} = {CC90FAFB-5123-4C79-AF8A-BB4DA7FA7B45}
+		{6ECDEDD5-CEC7-4839-A953-D61C535BD6E2} = {27F7CAF4-BA9B-4131-82F9-4FB829365BF5}
+		{F4D4CABB-E778-4FC5-A9B1-0F67ABB8B7CF} = {CFDDF7FE-0044-4382-8B56-4D4A4310772F}
+		{FD790BEE-BEA5-4171-A751-BDE8CB749A25} = {5BB8DDE0-CA70-4E25-B1F8-D1ECB4856B55}
+	EndGlobalSection
+EndGlobal
