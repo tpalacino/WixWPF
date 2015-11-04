@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topics>
+  <Topic id="baaad6cf-6b87-4913-9522-c0bbc529547c" visible="True" isDefault="true" isSelected="true" title="Overview" tocTitle="Overview" linkText="Overview" />
+  <Topic id="0e6fd01d-5ffc-444e-b98b-a33a1e727925" visible="True" noFile="true" isExpanded="true" title="Walkthroughs" tocTitle="Walkthroughs" linkText="Walkthroughs">
+    <Topic id="621fb9a0-d025-4410-840b-2fbd48f63ec7" visible="True" title="How To Use WixWPF with an Existing MSI" tocTitle="How To Use WixWPF with an Existing MSI" linkText="How To Use WixWPF with an Existing MSI" />
+    <Topic id="d83e47ae-13aa-40c2-ac60-ab6c687339c0" visible="True" title="How To Use WixWPF with an Existing Bootstrapper" tocTitle="How To Use WixWPF with an Existing Bootstrapper" linkText="How To Use WixWPF with an Existing Bootstrapper" />
+  </Topic>
+</Topics>

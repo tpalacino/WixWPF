@@ -47,8 +47,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="WixWPF, Version=3.6.0.0, Culture=neutral, PublicKeyToken=8665a3a8c7e50284, processorArchitecture=MSIL">
-      <HintPath>..\..\Shared\Libs\WixWPF.dll</HintPath>
+    <Reference Include="WixWPF, Version=3.7.0.0, Culture=neutral, PublicKeyToken=8665a3a8c7e50284, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Shared\Libs\v3.7\WixWPF.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

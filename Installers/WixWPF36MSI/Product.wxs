@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:vs="http://schemas.microsoft.com/wix/VSExtension" >
+  <?define VersionBuild="0.0"?>
+  <?define VersionFull="$(var.Version).$(var.VersionBuild)" ?>
+  <?define ProductName="WixWPF" ?>
+  <?define Manufacturer="Troy Palacino" ?>
+  <?define Shared="..\..\Shared\" ?>
+  <Product Id="*" Name="$(var.ProductName)" Language="1033" Version="$(var.VersionFull)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCodeGuid)">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" InstallPrivileges="elevated" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <Media Id="1" Cabinet="WixWPFMedia.cab" EmbedCab="yes" />
+    
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)" >
+
+          <Component Id="GlobalParamsComponent" Shared="yes" SharedDllRefCount="yes" Guid="$(var.GlobalParamsGuid)">
+            <File Id="GlobalParams.dll" Source="$(var.Shared)Libs\GlobalParams.dll" Vital="yes" DiskId="1" Assembly=".net" KeyPath="yes" />
+          </Component>
+
+          <Component Id="WixWPFEnvVarComponent" Guid="$(var.EnvironmentGuid)">
+            <Environment Id="WixWPF.EnvVar" Name="WixWPF" Part="all" System="yes" Action="set" Value="[INSTALLFOLDER]" />
+          </Component>
+
+          <Directory Id="WixWPFDir" Name="v$(var.Version)">
+            <Component Id="WixWPFRegistration" Guid="*" >
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Troy Palacino\WixWPF\v$(var.Version)" Value="true" Type="string" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v3.5\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFDir]" Type="string" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFDir]" Type="string" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.5\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFDir]" Type="string" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.5.1\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFDir]" Type="string" />
+              <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v4.5.50709\AssemblyFoldersEx\WixWPF v$(var.Version)" Value="[WixWPFDir]" Type="string" />
+            </Component>
+            <Component Id="WixWPFComponent" Guid="*" >
+              <CreateFolder/>
+              <File Id="WixWPF.dll" Source="$(var.Shared)Libs\v$(var.Version)\WixWPF.dll" Vital="yes" DiskId="1" />
+              <File Id="WixWPF.pdb" Source="$(var.Shared)Libs\v$(var.Version)\WixWPF.pdb" Vital="yes" DiskId="1" />
+              <File Id="WixWPF.xml" Source="$(var.Shared)Libs\v$(var.Version)\WixWPF.xml" Vital="yes" DiskId="1" />
+              <File Id="WixWPF.chm" Source="$(var.Shared)Docs\v$(var.Version)\WixWPF.chm" Vital="yes" DiskId="1" />
+            </Component>
+          </Directory>
+          
+        </Directory>
+        <Directory Id="ProgramMenuFolder" Name="ProgramMenuFolder">
+          <Directory Id="ProgramGroupDir" Name="$(var.ProductName)">
+            <Component Id="WixWPFShortcuts" Guid="$(var.ShortcutsGuid)" >
+              <RemoveFolder Id="ProgramGroupDir" On="uninstall" />
+              <Shortcut Id="WixWPFDocumentationLink" Name="WixWPF Documentation" Target="[#WixWPF.chm]" />
+            </Component>
+          </Directory>
+        </Directory>
+        <Directory Id="VS2010InstallDir" Name="Microsoft Visual Studio 10.0">
+          <Directory Id="Vs2010Common7Dir" Name="Common7">
+            <Directory Id="Vs2010IDEDir" Name="IDE">
+              <Directory Id="Vs2010ProjectTemplates" Name="ProjectTemplates">
+                <Directory Id="Vs2010ProjectTemplatesWix" Name="Wix">
+                  <Directory Id="Vs2010ProjectTemplatesProduct" Name="$(var.ProductName)" />
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+        <Directory Id="VS2012InstallDir" Name="Microsoft Visual Studio 11.0">
+          <Directory Id="Vs2012Common7Dir" Name="Common7">
+            <Directory Id="Vs2012IDEDir" Name="IDE">
+              <Directory Id="Vs2012ProjectTemplates" Name="ProjectTemplates">
+                <Directory Id="Vs2012ProjectTemplatesWix" Name="Wix">
+                  <Directory Id="Vs2012ProjectTemplatesProduct" Name="$(var.ProductName)" />
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+        <Directory Id="VS2013InstallDir" Name="Microsoft Visual Studio 12.0">
+          <Directory Id="Vs2013Common7Dir" Name="Common7">
+            <Directory Id="Vs2013IDEDir" Name="IDE">
+              <Directory Id="Vs2013ProjectTemplates" Name="ProjectTemplates">
+                <Directory Id="Vs2013ProjectTemplatesWix" Name="Wix">
+                  <Directory Id="Vs2013ProjectTemplatesProduct" Name="$(var.ProductName)" />
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="WixWPFFeature" Title="$(var.ProductName) v$(var.Version)" Level="1">
+      <ComponentRef Id="GlobalParamsComponent" />
+      <ComponentRef Id="WixWPFEnvVarComponent" />
+      <ComponentRef Id="WixWPFComponent" />
+      <ComponentRef Id="WixWPFRegistration" />
+      <ComponentRef Id="WixWPFShortcuts" />
+      <Feature Id="WixWPFVSIX" Title="Visual Studio Integration" Level="0">
+        <Condition Level="1"><![CDATA[DEPLOYVS = 1]]></Condition>
+        <Feature Id="WixWPFVSIX_VS2010" Title="2010" Level="0">
+          <Condition Level="1"><![CDATA[DEPLOYVS = 1 AND NOT PATHVS2010 = ""]]></Condition>
+          <ComponentGroupRef Id="WixWPF_VS2010Extension" />
+        </Feature>
+        <Feature Id="WixWPFVSIX_VS2012" Title="2012" Level="0">
+          <Condition Level="1"><![CDATA[DEPLOYVS = 1 AND NOT PATHVS2012 = ""]]></Condition>
+          <ComponentGroupRef Id="WixWPF_VS2012Extension" />
+        </Feature>
+        <Feature Id="WixWPFVSIX_VS2013" Title="2013" Level="0">
+          <Condition Level="1"><![CDATA[DEPLOYVS = 1 AND NOT PATHVS2013 = ""]]></Condition>
+          <ComponentGroupRef Id="WixWPF_VS2013Extension" />
+        </Feature>
+      </Feature>
+    </Feature>
+  </Product>
+</Wix>

@@ -3,52 +3,57 @@
 				  xmlns:mba="clr-namespace:WixWPF;assembly=WixWPF"
 				  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 				  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-				  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-				  Title="WixWPF Installer" Height="190" Width="300" ResizeMode="NoResize"
-				  mc:Ignorable="d" WindowStartupLocation="CenterScreen" >
-	<Window.Resources>
-		<mba:ConvertBoolToVisibility x:Key="BoolToVis" />
-		<mba:ConvertBoolToVisibility x:Key="BoolToVisNeg" TrueValue="Collapsed" FalseValue="Visible" />
-	</Window.Resources>
-	<Grid x:Name="LayoutRoot" >
-		<Grid.RowDefinitions>
-			<RowDefinition Height="20" />
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="20" />
-		</Grid.RowDefinitions>
-		<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-			<Image Grid.Row="1" MaxHeight="50" Source="/WixWPFUI;component/Logo.png" Stretch="Uniform" />
-			<TextBlock Grid.Row="1" Text="WixWPF v3.6" Margin="10,0,0,0" FontSize="24" VerticalAlignment="Center" />
-		</StackPanel>
-		<StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding ShowWixMissing, Converter={StaticResource BoolToVis}}" >
-			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-				<TextBlock Text="You must have " />
-				<TextBlock>
-					<Hyperlink NavigateUri="http://wix.codeplex.com/releases/view/93929" Tag="Wix" Click="OnHyperlinkClick" >Wix Toolset v3.6</Hyperlink>
-				</TextBlock>
-				<TextBlock Text=" before"/>
-			</StackPanel>
-			<TextBlock Text="installing this version of WixWPF." TextAlignment="Center" />
-		</StackPanel>
-		<StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" >
-			<StackPanel.Resources>
-				<Style TargetType="Button">
-					<Setter Property="Margin" Value="6,0" />
-					<Setter Property="Padding" Value="4,2" />
-				</Style>
-			</StackPanel.Resources>
-			<Button x:Name="ButtonInstall" Content="Install" Visibility="{Binding CanInstall, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" />
-			<Button x:Name="ButtonUninstall" Content="Uninstall" Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" />
-			<Button x:Name="ButtonQuit" Content="Quit" Click="OnButtonClick" />
-		</StackPanel>
-		<Canvas Grid.Row="0" Grid.RowSpan="6" Visibility="{Binding IsBusy, Converter={StaticResource BoolToVis}}" >
-			<Border Canvas.Left="0" Canvas.Top="0" Height="{Binding ElementName=LayoutRoot, Path=ActualHeight}" Width="{Binding ElementName=LayoutRoot, Path=ActualWidth}" Background="Black" Opacity="0.75" />
-			<Grid Canvas.Left="0" Canvas.Top="0" Height="{Binding ElementName=LayoutRoot, Path=ActualHeight}" Width="{Binding ElementName=LayoutRoot, Path=ActualWidth}" >
-				<TextBlock Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,15,0,0" />
-				<ProgressBar IsIndeterminate="True" Height="10" Margin="0,55,0,0" />
-			</Grid>
-		</Canvas>
-	</Grid>
+				  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" WindowStartupLocation="CenterScreen"
+				  Title="WixWPF Installer" Height="190" Width="300" ResizeMode="NoResize" mc:Ignorable="d" Activated="OnActivated" >
+  <Window.Resources>
+    <mba:ConvertBoolToVisibility x:Key="BoolToVis" />
+    <mba:ConvertBoolToVisibility x:Key="BoolToVisNeg" TrueValue="Collapsed" FalseValue="Visible" />
+  </Window.Resources>
+  <Grid x:Name="LayoutRoot" >
+    <Grid.RowDefinitions>
+      <RowDefinition Height="10" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="10" />
+    </Grid.RowDefinitions>
+    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+      <Image Grid.Row="1" MaxHeight="50" Source="/WixWPFUI;component/Logo.png" Stretch="Uniform" />
+      <TextBlock Grid.Row="1" Text="WixWPF" Margin="10,0,0,0" FontSize="24" VerticalAlignment="Center" />
+    </StackPanel>
+    <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding HasPreReqs, Converter={StaticResource BoolToVisNeg}}" >
+      <!-- Visibility="Collapsed" -->
+      <TextBlock Text="You are missing the following prerequisites:" />
+      <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Visibility="{Binding HasWix, Converter={StaticResource BoolToVisNeg}}" >
+        <Hyperlink NavigateUri="http://wix.codeplex.com/releases/" Click="OnHyperlinkClick" >Wix Toolset</Hyperlink> v3.6, v3.7, or v3.8
+      </TextBlock>
+      <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Visibility="{Binding HasBuildTools, Converter={StaticResource BoolToVisNeg}}" >
+        <Hyperlink NavigateUri="http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx" Click="OnHyperlinkClick" >VS</Hyperlink> or
+        <Hyperlink NavigateUri="http://msdn.microsoft.com/en-us/vstudio/ff637362.aspx" Click="OnHyperlinkClick" >TFS</Hyperlink> 2010, 2012, or 2013
+      </TextBlock>
+    </StackPanel>
+    <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding HasOldWixWPF, Converter={StaticResource BoolToVis}}">
+      <TextBlock Text="A previous version of this product was detected that cannot be removed automatically. Please uninstall the existing version and run this setup again." TextWrapping="Wrap" />
+    </StackPanel>
+    <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" >
+      <StackPanel.Resources>
+        <Style TargetType="Button">
+          <Setter Property="Margin" Value="6,0" />
+          <Setter Property="Padding" Value="4,2" />
+        </Style>
+      </StackPanel.Resources>
+      <Button x:Name="ButtonInstall" Content="Install" Visibility="{Binding CanInstall, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" IsEnabled="{Binding IsNotBusy}" Focusable="{Binding IsNotBusy}" />
+      <Button x:Name="ButtonRepair" Content="Repair" Visibility="{Binding CanRepair, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" IsEnabled="{Binding IsNotBusy}" Focusable="{Binding IsNotBusy}" />
+      <Button x:Name="ButtonUninstall" Content="Uninstall" Visibility="{Binding CanUninstall, Converter={StaticResource BoolToVis}}" Click="OnButtonClick" IsEnabled="{Binding IsNotBusy}" Focusable="{Binding IsNotBusy}" />
+      <Button x:Name="ButtonQuit" Content="Quit" Click="OnButtonClick" IsEnabled="{Binding IsNotBusy}" Focusable="{Binding IsNotBusy}" />
+    </StackPanel>
+    <Canvas Grid.Row="0" Grid.RowSpan="6" Visibility="{Binding IsBusy, Converter={StaticResource BoolToVis}}" >
+      <!-- Visibility="Collapsed" -->
+      <Border Canvas.Left="0" Canvas.Top="0" Height="{Binding ElementName=LayoutRoot, Path=ActualHeight}" Width="{Binding ElementName=LayoutRoot, Path=ActualWidth}" Background="Black" Opacity="0.75" />
+      <Grid Canvas.Left="0" Canvas.Top="0" Height="{Binding ElementName=LayoutRoot, Path=ActualHeight}" Width="{Binding ElementName=LayoutRoot, Path=ActualWidth}" >
+        <TextBlock Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,5" TextWrapping="Wrap" />
+        <ProgressBar IsIndeterminate="True" Height="22" VerticalAlignment="Bottom" Margin="0,0,0,10" />
+      </Grid>
+    </Canvas>
+  </Grid>
 </mba:BaseBAWindow>
