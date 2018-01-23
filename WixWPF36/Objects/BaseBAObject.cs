@@ -2,6 +2,17 @@
 
 namespace WixWPF
 {
+    /// <summary>
+    /// Provides a wrapper for the obscure but documented case of a null value passed to the property notification argument.
+    /// This permits all properties to be notified of changes.
+    /// </summary>
+    public class AllPropertiesChangedEventArgs : PropertyChangedEventArgs
+    {
+        public AllPropertiesChangedEventArgs()
+           : base(null)
+        { }
+    }
+
     /// <summary>Provides a thread safe <see cref="INotifyPropertyChanged"/> implementation to derived classes.</summary>
     public abstract class BaseBAObject : INotifyPropertyChanged
     {
@@ -15,6 +26,23 @@ namespace WixWPF
         #endregion Events
 
         #region Methods
+
+        #region OnAllPropertiesChanged
+        /// <summary>Called by property setters in derived classes to notify listeners that all values should be refreshed.</summary>
+        protected void OnAllPropertiesChanged()
+        {
+            if (PropertyChanged != null)
+            {
+                ThreadHelper.SafeInvoke(() =>
+                {
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new AllPropertiesChangedEventArgs());
+                    }
+                });
+            }
+        }
+        #endregion OnAllPropertiesChanged
 
         #region OnPropertyChanged
         /// <summary>Called by property setters in derived classes to notify listeners that the value has changed.</summary>

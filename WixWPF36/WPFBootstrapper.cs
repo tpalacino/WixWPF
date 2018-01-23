@@ -17,7 +17,7 @@ namespace WixWPF
         private BaseBAWindow _mainWindow = null;
 
         /// <summary>The dispatcher from the UI implementation.</summary>
-        internal static Threading.Dispatcher UIDispatcher = null;
+        public static Threading.Dispatcher UIDispatcher = null;
 
         #endregion Member Variables
 
@@ -765,30 +765,29 @@ namespace WixWPF
         protected override void Run()
         {
             _mainWindow = GetApplicationUI();
+            UIDispatcher = Threading.Dispatcher.CurrentDispatcher;
 
             if (_mainWindow != null)
             {
-                if (Threading.Dispatcher.CurrentDispatcher != null)
+                try
                 {
-                    try
+                    if (Command.Display == Wix.Display.Full
+                     || Command.Display == Wix.Display.Passive)
                     {
                         UIDispatcher = _mainWindow.Dispatcher;
                         _mainWindow.Closed += OnWindowClosed;
                         _mainWindow.Show();
-
-                        Engine.Detect();
-
-                        Threading.Dispatcher.Run();
                     }
-                    catch (Exception ex)
-                    {
-                        LogError(ex);
-                        Engine.Quit(400);
-                    }
+
+                    Engine.Detect();
+
+                    Threading.Dispatcher.Run();
+
+                    Engine.Quit(0);
                 }
-                else
+                catch (Exception ex)
                 {
-                    LogError("No current dispatcher.");
+                    LogError(ex);
                     Engine.Quit(400);
                 }
             }
@@ -805,14 +804,28 @@ namespace WixWPF
         /// <param name="message">The message to write.</param>
         public void LogVerbose(string message)
         {
+#if DEBUG
             if (!string.IsNullOrEmpty(message))
             {
                 WriteToLog(Wix.LogLevel.Verbose, message);
             }
+#endif
         }
-        #endregion LogVerbose
+#endregion LogVerbose
 
-        #region LogError
+#region LogDebug
+        /// <summary>Writes the specified <paramref name="message"/> to the log file.</summary>
+        /// <param name="message">The message to write.</param>
+        public void LogDebug(string message)
+        {
+            if (!string.IsNullOrEmpty(message))
+            {
+                WriteToLog(Wix.LogLevel.Debug, message);
+            }
+        }
+#endregion LogDebug
+
+#region LogError
         /// <summary>Writes a log entry for the specified <paramref name="error"/>.</summary>
         /// <param name="error">The error.</param>
         public void LogError(Exception error)
@@ -822,9 +835,9 @@ namespace WixWPF
                 LogError(string.Format("An error occurred. Detail: {0}", error));
             }
         }
-        #endregion LogError
+#endregion LogError
 
-        #region LogError
+#region LogError
         /// <summary>Writes a log entry for the specified <paramref name="args"/> using the specified <paramref name="format"/>.</summary>
         /// <param name="format">The string format.</param>
         /// <param name="args">The arguments.</param>
@@ -840,18 +853,18 @@ namespace WixWPF
                 }
             }
         }
-        #endregion LogError
+#endregion LogError
 
-        #region LogError
+#region LogError
         /// <summary>Writes the specified <paramref name="message"/> to the log file.</summary>
         /// <param name="message">The message to write.</param>
         public void LogError(string message)
         {
             WriteToLog(Wix.LogLevel.Error, message ?? "An unknown error occurred in WPFBootstrapper");
         }
-        #endregion LogError
+#endregion LogError
 
-        #region WriteToLog
+#region WriteToLog
         /// <summary>Write the specified <paramref name="message"/> to the log using the specified log <paramref name="level"/>.</summary>
         /// <param name="level">The log level.</param>
         /// <param name="message">The message to log.</param>
@@ -859,9 +872,9 @@ namespace WixWPF
         {
             Engine.Log(level, string.Format("WixWPF: {0}", message ?? string.Empty));
         }
-        #endregion WriteToLog
+#endregion WriteToLog
 
-        #region TryInvoke
+#region TryInvoke
         /// <summary>Attempts to invoke the specified <paramref name="action" /> on the main window dispatcher.</summary>
         /// <param name="action">The action to invoke.</param>
         internal void TryInvoke(Action action)
@@ -875,8 +888,8 @@ namespace WixWPF
             }
             catch (Exception e) { LogError("An error occurred invoking an action. Details: {0}", e); }
         }
-        #endregion TryInvoke
+#endregion TryInvoke
 
-        #endregion Methods
+#endregion Methods
     }
 }
