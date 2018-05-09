@@ -55,10 +55,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="WixWPF, Version=3.10.0.0, Culture=neutral, PublicKeyToken=8665a3a8c7e50284, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Shared\Libs\v3.10\WixWPF.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InstallerInfo.cs" />
@@ -85,6 +81,12 @@
     <None Include="..\..\Shared\WixWPF.snk">
       <Link>Properties\WixWPF.snk</Link>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WixWPF311\WixWPF311.csproj">
+      <Project>{98cc9daf-d057-40ce-8e02-5a54b1e7caf8}</Project>
+      <Name>WixWPF311</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

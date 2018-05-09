@@ -93,6 +93,21 @@
             </Directory>
           </Directory>
         </Directory>
+        <Directory Id="VSInstallDir" Name="Microsoft Visual Studio">
+          <Directory Id="VS2017Dir" Name="2017">
+            <Directory Id="VS2017VersionDir" Name="Community">
+              <Directory Id="Vs2017Common7Dir" Name="Common7">
+                <Directory Id="Vs2017IDEDir" Name="IDE">
+                  <Directory Id="Vs2017ProjectTemplates" Name="ProjectTemplates">
+                    <Directory Id="Vs2017ProjectTemplatesWix" Name="Wix">
+                      <Directory Id="Vs2017ProjectTemplatesProduct" Name="$(var.ProductName)" />
+                    </Directory>
+                  </Directory>
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
       </Directory>
     </Directory>
 
@@ -120,6 +135,10 @@
           <Condition Level="1"><![CDATA[DEPLOYVS = 1 AND NOT PATHVS2015 = ""]]></Condition>
           <ComponentGroupRef Id="WixWPF_VS2015Extension" />
         </Feature>
+        <Feature Id="WixWPFVSIX_VS2017" Title="2017" Level="0">
+          <Condition Level="1"><![CDATA[DEPLOYVS = 1 AND NOT PATHVS2017 = ""]]></Condition>
+          <ComponentGroupRef Id="WixWPF_VS2017Extension" />
+        </Feature>        
       </Feature>
     </Feature>
   </Product>
