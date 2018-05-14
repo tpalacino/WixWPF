@@ -4,7 +4,7 @@
 		 xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" >
 	<?define LibsDir="..\..\Shared\Libs\v3.10\" ?>
 	<Bundle Name="WixWPF v3.10" Version="3.10.0.0" Manufacturer="Troy Palacino" UpgradeCode="{74AD0976-D657-47B3-84F6-B1A95835F8BC}"
-					IconSourceFile="..\..\..\Images\Logo.ico" HelpUrl="http://wixwpf.codeplex.com" DisableRemove="yes" >
+					IconSourceFile="..\..\Shared\Logo.ico" HelpUrl="http://wixwpf.codeplex.com" DisableRemove="yes" >
 
 		<BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost" >
 			<Payload SourceFile="BootstrapperCore.config" />
