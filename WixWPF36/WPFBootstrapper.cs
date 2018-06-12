@@ -17,7 +17,7 @@ namespace WixWPF
         private BaseBAWindow _mainWindow = null;
 
         /// <summary>The dispatcher from the UI implementation.</summary>
-        internal static Threading.Dispatcher UIDispatcher = null;
+        public static Threading.Dispatcher UIDispatcher = null;
 
         #endregion Member Variables
 
@@ -765,30 +765,29 @@ namespace WixWPF
         protected override void Run()
         {
             _mainWindow = GetApplicationUI();
+            UIDispatcher = Threading.Dispatcher.CurrentDispatcher;
 
             if (_mainWindow != null)
             {
-                if (Threading.Dispatcher.CurrentDispatcher != null)
+                try
                 {
-                    try
+                    if (Command.Display == Wix.Display.Full
+                     || Command.Display == Wix.Display.Passive)
                     {
                         UIDispatcher = _mainWindow.Dispatcher;
                         _mainWindow.Closed += OnWindowClosed;
                         _mainWindow.Show();
-
-                        Engine.Detect();
-
-                        Threading.Dispatcher.Run();
                     }
-                    catch (Exception ex)
-                    {
-                        LogError(ex);
-                        Engine.Quit(400);
-                    }
+
+                    Engine.Detect();
+
+                    Threading.Dispatcher.Run();
+
+                    Engine.Quit(0);
                 }
-                else
+                catch (Exception ex)
                 {
-                    LogError("No current dispatcher.");
+                    LogError(ex);
                     Engine.Quit(400);
                 }
             }
@@ -805,12 +804,26 @@ namespace WixWPF
         /// <param name="message">The message to write.</param>
         public void LogVerbose(string message)
         {
+#if DEBUG
             if (!string.IsNullOrEmpty(message))
             {
                 WriteToLog(Wix.LogLevel.Verbose, message);
             }
+#endif
         }
         #endregion LogVerbose
+
+        #region LogDebug
+        /// <summary>Writes the specified <paramref name="message"/> to the log file.</summary>
+        /// <param name="message">The message to write.</param>
+        public void LogDebug(string message)
+        {
+            if (!string.IsNullOrEmpty(message))
+            {
+                WriteToLog(Wix.LogLevel.Debug, message);
+            }
+        }
+        #endregion LogDebug
 
         #region LogError
         /// <summary>Writes a log entry for the specified <paramref name="error"/>.</summary>
