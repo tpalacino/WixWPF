@@ -126,7 +126,8 @@ namespace WixWPFUI
 					InstallData.HasWix38 = (Bootstrapper.Engine.NumericVariables.Contains("HasWix38") && Bootstrapper.Engine.NumericVariables["HasWix38"] == 1L);
 					InstallData.HasWix39 = (Bootstrapper.Engine.NumericVariables.Contains("HasWix39") && Bootstrapper.Engine.NumericVariables["HasWix39"] == 1L);
 					InstallData.HasWix310 = (Bootstrapper.Engine.NumericVariables.Contains("HasWix310") && Bootstrapper.Engine.NumericVariables["HasWix310"] == 1L);
-					InstallData.HasTFS2010 = (Bootstrapper.Engine.NumericVariables.Contains("HasTFS2010") && Bootstrapper.Engine.NumericVariables["HasTFS2010"] == 1L);
+          InstallData.HasWix311 = (Bootstrapper.Engine.NumericVariables.Contains("HasWix311") && Bootstrapper.Engine.NumericVariables["HasWix311"] == 1L);
+          InstallData.HasTFS2010 = (Bootstrapper.Engine.NumericVariables.Contains("HasTFS2010") && Bootstrapper.Engine.NumericVariables["HasTFS2010"] == 1L);
 					InstallData.HasTFS2012 = (Bootstrapper.Engine.NumericVariables.Contains("HasTFS2012") && Bootstrapper.Engine.NumericVariables["HasTFS2012"] == 1L);
 					InstallData.HasTFS2015 = (Bootstrapper.Engine.NumericVariables.Contains("HasTFS2015") && Bootstrapper.Engine.NumericVariables["HasTFS2015"] == 1L);
 					InstallData.HasWixWPF36 = (Bootstrapper.Engine.NumericVariables.Contains("HasWixWPF36") && Bootstrapper.Engine.NumericVariables["HasWixWPF36"] == 1L);
@@ -144,7 +145,8 @@ namespace WixWPFUI
 					InstallData.PathVS2012 = Bootstrapper.Engine.StringVariables.Contains("PathVS2012") ? Bootstrapper.Engine.StringVariables["PathVS2012"] : string.Empty;
 					InstallData.PathVS2013 = Bootstrapper.Engine.StringVariables.Contains("PathVS2013") ? Bootstrapper.Engine.StringVariables["PathVS2013"] : string.Empty;
 					InstallData.PathVS2015 = Bootstrapper.Engine.StringVariables.Contains("PathVS2015") ? Bootstrapper.Engine.StringVariables["PathVS2015"] : string.Empty;
-				}
+          InstallData.PathVS2017 = Bootstrapper.Engine.StringVariables.Contains("PathVS2017") ? Bootstrapper.Engine.StringVariables["PathVS2017"] : string.Empty;
+        }
 			}
 
 			if (Wix.RelationType.Upgrade.Equals(Bootstrapper.Command.Relation) && !InstallData.IsInstalled)
@@ -240,7 +242,13 @@ namespace WixWPFUI
 						}
 						break;
 
-					case "WixWPFCoreMSI":
+          case "WixWPF311MSI":
+            {
+              args.Arguments.State = (InstallData.HasBuildTools && InstallData.HasWix311) && !"UNINSTALL".Equals(_lastAction.ToUpperInvariant()) ? Wix.RequestState.Present : Wix.RequestState.Absent;
+            }
+            break;
+
+          case "WixWPFCoreMSI":
 						{
 							args.Arguments.State = (InstallData.HasBuildTools && InstallData.HasWix) && !"UNINSTALL".Equals(_lastAction.ToUpperInvariant()) ? "REPAIR".Equals(_lastAction.ToUpperInvariant()) ? Wix.RequestState.Repair : Wix.RequestState.Present : Wix.RequestState.Absent;
 						}
@@ -282,8 +290,13 @@ namespace WixWPFUI
 				Bootstrapper.Engine.StringVariables["PathVS2012"] = InstallData.HasVS2012 ? InstallData.PathVS2012 : string.Empty;
 				Bootstrapper.Engine.StringVariables["PathVS2013"] = InstallData.HasVS2013 ? InstallData.PathVS2013 : string.Empty;
 				Bootstrapper.Engine.StringVariables["PathVS2015"] = InstallData.HasVS2015 ? InstallData.PathVS2015 : string.Empty;
+        Bootstrapper.Engine.StringVariables["PathVS2017"] = InstallData.HasVS2017 ? InstallData.PathVS2017 : string.Empty;
 
-				if (InstallData.HasWix310)
+        if (InstallData.HasWix311)
+        {
+          Bootstrapper.Engine.StringVariables["BundleVersion"] = "3.11";
+        }
+        else if (InstallData.HasWix310)
 				{
 					Bootstrapper.Engine.StringVariables["BundleVersion"] = "3.10";
 				}

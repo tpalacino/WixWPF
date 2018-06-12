@@ -48,6 +48,7 @@
     <Compile Include="..\WixWPF36MSI\VS2015.wxs">
       <Link>VS2015.wxs</Link>
     </Compile>
+    <Compile Include="VS2017.wxs" />
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixVSExtension">

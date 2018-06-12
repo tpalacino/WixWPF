@@ -28,8 +28,11 @@ namespace WixWPFUI
 		/// <summary>Indicates if Wix Toolset v3.10 is installed.</summary>
 		private bool _hasWix310 = false;
 
-		/// <summary>Indicates if the old WixWPF v3.6 is installed.</summary>
-		private bool _hasOldWixWPF36 = false;
+    /// <summary>Indicates if Wix Toolset v3.11 is installed.</summary>
+    private bool _hasWix311 = false;
+
+    /// <summary>Indicates if the old WixWPF v3.6 is installed.</summary>
+    private bool _hasOldWixWPF36 = false;
 
 		/// <summary>Indicates if the old WixWPF v3.7 is installed.</summary>
 		private bool _hasOldWixWPF37 = false;
@@ -49,8 +52,11 @@ namespace WixWPFUI
 		/// <summary>Indicates if WixWPF v3.10 is installed.</summary>
 		private bool _hasWixWPF310 = false;
 
-		/// <summary>The installation directory of Visual Studio 2010.</summary>
-		private string _pathVS2010 = string.Empty;
+    /// <summary>Indicates if WixWPF v3.11 is installed.</summary>
+    private bool _hasWixWPF311 = false;
+
+    /// <summary>The installation directory of Visual Studio 2010.</summary>
+    private string _pathVS2010 = string.Empty;
 
 		/// <summary>The installation directory of Visual Studio 2012.</summary>
 		private string _pathVS2012 = string.Empty;
@@ -61,8 +67,11 @@ namespace WixWPFUI
 		/// <summary>The installation directory of Visual Studio 2015.</summary>
 		private string _pathVS2015 = string.Empty;
 
-		/// <summary>Indicates if Team Foundation Server 2010 is installed.</summary>
-		private bool _hasTFS2010 = false;
+    /// <summary>The installation directory of Visual Studio 2017.</summary>
+    private string _pathVS2017 = string.Empty;
+
+    /// <summary>Indicates if Team Foundation Server 2010 is installed.</summary>
+    private bool _hasTFS2010 = false;
 
 		/// <summary>Indicates if Team Foundation Server 2012 is installed.</summary>
 		private bool _hasTFS2012 = false;
@@ -122,7 +131,7 @@ namespace WixWPFUI
 		#region HasWix
 
 		/// <summary>Indicates if Wix Toolset is installed.</summary>
-		public bool HasWix { get { return HasWix36 || HasWix37 || HasWix38 || HasWix39 || HasWix310; } }
+		public bool HasWix { get { return HasWix36 || HasWix37 || HasWix38 || HasWix39 || HasWix310 || HasWix311; } }
 
 		#endregion HasWix
 
@@ -159,19 +168,26 @@ namespace WixWPFUI
 		/// <summary>Indicates if Wix Toolset v3.10 is installed.</summary>
 		public bool HasWix310 { get { return _hasWix310; } set { _hasWix310 = value; OnPropertiesChanged("HasWix310", "HasWix", "CanInstall", "CanRepair", "HasPreReqs"); } }
 
-		#endregion HasWix310
+    #endregion HasWix310
 
-		#region HasBuildTools
+    #region HasWix311
 
-		/// <summary>Indicates if a is installed.</summary>
-		public bool HasBuildTools { get { return HasVS || HasTFS; } }
+    /// <summary>Indicates if Wix Toolset v3.11 is installed.</summary>
+    public bool HasWix311 { get { return _hasWix311; } set { _hasWix311 = value; OnPropertiesChanged("HasWix311", "HasWix", "CanInstall", "CanRepair", "HasPreReqs"); } }
+
+    #endregion HasWix311
+
+    #region HasBuildTools
+
+    /// <summary>Indicates if a is installed.</summary>
+    public bool HasBuildTools { get { return HasVS || HasTFS; } }
 
 		#endregion HasBuildTools
 
 		#region HasVS
 
 		/// <summary>Indicates if Visual Studio is installed.</summary>
-		public bool HasVS { get { return HasVS2010 || HasVS2012 || HasVS2013 || HasVS2015; } }
+		public bool HasVS { get { return HasVS2010 || HasVS2012 || HasVS2013 || HasVS2015 || HasVS2017; } }
 
 		#endregion HasVS
 
@@ -201,12 +217,19 @@ namespace WixWPFUI
 		/// <summary>Indicates if Visual Studio 2015 is installed.</summary>
 		public bool HasVS2015 { get { return !string.IsNullOrEmpty(PathVS2015); } }
 
-		#endregion HasVS2015
+    #endregion HasVS2015
 
-		#region PathVS2010
+    #region HasVS2017
 
-		/// <summary>The installation directory of Visual Studio 2010.</summary>
-		public string PathVS2010 { get { return _pathVS2010; } set { _pathVS2010 = value; OnPropertiesChanged("PathVS2010", "HasVS2010", "HasVS", "CanInstall", "CanRepair", "HasBuildTools", "HasPreReqs"); } }
+    /// <summary>Indicates if Visual Studio 2017 is installed.</summary>
+    public bool HasVS2017 { get { return !string.IsNullOrEmpty(PathVS2017); } }
+
+    #endregion HasVS2017
+
+    #region PathVS2010
+
+    /// <summary>The installation directory of Visual Studio 2010.</summary>
+    public string PathVS2010 { get { return _pathVS2010; } set { _pathVS2010 = value; OnPropertiesChanged("PathVS2010", "HasVS2010", "HasVS", "CanInstall", "CanRepair", "HasBuildTools", "HasPreReqs"); } }
 
 		#endregion PathVS2010
 
@@ -229,12 +252,19 @@ namespace WixWPFUI
 		/// <summary>The installation directory of Visual Studio 2015.</summary>
 		public string PathVS2015 { get { return _pathVS2015; } set { _pathVS2015 = value; OnPropertiesChanged("PathVS2015", "HasVS2015", "HasVS", "CanInstall", "CanRepair", "HasBuildTools", "HasPreReqs"); } }
 
-		#endregion PathVS2015
+    #endregion PathVS2015
 
-		#region HasTFS
+    #region PathVS2017
 
-		/// <summary>Indicates if Team Foundation Server is installed.</summary>
-		public bool HasTFS { get { return HasTFS2010 || HasTFS2012 || HasTFS2015; } }
+    /// <summary>The installation directory of Visual Studio 2017.</summary>
+    public string PathVS2017 { get { return _pathVS2017; } set { _pathVS2017 = value; OnPropertiesChanged("PathVS2017", "HasVS2017", "HasVS", "CanInstall", "CanRepair", "HasBuildTools", "HasPreReqs"); } }
+
+    #endregion PathVS2017
+    
+    #region HasTFS
+
+    /// <summary>Indicates if Team Foundation Server is installed.</summary>
+    public bool HasTFS { get { return HasTFS2010 || HasTFS2012 || HasTFS2015; } }
 
 		#endregion HasTFS
 
@@ -320,12 +350,19 @@ namespace WixWPFUI
 		/// <summary>Indicates if WixWPF v3.10 is installed.</summary>
 		public bool HasWixWPF310 { get { return _hasWixWPF39; } set { _hasWixWPF310 = value; OnPropertiesChanged("HasWixWPF39", "HasWixWPF", "CanInstall", "CanRepair", "HasPreReqs"); } }
 
-		#endregion HasWixWPF310
+    #endregion HasWixWPF310
 
-		#region HasPreReqs
+    #region HasWixWPF311
 
-		/// <summary>Indicates if the prerequisites are present.</summary>
-		public bool HasPreReqs { get { return HasWixWPF || (HasWix && HasVS); } }
+    /// <summary>Indicates if WixWPF v3.11 is installed.</summary>
+    public bool HasWixWPF311 { get { return _hasWixWPF311; } set { _hasWixWPF311 = value; OnPropertiesChanged("HasWixWPF311", "HasWixWPF", "CanInstall", "CanRepair", "HasPreReqs"); } }
+
+    #endregion HasWixWPF311
+
+    #region HasPreReqs
+
+    /// <summary>Indicates if the prerequisites are present.</summary>
+    public bool HasPreReqs { get { return HasWixWPF || (HasWix && HasVS); } }
 
 		#endregion HasPreReqs
 
