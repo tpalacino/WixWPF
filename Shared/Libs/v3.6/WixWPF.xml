@@ -100,6 +100,11 @@
         <member name="P:WixWPF.BaseBAWindow.Bootstrapper">
             <summary>Gets or sets Bootstrapper</summary>
         </member>
+        <member name="P:WixWPF.BaseBAWindow.Result">
+            <summary>
+            Get or set the final result of the installation.
+            </summary>
+        </member>
         <member name="M:WixWPF.BaseBAWindow.IsValid``1(WixWPF.WPFBootstrapperEventArgs{``0})">
             <summary>Determines if the specified <paramref name="arguments"/> is valid.</summary>
             <typeparam name="T">The type of arguments.</typeparam>

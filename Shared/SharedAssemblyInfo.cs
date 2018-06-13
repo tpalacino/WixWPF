@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Managed bootstrapper application for completely custom user interface with minimal effort.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Troy Palacino")]
-[assembly: AssemblyCopyright("Copyright © Troy Palacino 2013")]
+[assembly: AssemblyCopyright("Copyright © Troy Palacino 2013-2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyProduct("WixWPF")]

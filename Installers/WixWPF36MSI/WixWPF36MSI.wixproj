@@ -38,6 +38,7 @@
     <Compile Include="VS2012.wxs" />
     <Compile Include="VS2010.wxs" />
     <Compile Include="VS2015.wxs" />
+    <Compile Include="VS2017.wxs" />
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixVSExtension">
