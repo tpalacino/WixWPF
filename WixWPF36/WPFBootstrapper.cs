@@ -783,7 +783,7 @@ namespace WixWPF
 
                     Threading.Dispatcher.Run();
 
-                    Engine.Quit(0);
+                    Engine.Quit(_mainWindow.Result);
                 }
                 catch (Exception ex)
                 {
