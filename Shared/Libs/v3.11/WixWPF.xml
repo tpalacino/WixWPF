@@ -50,11 +50,20 @@
             <param name="culture">The culture information for this conversion.</param>
             <returns>True if the specified <paramref name="value"/> matches the value of the <seealso cref="P:WixWPF.ConvertBoolToVisibility.TrueValue"/>, otherwise False.</returns>
         </member>
+        <member name="T:WixWPF.AllPropertiesChangedEventArgs">
+            <summary>
+            Provides a wrapper for the obscure but documented case of a null value passed to the property notification argument.
+            This permits all properties to be notified of changes.
+            </summary>
+        </member>
         <member name="T:WixWPF.BaseBAObject">
             <summary>Provides a thread safe <see cref="T:System.ComponentModel.INotifyPropertyChanged"/> implementation to derived classes.</summary>
         </member>
         <member name="E:WixWPF.BaseBAObject.PropertyChanged">
             <summary>Represents the method that handles the event of a property having changed.</summary>
+        </member>
+        <member name="M:WixWPF.BaseBAObject.OnAllPropertiesChanged">
+            <summary>Called by property setters in derived classes to notify listeners that all values should be refreshed.</summary>
         </member>
         <member name="M:WixWPF.BaseBAObject.OnPropertyChanged(System.String)">
             <summary>Called by property setters in derived classes to notify listeners that the value has changed.</summary>
@@ -115,6 +124,11 @@
         </member>
         <member name="P:WixWPF.BaseBAWindow.Bootstrapper">
             <summary>Gets or sets Bootstrapper</summary>
+        </member>
+        <member name="P:WixWPF.BaseBAWindow.Result">
+            <summary>
+            Get or set the final result of the installation.
+            </summary>
         </member>
         <member name="M:WixWPF.BaseBAWindow.IsValid``1(WixWPF.WPFBootstrapperEventArgs{``0})">
             <summary>Determines if the specified <paramref name="arguments"/> is valid.</summary>
@@ -593,6 +607,10 @@
             <summary>Called when the bootstrap application is run.</summary>
         </member>
         <member name="M:WixWPF.WPFBootstrapper.LogVerbose(System.String)">
+            <summary>Writes the specified <paramref name="message"/> to the log file.</summary>
+            <param name="message">The message to write.</param>
+        </member>
+        <member name="M:WixWPF.WPFBootstrapper.LogDebug(System.String)">
             <summary>Writes the specified <paramref name="message"/> to the log file.</summary>
             <param name="message">The message to write.</param>
         </member>

@@ -14,6 +14,13 @@ namespace WixWPF
         public virtual WPFBootstrapper Bootstrapper { get; internal set; }
         #endregion Bootstrapper
 
+        #region Result
+        /// <summary>
+        /// Get or set the final result of the installation.
+        /// </summary>
+        public int Result { get; set; }
+        #endregion Result
+
         #endregion Properties
 
         #region Methods
