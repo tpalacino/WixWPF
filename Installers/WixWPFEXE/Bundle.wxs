@@ -2,13 +2,8 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
 		 xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
 		 xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" >
-<<<<<<< HEAD
-	<?define LibsDir="..\..\Shared\Libs\v3.10\" ?>
-	<Bundle Name="WixWPF v3.10" Version="3.10.0.0" Manufacturer="Troy Palacino" UpgradeCode="{74AD0976-D657-47B3-84F6-B1A95835F8BC}"
-=======
 	<?define LibsDir="..\..\Shared\Libs\v3.11\" ?>
 	<Bundle Name="WixWPF v3.11" Version="3.11.0.0" Manufacturer="Troy Palacino" UpgradeCode="{74AD0976-D657-47B3-84F6-B1A95835F8BC}"
->>>>>>> bf4c440eeaf6945a1c6c6d52b5dc9d7ce2077daf
 					IconSourceFile="..\..\Shared\Logo.ico" HelpUrl="http://wixwpf.codeplex.com" DisableRemove="yes" >
 
 		<BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost" >
