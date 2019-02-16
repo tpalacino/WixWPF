@@ -1,0 +1,10 @@
+C:\Code\github\WixWPF\WixWPF311\bin\Debug\WixWPF.xml
+C:\Code\github\WixWPF\WixWPF311\bin\Debug\WixWPF.dll
+C:\Code\github\WixWPF\WixWPF311\bin\Debug\WixWPF.pdb
+C:\Code\github\WixWPF\WixWPF311\bin\Debug\BootstrapperCore.dll
+C:\Code\github\WixWPF\WixWPF311\bin\Debug\BootstrapperCore.xml
+C:\Code\github\WixWPF\WixWPF311\obj\Debug\WixWPF311.csprojAssemblyReference.cache
+C:\Code\github\WixWPF\WixWPF311\obj\Debug\WixWPF311.csproj.CoreCompileInputs.cache
+C:\Code\github\WixWPF\WixWPF311\obj\Debug\WixWPF311.csproj.CopyComplete
+C:\Code\github\WixWPF\WixWPF311\obj\Debug\WixWPF.dll
+C:\Code\github\WixWPF\WixWPF311\obj\Debug\WixWPF.pdb
