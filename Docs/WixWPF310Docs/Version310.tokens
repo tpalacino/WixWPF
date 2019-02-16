@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content xmlns:xlink="http://www.w3.org/1999/xlink">
+  <item id="PayloadInclude" xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" >
+    <code language="xml" >
+      &lt;Payload SourceFile=&quot;BootstrapperCore.config&quot; />
+      &lt;Payload SourceFile=&quot;$(env.WixWPF)v3.10\WixWPF.dll&quot; />
+      &lt;Payload SourceFile=&quot;$(env.WixWPF)v3.10\WixWPF.pdb&quot; />
+      &lt;Payload SourceFile=&quot;$(var.ProductSetupUI.TargetPath)&quot; />
+    </code>
+  </item>
+</content>

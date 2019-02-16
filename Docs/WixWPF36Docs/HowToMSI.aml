@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="621fb9a0-d025-4410-840b-2fbd48f63ec7" revisionNumber="1">
+  <developerHowToDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>This topic will walk you through using WixWPF if you are currently distributing an MSI.</para>
+      <token>SystemNotice</token>
+    </introduction>
+    <procedure>
+      <title>How To Bootstrap an Existing MSI with WixWPF</title>
+      <steps class="ordered">
+        <step>
+          <content>
+            <para>Start with the solution that has the existing product and MSI projects.</para>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToMSI_01-Original" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Right click on the solution node > point to "Add" > click on "New Project..."</para>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToMSI_02-AddNewProj" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>On the left hand side, expand "Windows Installer XML" and select "Wix WPF".</para>
+            <para>On the right hand side, choose the "WixWPF Solution" template > provide a name and location > click "OK".</para>
+            <alert class="note">
+              <para>The "WixWPF Solution" template will create 2 projects under the solution node that is selected when the project is added. The bootstrapper project will be created using the name from the "New Project" dialog. The class library project with the user interface will be created by appending "UI" to the name from the "New Project" dialog.</para>
+            </alert>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToMSI_03-NewProjDlg" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Right click on the bootstrapper project ("ProductSetup" in this example) > point to "Add" > click "Reference...".</para>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToMSI_04-AddRefInBundle" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Select the "Projects" tab of the "Add Reference" dialog > select the MSI project ("ProductMSI" in this example) > click the "Add" button > click "OK".</para>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToMSI_05-AddRefToMSI" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>
+              Insert <codeInline><![CDATA[<MsiPackage Id="ProductMSI" SourceFile="$(var.ProductMSI.TargetPath)" />]]></codeInline> into the bundle chain. Where "ProductMSI" is the name of your MSI project.
+            </para>
+            <mediaLink>
+              <image placement="near" xlink:href="HowToMSI_06-AddMSIToChain" />
+            </mediaLink>
+          </content>
+        </step>
+        <step>
+          <content>
+            <token>BuildBootstrapperContent</token>
+          </content>
+        </step>
+      </steps>
+    </procedure>
+    <relatedTopics></relatedTopics>
+  </developerHowToDocument>
+</topic>

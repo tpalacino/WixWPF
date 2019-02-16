@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:bal="http://schemas.microsoft.com/wix/BalExtension" >
-	<?define LibsDir="..\..\Shared\Libs\" ?>
+	<?define LibsDir="..\..\Shared\Libs\v3.7\" ?>
 	<Bundle Name="Product Setup" Version="1.0.0.0" Manufacturer="Example Company" UpgradeCode="{21FC4B59-99BE-4617-867C-4620E2E5772F}">
 
 		<BootstrapperApplicationRef Id="ManagedBootstrapperApplicationHost" >

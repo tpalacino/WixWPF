@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="baaad6cf-6b87-4913-9522-c0bbc529547c" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction></introduction>
+    <section address="WhatIsWixWPF">
+      <title>What is WixWPF?</title>
+      <content>
+        <para>WixWPF is an assembly and set of project templates that simplifies the process of creating a completely custom UI for bootstrapper applications using WPF.</para>
+      </content>
+    </section>
+    <section address="HowWixWPFWorks">
+      <title>How WixWPF works?</title>
+      <content>
+        <para>
+          TODO: Add Content
+        </para>
+      </content>
+    </section>
+    <relatedTopics></relatedTopics>
+  </developerConceptualDocument>
+</topic>
